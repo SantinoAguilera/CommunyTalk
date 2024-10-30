@@ -27,6 +27,58 @@ body{
   width: 130%;
 }
 
+.Boton1{
+  width: 45%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #8059B8;
+  border-color: #8059B8;
+}
+
+.Boton2{
+  width: 40%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #7EF3BC;
+  border-color: #7EF3BC;
+}
+
+.Botones{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.send{
+  width: 5%;
+}
+
+.EnviarMensaje{
+  width: 75%;
+  height: 90%;
+  display: flex;
+  align-items: end;
+  position: fixed;
+  font-size: large;
+}
+
+.Message{
+  width: 80%;
+  height: 40px;
+}
+
+.Send{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 /* SEARCH BAR */
 
 .search-section {
