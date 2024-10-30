@@ -21,4 +21,7 @@ public class Usuarios
     public int Notificaciones;
 
     public string Email;
+
+
+    public string ConfirmarContraseña {get; set;}
 }

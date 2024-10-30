@@ -131,3 +131,24 @@ input[type="text"] {
   display: flex;
 }
 
+/*Login + Registro*/
+
+.FondoCuadrado{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 800px;
+  background-color: #8059B8;
+  border: 3px solid #7EF3BC;
+}
+.Contenedor1 {
+  padding: 6%;
+}
+
+.EstiloTexto {
+  color: #171717;
+  font-size: xx-large;
+  font-weight: 500;
+}
+
