@@ -10,28 +10,27 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CommunyTalk</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-<<<<<<< HEAD
-                            <a class="TituloHeader" asp-area="" asp-controller="Home" asp-action="Index">CommunyTalk</a>
-                            <a class="imgPerfil" asp-area="" asp-controller="Home" asp-action="Index">@ViewBag.UsuarioImg</a>
-=======
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <img class="imgMenu" src="/images/FlechaAbajo.png">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SearchGroups">Search Groups</a>
+                            <a asp-controller="Home" asp-action="Index"><p>Home</p></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
->>>>>>> 0a32f0a52db5f4b36411324926cd1225c0ba3c35
+                            <a asp-controller="Home" asp-action="Index"><p>CommunyTalk</p></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="SearchGroups"><p>Buscar Grupos</p></a>
+                        </li>                        
+                        <li class="nav-item">
+                        <div class="User">
+                            <a asp-area="" asp-controller="Home" asp-action="Index"><img class="imgPerfil"  src="/images/IconPrueba.jpg"></a>
+                            </div>
                         </li>
                     </ul>
                 </div>
