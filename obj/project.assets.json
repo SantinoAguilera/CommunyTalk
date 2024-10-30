@@ -505,23 +505,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\48313116\\.nuget\\packages\\": {},
+    "C:\\Users\\48464113\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\48313116\\Downloads\\CommunyTalk\\CommunyTalk.csproj",
+      "projectUniqueName": "C:\\Users\\48464113\\Downloads\\Trabajo integrdor\\CommunyTalk\\CommunyTalk.csproj",
       "projectName": "CommunyTalk",
-      "projectPath": "C:\\Users\\48313116\\Downloads\\CommunyTalk\\CommunyTalk.csproj",
-      "packagesPath": "C:\\Users\\48313116\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\48313116\\Downloads\\CommunyTalk\\obj\\",
+      "projectPath": "C:\\Users\\48464113\\Downloads\\Trabajo integrdor\\CommunyTalk\\CommunyTalk.csproj",
+      "packagesPath": "C:\\Users\\48464113\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\48464113\\Downloads\\Trabajo integrdor\\CommunyTalk\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\48313116\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\48464113\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
