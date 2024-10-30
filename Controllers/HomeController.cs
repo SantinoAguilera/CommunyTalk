@@ -36,7 +36,12 @@ public class HomeController : Controller
 
     public IActionResult SearchGroups()
     {
+        ViewBag.Grupos = BD.ObtenerGrupos();
         return View();
+    }
+
+    public IActionResult PrivateChat(){
+        return View("PrivateChat");
     }
 
 }
