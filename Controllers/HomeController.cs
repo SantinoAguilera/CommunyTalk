@@ -43,5 +43,4 @@ public class HomeController : Controller
     public IActionResult PrivateChat(){
         return View("PrivateChat");
     }
-
 }
