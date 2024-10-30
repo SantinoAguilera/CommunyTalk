@@ -10,5 +10,5 @@ public class Grupos
 
     public string Nombre;
 
-    public bool PrivadoOPublico;
+    public bool Privado;
 }

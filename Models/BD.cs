@@ -3,7 +3,27 @@ using Dapper;
 
 public static class BD
 {
-    
     /* Atributos */
-    private static string _connectionString = @"Server=localhost;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-21;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    public static List<Grupos> ListaGrupos = new List<Grupos>();
+    public static List<Comunidades> ListaComunidades = new List<Comunidades>();
+
+    /* Metodos */
+    public static List<Grupos> ObtenerGrupos()
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM Grupos";
+            ListaGrupos = db.Query<Grupos>(sql).ToList();
+        }
+        return ListaGrupos;
+    }
+
+    public static List<Comunidades> ObtenerComunidades()
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM Comunidades";
+            ListaComunidades = db.Query<Comunidades>(sql).ToList();
+        }
+        return ListaComunidades;
+    }
 }
