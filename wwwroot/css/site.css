@@ -108,6 +108,11 @@ button {
 .imgMenu{
   width: 5%;
 }
+
+#tituloGrupos{
+  margin-top: 15.5%;
+}
+
 /* SEARCH BAR */
 
 .search-section {
@@ -115,10 +120,11 @@ button {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: 18%;
 }
 .search-container {
   display: flex;
-  align-items: center;
+  margin-left: 17.5%;
   border: 4px solid #80599F;
   border-radius: 50px;
   padding: 1px 2.5px;
@@ -143,8 +149,8 @@ input[type="text"] {
   background-color: black;
   border: none;
   border-radius: 25px;
-  margin-top: -5px;
-  margin-left: -5px;
+  margin-top: -2px;
+  margin-left: -50px;
   cursor: pointer;
 }
 
@@ -156,6 +162,12 @@ input[type="text"] {
   background-color: black;
   color: white;
   display: flex;
+  width: 560px; /* Ajuste para que sea 15% más pequeño */
+}
+.cartaImagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Esto ajusta la imagen al tamaño del contenedor */
 }
 
 /*Login + Registro*/
