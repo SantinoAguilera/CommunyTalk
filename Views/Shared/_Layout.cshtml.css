@@ -17,7 +17,7 @@ button.accept-policy {
 }
 .imgPerfil{
   border-radius: 100%;
-  width: 15%;
+  width: 20%;
 }
 
 header{
@@ -27,24 +27,30 @@ header{
     width: 100%;
     top: 0;
     z-index: 1000;
+    display: grid;
+    place-items: center;
   }
   ul{
     background-color: #7EF3BC;
     list-style: none;
+    text-decoration: none;
   }
 p{
   color: #8059B8;
   margin: 1%;
   font-size: 24px;
+  text-decoration: none;
 }
 
 li{
   width: 20%;
+  text-decoration: none;
 }
 
 .imgMenu{
-  width: 10%;
+  width: 13%;
   margin: 1%;
+  margin-top: 3%;
 }
 
 nav{
@@ -53,6 +59,7 @@ nav{
 }
 
 header nav ul li a p{
+
   text-decoration: none;
   text-decoration-line: none;
  }
@@ -60,3 +67,4 @@ header nav ul li a p{
  .User{
   display: flex;
  }
+
