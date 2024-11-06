@@ -26,4 +26,5 @@ public static class BD
         }
         return ListaComunidades;
     }
+    
 }
