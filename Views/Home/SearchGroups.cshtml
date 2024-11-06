@@ -11,8 +11,9 @@
                     foreach(Grupos grupo in ViewBag.Grupos)
                     {
                         string FotodePerfil = "/images/GroupImages/" + grupo.FotodePerfil;
-                        <div class="col-auto mb-3"> <!-- Removemos la clase `.row-cols-3` -->
-                            <div class="card carta" style="width: 560px;"> <!-- Cambia 665px a 560px para una reducción del 15% -->
+                        <a asp-controller="Home" asp-action="GroupChat">
+                        <div class="col-auto mb-3">
+                            <div class="card carta" style="width: 560px;">
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         <img src="@FotodePerfil" class="img-fluid rounded-start cartaImagen">
@@ -36,6 +37,6 @@
                         </div>
                     }
                 }
-            </div> <!-- Fin de la fila -->
-        </div> <!-- Fin del contenedor -->
+            </div>
+        </div>
 </section>

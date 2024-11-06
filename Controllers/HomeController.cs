@@ -40,6 +40,12 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult GroupChat()
+    {
+        ViewBag.Mensajes = BD.ObtenerMensajes();
+        return View();
+    }
+
     public IActionResult PrivateChat(){
         return View("PrivateChat");
     }
