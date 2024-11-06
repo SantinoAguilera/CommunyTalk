@@ -40,7 +40,17 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult PrivateChat(){
+    public IActionResult GroupChat(int IdGrupo)
+    {
+        ViewBag.Mensajes = BD.ObtenerMensajesGrupo(IdGrupo);
+        ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
+        return View();
+    }
+
+    public IActionResult PrivateChat(int IdUsuario)
+    {
+        ViewBag.Mensajes = BD.ObtenerMensajesPrivado(IdUsuario);
+        ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
         return View("PrivateChat");
     }
 
