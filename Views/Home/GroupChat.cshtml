@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Mensajes Privados";
+}
+<h1 class="ChatName">@ViewBag.Nombre</h1>
+@{
+    foreach(Mensajes mensaje in ViewBag.Mensajes)
+    {
+        string FotodePerfil = "/images/UserImages/" + BD.ObtenerFotoDePerfil(mensaje.IdUsuario);
+        if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion)
+        {
+            <div class="FloatRight">
+                <img src=@FotodePerfil>
+                <div class="Mensaje">
+                    
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="FloatLeft">
+                <img src="/images/UserImages/">
+                <div class="Mensaje">
+                    
+                </div>
+            </div>
+        }
+    }
+}
+<div class="EnviarMensaje">
+    <div class="Send">
+        <input class="Message" type="text"> 
+        <img class="send" src="/images/Send.png">
+    </div>
+</div>

@@ -42,11 +42,15 @@ public class HomeController : Controller
 
     public IActionResult GroupChat()
     {
-        ViewBag.Mensajes = BD.ObtenerMensajes();
+        ViewBag.Mensajes = BD.ObtenerMensajesGrupo();
+        ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
         return View();
     }
 
-    public IActionResult PrivateChat(){
+    public IActionResult PrivateChat()
+    {
+        ViewBag.Mensajes = BD.ObtenerMensajesPrivado();
+        ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
         return View("PrivateChat");
     }
 }
