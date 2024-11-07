@@ -4,7 +4,7 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=localhost;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-21;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion;
     public static List<Grupos> ListaGrupos = new List<Grupos>();
     public static List<Comunidades> ListaComunidades = new List<Comunidades>();
@@ -29,7 +29,10 @@ public static class BD
         return ListaComunidades;
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 87a23737593d1074af3e5af2e778535e257d94b9
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
@@ -56,5 +59,14 @@ public static class BD
             foto = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuario});
         }
         return foto ?? "/images/default.jpg";
+    }
+
+    public static List<Usuarios> ObtenerUsuarios()
+    {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Usuarios"; // Obtenemos todos los usuarios
+            return connection.Query<Usuarios>(sql).ToList();
+        }
     }
 }
