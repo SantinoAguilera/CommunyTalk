@@ -27,17 +27,13 @@ public static class BD
             ListaComunidades = db.Query<Comunidades>(sql).ToList();
         }
         return ListaComunidades;
-<<<<<<< HEAD
     }
 
-=======
-    }   
->>>>>>> 3cc10741ff5fb9146128f1997b64e806a8f69dd9
 
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes WHERE IdUsuario = @pIdUsuario";
+            string sql = "SELECT * FROM Mensajes m INNER JOIN MensajesXUsuario x ON m.IdMensaje = x.IdMensaje WHERE IdUsuario = @pIdUsuario";
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdUsuario = IdUsuario}).ToList();
         }
         return ListaMensajes;
@@ -46,11 +42,11 @@ public static class BD
     public static List<Mensajes> ObtenerMensajesGrupo(int IdGrupo)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes WHERE IdGrupo = @pIdGrupo";
+            string sql = "SELECT * FROM Mensajes m INNER JOIN MensajesXGrupo x ON m.IdMensaje = x.IdMensaje WHERE IdGrupo = @pIdGrupo";
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdGrupo = IdGrupo}).ToList();
         }
         return ListaMensajes;
-    }   
+    }
 
     public static string ObtenerFotoDePerfil(int IdUsuario)
     {
@@ -59,6 +55,6 @@ public static class BD
             string sql = "SELECT Foto FROM Usuarios WHERE IdUsuario = @pIdUsuario";
             foto = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuario});
         }
-        return foto ?? "/images/UserImages/default.jpg";
+        return foto ?? "/images/default.jpg";
     }
 }

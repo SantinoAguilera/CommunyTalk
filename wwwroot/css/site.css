@@ -181,10 +181,12 @@ input[type="text"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  height: 800px;
+  width: 80%;
+  height: 700px;
   background-color: #8059B8;
   border: 3px solid #7EF3BC;
+  margin-left: 7%;
+  margin-top: 2%;
   
 }
 .Contenedor1 {
@@ -239,4 +241,16 @@ input:hover{
   width: 100%;
   display: flex;
   justify-content:center;
+}
+
+.BotonIniciar{
+  width: 35%;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #7EF3BC;
+  border-color: #7EF3BC;
+  margin: 2%;
+  margin-top: 3%;
 }
