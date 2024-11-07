@@ -3,10 +3,10 @@
 }
 <h1 class="ChatName">@ViewBag.Nombre</h1>
 @{
-    foreach(Mensajes mensaje in ViewBag.Mensajes)
+    foreach(Mensajes mensaje in ViewBag.Mensajes) //Cada mensaje se pone uno por uno. El orden se define en BD.cs cuando se ordena por FechaHora.
     {
         string FotodePerfil = "/images/UserImages/" + BD.ObtenerFotoDePerfil(mensaje.IdUsuario);
-        if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion)
+        if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se ponde a la derecha, sino, se pone a la izquierda.
         {
             <div class="FloatRight">
                 <img src=@FotodePerfil>
@@ -26,6 +26,7 @@
         }
     }
 }
+
 <div class="EnviarMensaje">
     <div class="Send">
         <input class="Message" type="text"> 
