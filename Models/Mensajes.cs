@@ -10,5 +10,5 @@ public class Mensajes
 
     public int IdChat;
 
-    public int Posicion;
+    public bool EsGrupo;
 }
