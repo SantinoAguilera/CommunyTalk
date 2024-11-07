@@ -58,4 +58,13 @@ public class HomeController : Controller
         
         return View("SearchFriends");
     }
+
+    public IActionResult Login(){
+        
+        return View("Login");
+    }
+    public IActionResult Registrar(){
+        
+        return View("Registrar");
+    }
 }

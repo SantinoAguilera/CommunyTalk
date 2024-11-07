@@ -13,9 +13,16 @@
 </style>
 
 <div class="FondoCuadrado">
-    <div class="FondoCuadrado">
-        <div class="Contenedor">
-            <p class="EstiloTexto">Ingrese su mail.</p>
-            <p class="EstiloTexto">Ingrese su contraseña.</p>
+
+    <div class="Contenedor1">
+        <p class="EstiloTexto">Ingrese su mail.</p>
+        <input type="email" method="post" >
+        <p class="EstiloTexto">Ingrese su contraseña.</p>
+        <input type="password" method="post" >
+        <div class="botonesNo">
+        <button class="BotonNoIniciar"><a href='@Url.Action("Login", "Home")'>Recuperar contraseña</a></button> 
+        <button class="BotonNoIniciar"><a href='@Url.Action("Registrar", "Home")'>Registrarse</a></button> 
+        </div>
     </div>
+
 </div>

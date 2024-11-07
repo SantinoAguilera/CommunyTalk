@@ -28,9 +28,7 @@ public static class BD
         }
         return ListaComunidades;
     }
-<<<<<<< HEAD
-    
-=======
+
 
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
     {
@@ -59,5 +57,4 @@ public static class BD
         }
         return foto ?? "/images/default.jpg";
     }
->>>>>>> fc39f42452ae71bb08225cb9a5ab3f6ed20b2d1a
 }
