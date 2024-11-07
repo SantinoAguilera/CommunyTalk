@@ -29,10 +29,6 @@ public static class BD
         return ListaComunidades;
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 87a23737593d1074af3e5af2e778535e257d94b9
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
