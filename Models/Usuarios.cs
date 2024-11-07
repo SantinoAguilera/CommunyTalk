@@ -22,6 +22,5 @@ public class Usuarios
 
     public string Email;
 
-
     public string ConfirmarContraseña {get; set;}
 }

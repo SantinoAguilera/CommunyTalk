@@ -28,12 +28,11 @@ public static class BD
         }
         return ListaComunidades;
     }
-    
 
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes m INNER JOIN MensajesXUsuario x ON m.IdMensaje = x.IdMensaje WHERE IdUsuario = @pIdUsuario";
+            string sql = "SELECT * FROM Mensajes WHERE IdUsuario = @pIdUsuario";
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdUsuario = IdUsuario}).ToList();
         }
         return ListaMensajes;
@@ -42,11 +41,11 @@ public static class BD
     public static List<Mensajes> ObtenerMensajesGrupo(int IdGrupo)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes m INNER JOIN MensajesXGrupo x ON m.IdMensaje = x.IdMensaje WHERE IdGrupo = @pIdGrupo";
+            string sql = "SELECT * FROM Mensajes WHERE IdGrupo = @pIdGrupo";
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdGrupo = IdGrupo}).ToList();
         }
         return ListaMensajes;
-    }
+    }   
 
     public static string ObtenerFotoDePerfil(int IdUsuario)
     {
@@ -55,17 +54,15 @@ public static class BD
             string sql = "SELECT Foto FROM Usuarios WHERE IdUsuario = @pIdUsuario";
             foto = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuario});
         }
-        return foto ?? "/images/default.jpg";
+        return foto ?? "/images/UserImages/default.jpg";
     }
 
-public static List<Usuarios> ObtenerUsuarios()
-{
-    using (var connection = new SqlConnection(_connectionString))
+    public static List<Usuarios> ObtenerUsuarios()
     {
-        string sql = "SELECT * FROM Usuarios"; // Obtenemos todos los usuarios
-        return connection.Query<Usuarios>(sql).ToList();
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Usuarios"; // Obtenemos todos los usuarios
+            return connection.Query<Usuarios>(sql).ToList();
+        }
     }
-}
-
-
 }

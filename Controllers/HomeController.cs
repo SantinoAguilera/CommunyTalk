@@ -54,10 +54,19 @@ public class HomeController : Controller
         return View("PrivateChat");
     }
 
-public IActionResult SearchFriends()
-{
-    ViewBag.Usuarios = BD.ObtenerUsuarios(); // Cambia ObtenerAmigos() a ObtenerUsuarios()
-    return View("SearchFriends");
-}
+    public IActionResult SearchFriends()
+    {
+        ViewBag.Usuarios = BD.ObtenerUsuarios(); // Cambia ObtenerAmigos() a ObtenerUsuarios()
+        return View("SearchFriends");
+    }
 
+
+    public IActionResult Login(){
+        
+        return View("Login");
+    }
+    public IActionResult Registrar(){
+        
+        return View("Registrar");
+    }
 }
