@@ -1,7 +1,7 @@
 <section class="search-section">
     <h1 class="tituloAmigos">Amigos</h1>
     <div class="search-container">
-        <input type="text" placeholder="Buscar amigos...">
+        <input type="text" id="searchInputUsers" placeholder="Buscar amigos..." />
         <button type="submit" class="search-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
                 <path fill="#7ef3bc" d="M7 2a5 5 0 1 0 0 10A5 5 0 0 0 7 2M0 7a7 7 0 1 1 12.606 4.192l3.101 3.1l-1.414 1.415l-3.1-3.1A7 7 0 0 1 0 7"/>
@@ -9,12 +9,12 @@
         </button>
     </div>
     <div class="container">
-        <div class="row justify-content-start">
+        <div class="row justify-content-start" id="userList">
             @{
                 foreach(Usuarios usuario in ViewBag.Usuarios)
                 {
                     string FotoPerfil = "/images/UserImages/" + usuario.Foto;
-            <div class="col-auto mb-3">
+            <div class="col-auto mb-3 user-card" data-user-name="@usuario.Nombre">
                 <a asp-controller="Home" asp-action="PrivateChat" asp-route-IdUsuario="@usuario.IdUsuario">
                     <div class="card carta" style="width: 560px;">
                         <div class="row g-0">
@@ -33,6 +33,34 @@
             </div>
                 }
             }
-        </div> 
-    </div> 
+        </div>
+    </div>
 </section>
+
+<!-- Script para la búsqueda en tiempo real -->
+<script>
+    const searchInputUsers = document.getElementById('searchInputUsers');
+    const userList = document.getElementById('userList');
+    let debounceTimer;
+
+    // Función para filtrar usuarios por el comienzo del nombre
+    function filterUsers() {
+        const searchText = searchInputUsers.value.toLowerCase();
+        const userCards = userList.getElementsByClassName('user-card');
+
+        for (let card of userCards) {
+            const userName = card.getAttribute('data-user-name').toLowerCase();
+            if (userName.startsWith(searchText)) {
+                card.style.display = 'block'; // Muestra la tarjeta si el nombre empieza con el texto
+            } else {
+                card.style.display = 'none'; // Oculta la tarjeta si no empieza con el texto
+            }
+        }
+    }
+
+    // Configuración de debounce para esperar 500ms después de la última escritura
+    searchInputUsers.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(filterUsers, 500);
+    });
+</script>
