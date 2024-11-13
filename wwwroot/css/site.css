@@ -216,8 +216,6 @@ input{
   font-size: xx-large;
   font-weight: 500;
   border:solid #7EF3BC 2px;
-
-  
 }
 
 input:hover{
@@ -229,25 +227,27 @@ input:hover{
   width: 35%;
   height: 60px;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 25px;
   color: white;
   background-color: #63468d;
   border-color: #63468d;
-  margin: 2%;
   margin-top: 3%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .botonesNo{
   width: 100%;
   display: flex;
   justify-content:center;
+  margin-top: 5%;
 }
 
 .BotonIniciar{
   width: 35%;
   height: 60px;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 25px;
   color: white;
   background-color: #7EF3BC;
   border-color: #7EF3BC;
