@@ -15,9 +15,20 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <img class="imgMenu" src="/images/FlechaAbajo.png">
-                            <ul class="navbar-nav flex-grow-1">
-                            </ul>
+<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  Link with href
+</a>
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  Button with data-bs-target
+</button>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+</div>
+                        </div>
                         </li>
                         <li class="nav-item">
                             <a asp-controller="Home" asp-action="Index"><p>Home</p></a>
@@ -39,10 +50,20 @@
                             <div class="User">
                                 <a asp-area="" asp-controller="Home" asp-action="Index"><img class="imgPerfil"  src="/images/IconPrueba.jpg"></a>
                             </div>
+                            </li>
                     </ul>
                 </div>
             </div>
         </nav>
+                                    <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+                        </div>
+                        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
