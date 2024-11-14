@@ -51,9 +51,27 @@
         </div>
         <div class="offcanvas-body">        
             <ul class="sidebarbuttons">
-                <li><a class="sidebarbutton" asp-controller="Home" asp-action="SearchFriends">Amigos</a></li>
-                <li><a class="sidebarbutton" asp-controller="Home" asp-action="SearchGroups">Grupos</a></li>
-                <li><a class="sidebarbutton" asp-controller="Home" asp-action="SearchCommunities">Comunidades</a></li>
+                <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchGroups">Grupos</a></li>
+                @{
+                    for(int i = 0;i<3; i++){
+                        //Imagen del grupo
+                        <div class="imagenyText">
+                        <img src="">
+                        <p>Nombre del grupo</p>
+                        </div>
+                    }
+                }
+                <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchCommunities">Comunidades</a></li>
+                 @{
+                    string imagen="/images/GroupImages/TerrorFoto.jpg";
+                    for(int i = 0;i<3; i++){
+                        //Imagen del grupo
+                        <div class="imagenyText">
+                        <img src=imagen>
+                        <p>Nombre del grupo</p>
+                        </div>
+                    }
+                }
             </ul>
         </div>
     </header>
