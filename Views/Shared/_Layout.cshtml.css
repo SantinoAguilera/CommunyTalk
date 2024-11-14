@@ -95,3 +95,17 @@ header nav ul li a p{
  .horizontal > li:hover .vertical{
   display:block;
  }
+
+
+ .offcanvas-body{
+  background-color: #8059B8;
+  padding: 0;
+ }
+
+ .sidebarbuttons{
+  height: 100%;
+ }
+
+ .sidebarbutton{
+  border: 5px solid gray;
+ }

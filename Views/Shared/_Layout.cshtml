@@ -15,20 +15,9 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-  Link with href
-</a>
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  Button with data-bs-target
-</button>
-
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-</div>
-                        </div>
+                        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        <img class="imgMenu" src="/images/FlechaAbajo.png">
+                        </button>
                         </li>
                         <li class="nav-item">
                             <a asp-controller="Home" asp-action="Index"><p>Home</p></a>
@@ -52,15 +41,18 @@
                 </div>
             </div>
         </nav>
-                                    <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-                        <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
-                        </div>
-                        </div>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Categoría</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">        
+            <ul class="sidebarbuttons">
+                <li><a class="sidebarbutton" asp-controller="Home" asp-action="SearchFriends"><button >Amigos</button></a></li>
+                <li><a class="sidebarbutton" asp-controller="Home" asp-action="SearchGroups"><button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Grupos</button></a></li>
+                <li><a class="sidebarbutton" asp-controller="Home" asp-action="SearchCommunities"><button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Comunidades</button></a></li>
+            </ul>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
