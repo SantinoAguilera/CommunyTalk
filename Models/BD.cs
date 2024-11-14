@@ -10,6 +10,8 @@ public static class BD
     public static List<Comunidades> ListaComunidades = new List<Comunidades>();
     public static List<Mensajes> ListaMensajes = new List<Mensajes>();
 
+    public static bool StatusBusqueda = false;
+
     /* Metodos */
     public static List<Grupos> ObtenerGrupos()
     {

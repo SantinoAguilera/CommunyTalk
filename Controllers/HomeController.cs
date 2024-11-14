@@ -8,8 +8,6 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    public bool StatusBusqueda = false;
-
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
@@ -60,14 +58,15 @@ public class HomeController : Controller
     public IActionResult SearchFriends()
     {
         ViewBag.Usuarios = BD.ObtenerUsuarios();
-        ViewBag.StatusBusqueda = StatusBusqueda;
+        ViewBag.StatusBusqueda = BD.StatusBusqueda;
         return View();
     }
 
     public IActionResult CambiarBusquedaAmigos()
     {
-        StatusBusqueda = !StatusBusqueda;
-        ViewBag.StatusBusqueda = StatusBusqueda;
+        ViewBag.Usuarios = BD.ObtenerUsuarios();
+        BD.StatusBusqueda = !BD.StatusBusqueda;
+        ViewBag.StatusBusqueda = BD.StatusBusqueda;
         return View("SearchFriends");
     }
 

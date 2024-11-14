@@ -158,6 +158,11 @@ input[type="text"] {
   cursor: pointer;
 }
 
+.ChangeButton {
+  height: 20px;
+  width: 20px;
+  background-color: black;
+}
 
 /* GROUP/COMMUNITY CARDS */
 .carta {
