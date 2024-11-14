@@ -31,7 +31,6 @@ header{
     place-items: center;
   }
   ul{
-    background-color: #7EF3BC;
     list-style: none;
     text-decoration: none;
   }
@@ -98,16 +97,36 @@ header nav ul li a p{
 
 
  .offcanvas-body{
-  background-color: #8059B8;
+  background-color: #202020;
   padding: 0;
  }
 
  .sidebarbuttons{
-  height: 100%;
+  width: 100%;
  }
 
  .sidebarbutton{
-  height: 100px;
-  border: 5px solid gray;
-  
+  width: 90%;
+  height: 60px;
+  background-color: #8059B8;
+  font-size: larger;
+  margin: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin-top: 2%;
+ }
+
+ .offcanvas-header{
+
+  background-color:#8059B8;
+  font-size: large;
+  color: white;
+ }
+
+ .imagenYText{
+  display:flex;
+  justify-content: center;
+  align-items: center;
  }
