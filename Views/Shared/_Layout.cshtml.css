@@ -107,5 +107,6 @@ header nav ul li a p{
  }
 
  .sidebarbutton{
+  height: 100px;
   border: 5px solid gray;
  }
