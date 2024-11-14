@@ -33,6 +33,7 @@ public class HomeController : Controller
 
     public IActionResult SearchCommunities()
     {
+       ViewBag.Comunidades = BD.ObtenerComunidades(); 
         return View();
     }
 
