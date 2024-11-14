@@ -9,4 +9,6 @@ public class Comunidades
     public string Descripcion;
 
     public string Subdivision;
+
+    public string Foto;
 }

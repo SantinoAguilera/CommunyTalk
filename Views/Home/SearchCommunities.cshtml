@@ -1,0 +1,64 @@
+<section class="search-section">
+    <h1 class="tituloGrupos">Comunidades</h1>
+    <div class="search-container">
+        <input type="text" id="searchInputCommunities" placeholder="Buscar comunidades..." />
+        <button type="submit" class="search-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                <path fill="#7ef3bc" d="M7 2a5 5 0 1 0 0 10A5 5 0 0 0 7 2M0 7a7 7 0 1 1 12.606 4.192l3.101 3.1l-1.414 1.415l-3.1-3.1A7 7 0 0 1 0 7"/>
+            </svg>
+        </button>
+    </div>
+    <div class="container">
+        <div class="row justify-content-start" id="communityList">
+            @foreach(var comunidad in ViewBag.Comunidades)
+            {
+                string FotoPerfil = @comunidad.Foto;
+            <div class="col-auto mb-3 community-card" data-community-name="@comunidad.Nombre">
+                <a asp-controller="Home" asp-action="GroupChat">
+                    <div class="card carta" style="width: 560px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="@FotoPerfil" class="img-fluid rounded-start cartaImagen">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h1 class="card-title">@comunidad.Nombre</h1>
+                                    <p class="card-text">@comunidad.Descripcion</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Script para la búsqueda en tiempo real -->
+<script>
+    const searchInputCommunities = document.getElementById('searchInputCommunities');
+    const communityList = document.getElementById('communityList');
+    let debounceTimer;
+
+    // Función para filtrar comunidades por el comienzo del nombre
+    function filterCommunities() {
+        const searchText = searchInputCommunities.value.toLowerCase();
+        const communityCards = communityList.getElementsByClassName('community-card');
+
+        for (let card of communityCards) {
+            const communityName = card.getAttribute('data-community-name').toLowerCase();
+            if (communityName.startsWith(searchText)) {
+                card.style.display = 'block'; // Muestra la tarjeta si el nombre empieza con el texto
+            } else {
+                card.style.display = 'none'; // Oculta la tarjeta si no empieza con el texto
+            }
+        }
+    }
+
+    // Configuración de debounce para esperar 500ms después de la última escritura
+    searchInputCommunities.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(filterCommunities, 500);
+    });
+</script>
