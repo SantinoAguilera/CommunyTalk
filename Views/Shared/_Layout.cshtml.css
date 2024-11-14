@@ -67,3 +67,31 @@ header nav ul li a p{
  .User{
   display: flex;
  }
+
+ .horizontal{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+ }
+
+ .horizontal > li > a{
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+ }
+
+ .horizontal > li:hover{
+  background-color: red;
+ }
+ .vertical{
+  position:absolute;
+  display: none;
+  list-style: none;
+  width: 200px;
+  background-color: #ffffff;
+ }
+
+ .horizontal > li:hover .vertical{
+  display:block;
+ }
