@@ -8,29 +8,37 @@
             </svg>
         </button>
     </div>
+    <a asp-controller="Home" asp-action="CambiarBusquedaAmigos" class="ChangeButton"></a>
     <div class="container">
         <div class="row justify-content-start" id="userList">
             @{
-                foreach(Usuarios usuario in ViewBag.Usuarios)
+                if(ViewBag.StatusBusqueda)
                 {
-                    string FotoPerfil = "/images/UserImages/" + usuario.Foto;
-            <div class="col-auto mb-3 user-card" data-user-name="@usuario.Nombre">
-                <a asp-controller="Home" asp-action="PrivateChat" asp-route-IdUsuario="@usuario.IdUsuario">
-                    <div class="card carta" style="width: 560px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="@FotoPerfil" class="img-fluid rounded-start cartaImagen">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h1 class="card-title">@usuario.Nombre</h1>
-                                    <p class="card-text">@usuario.Descripcion</p>
+                    
+                }
+                else
+                {
+                    foreach(Usuarios usuario in ViewBag.Usuarios)
+                    {
+                        string FotoPerfil = "/images/UserImages/" + usuario.Foto;
+                        <div class="col-auto mb-3 user-card" data-user-name="@usuario.Nombre">
+                            <a asp-controller="Home" asp-action="PrivateChat" asp-route-IdUsuario="@usuario.IdUsuario">
+                                <div class="card carta" style="width: 560px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="@FotoPerfil" class="img-fluid rounded-start cartaImagen">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h1 class="card-title">@usuario.Nombre</h1>
+                                                <p class="card-text">@usuario.Descripcion</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    }
                 }
             }
         </div>

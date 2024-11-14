@@ -41,7 +41,7 @@ public static class BD
     public static List<Mensajes> ObtenerMensajesGrupo(int IdGrupo)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes m INNER JOIN MensajesXGrupo x ON m.IdMensaje = x.IdMensaje WHERE IdGrupo = @pIdGrupo";
+            string sql = "SELECT * FROM Mensajes m INNER JOIN MensajesXGrupo x ON m.IdMensaje = x.IdMensaje WHERE x.IdGrupo = @pIdGrupo";
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdGrupo = IdGrupo}).ToList();
         }
         return ListaMensajes;

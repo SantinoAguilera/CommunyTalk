@@ -8,6 +8,8 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
+    public bool StatusBusqueda = false;
+
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
@@ -51,15 +53,22 @@ public class HomeController : Controller
     {
         ViewBag.Mensajes = BD.ObtenerMensajesPrivado(IdUsuario);
         ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
-        return View("PrivateChat");
+        return View();
     }
 
     public IActionResult SearchFriends()
     {
-        ViewBag.Usuarios = BD.ObtenerUsuarios(); // Cambia ObtenerAmigos() a ObtenerUsuarios()
-        return View("SearchFriends");
+        ViewBag.Usuarios = BD.ObtenerUsuarios();
+        ViewBag.StatusBusqueda = StatusBusqueda;
+        return View();
     }
 
+    public IActionResult CambiarBusquedaAmigos()
+    {
+        StatusBusqueda = !StatusBusqueda;
+        ViewBag.StatusBusqueda = StatusBusqueda;
+        return View("SearchFriends");
+    }
 
     public IActionResult Login(){
         
