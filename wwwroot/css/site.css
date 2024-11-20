@@ -1,14 +1,13 @@
 html {
   font-size: 14px;
 }
-/*FONT-SIZE SIEMPRE MÍNIMO 24PX*/
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 body{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
 }
 
@@ -114,8 +113,9 @@ a:hover{
   width: 5%;
 }
 
-#tituloGrupos{
-  margin-top: 15.5%;
+.tituloGrupos{
+  margin-bottom: 2%;
+  font-size: 50px;
 }
 
 /* SEARCH BAR */
@@ -233,12 +233,12 @@ input{
   height: 55px;
   font-size: xx-large;
   font-weight: 500;
-  border:solid #7EF3BC 2px;
 }
+
+
 
 input:hover{
   color:white;
-  border:solid #7EF3BC 2px;
 }
 
 .BotonNoIniciar{
