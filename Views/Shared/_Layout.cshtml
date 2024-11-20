@@ -59,7 +59,8 @@
                 @{
                     for(int i = 0; i < 3; i++)
                     {
-                        string FotodePerfil = "/images/GroupImages/" + BD.ObtenerFotodePerfil(i);
+                        //Grupos grupo = BD.ObtenerGrupo(i);
+                        string FotodePerfil = "/images/GroupImages/" + grupo.FotodePerfil;
                         <img src="@FotodePerfil"> /* Imagen del Grupo */
                         <div class="imagenyText">
                         <p>Nombre del Grupo</p>
