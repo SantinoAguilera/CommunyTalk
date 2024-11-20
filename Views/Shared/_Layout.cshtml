@@ -33,13 +33,13 @@
                             <a asp-controller="Home" asp-action="SearchFriends"><p>Buscar Amigos</p></a>
                         </li> 
                         <li class="nav-item">
-                            <a asp-controller="Home" asp-action="SearchCommunities"><p>Buscar comunidades</p></a>
+                            <a asp-controller="Home" asp-action="SearchCommunities"><p>Buscar Comunidades</p></a>
                         </li> 
                         <li class="nav-item">
                             <div class="User">
                                 <a asp-area="" asp-controller="Home" asp-action="Index"><img class="imgPerfil"  src="/images/IconPrueba.jpg"></a>
                             </div>
-                            </li>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -53,11 +53,12 @@
             <ul class="sidebarbuttons">
                 <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchGroups">Grupos</a></li>
                 @{
-                    for(int i = 0;i<3; i++){
-                        //Imagen del grupo
+                    for(int i = 0; i < 3; i++)
+                    {
+                        string FotodePerfil = "/images/GroupImages/" + BD.ObtenerFotodePerfil(i);
+                        <img src="@FotodePerfil"> /* Imagen del Grupo */
                         <div class="imagenyText">
-                        <img src="">
-                        <p>Nombre del grupo</p>
+                        <p>Nombre del Grupo</p>
                         </div>
                     }
                 }

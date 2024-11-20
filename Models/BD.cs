@@ -13,7 +13,26 @@ public static class BD
     public static bool StatusBusqueda = false;
 
     /* Metodos */
+
+    public static List<Usuarios> ObtenerUsuarios()
+    {
+        using (var connection = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Usuarios"; // Obtenemos todos los usuarios
+            return connection.Query<Usuarios>(sql).ToList();
+        }
+    }
+
     public static List<Grupos> ObtenerGrupos()
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM Grupos";
+            ListaGrupos = db.Query<Grupos>(sql).ToList();
+        }
+        return ListaGrupos;
+    }
+
+    public static List<Grupos> ObtenerTresGrupos()
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
             string sql = "SELECT * FROM Grupos";
@@ -57,7 +76,7 @@ public static class BD
         return ListaMensajes;
     }
 
-    public static string ObtenerFotoDePerfil(int IdUsuario)
+    public static string ObtenerFoto(int IdUsuario)
     {
         string foto;
         using(SqlConnection db = new SqlConnection(_connectionString)){
@@ -67,12 +86,13 @@ public static class BD
         return foto ?? "/images/default.jpg";
     }
 
-    public static List<Usuarios> ObtenerUsuarios()
+    public static string ObtenerFotodePerfil(int IdGrupo)
     {
-        using (var connection = new SqlConnection(_connectionString))
-        {
-            string sql = "SELECT * FROM Usuarios"; // Obtenemos todos los usuarios
-            return connection.Query<Usuarios>(sql).ToList();
+        string foto;
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT FotodePerfil FROM Grupos WHERE IdGrupo = @pIdGrupo";
+            foto = db.QueryFirstOrDefault<string>(sql, new { pIdGrupo = IdGrupo});
         }
+        return foto ?? "/images/default.jpg";
     }
 }
