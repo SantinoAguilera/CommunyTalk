@@ -95,4 +95,38 @@ public static class BD
         }
         return foto ?? "/images/default.jpg";
     }
+
+    public static void AñadirUsuario(Usuarios usuario)
+    {
+        string sql = "INSERT INTO Usuarios (Contraseña, Email) VALUES (@pContraseña,@pEmail)";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new
+            {
+                pContraseña = usuario.Contraseña,
+                pEmail = usuario.Email
+            });
+        }
+    }
+
+    public static Usuarios BuscarPersona(string Email, string Contraseña)
+    {
+        Usuarios usuario = null;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Usuarios WHERE Email = @Email AND Contraseña = @Contraseña";
+            usuario = db.QueryFirstOrDefault<Usuarios>(sql, new { pEmail = Email, pContraseña = Contraseña });
+        }
+        return usuario;
+    }
+
+
+    public static void CambiarContraseña(string Email, string nuevaContraseña)
+    {
+        string sql = "UPDATE Usuario SET Contraseña = @pNuevaContraseña WHERE Email = @pEmail";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pNuevaContraseña = nuevaContraseña, pEmail = Email });
+        }
+    }   
 }
