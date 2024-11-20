@@ -47,6 +47,7 @@ li{
   width: 20%;
   text-decoration: none;
   margin: 2%;
+  margin-top: 3%;
   text-align: center;
 }
 
@@ -74,6 +75,7 @@ header nav ul li a p{
   list-style: none;
   display: flex;
   justify-content: space-around;
+  align-items: center;
  }
 
  .horizontal > li > a{
@@ -84,13 +86,20 @@ header nav ul li a p{
  }
 
  .vertical{
+  margin:1%;
   position:absolute;
   display: none;
   list-style: none;
   width: 200px;
-  background-color: #ffffff;
+  background-color: #e6e6e6;
+  font-size: larger;
+  border-radius: 3%;
  }
 
+ .vertical > li{
+  border-bottom: 2px solid #646464;
+  width: 100px;
+ }
  .horizontal > li:hover .vertical{
   display:block;
  }
