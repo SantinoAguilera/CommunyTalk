@@ -1,6 +1,4 @@
-﻿
-
-.border-top {
+﻿.border-top {
   border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
@@ -62,30 +60,29 @@ nav{
 }
 
 header nav ul li a p{
-
   text-decoration: none;
   text-decoration-line: none;
- }
+}
 
- .User{
+.User{
   display: flex;
- }
+}
 
- .horizontal{
+.horizontal{
   list-style: none;
   display: flex;
   justify-content: space-around;
   align-items: center;
- }
+}
 
- .horizontal > li > a{
+.horizontal > li > a{
   display: block;
   padding: 15px 20px;
   color: white;
   text-decoration: none;
- }
+}
 
- .vertical{
+.vertical{
   margin:1%;
   position:absolute;
   display: none;
@@ -94,27 +91,33 @@ header nav ul li a p{
   background-color: #e6e6e6;
   font-size: larger;
   border-radius: 3%;
- }
+}
 
- .vertical > li{
+.vertical > li{
   border-bottom: 2px solid #646464;
   width: 100px;
- }
- .horizontal > li:hover .vertical{
+}
+.horizontal > li:hover .vertical{
   display:block;
- }
+}
 
-
- .offcanvas-body{
+/* Sidebar - Offcanvas */
+.offcanvas-body{
   background-color: #202020;
   padding: 0;
- }
+}
 
- .sidebarbuttons{
+.offcanvas-header{
+  background-color:#8059B8;
+  color: white;
+}
+
+/* Botones */
+.sidebarbuttons{
   width: 100%;
- }
+}
 
- .sidebarbutton{
+.sidebarbutton{
   width: 90%;
   height: 60px;
   background-color: #8059B8;
@@ -125,21 +128,30 @@ header nav ul li a p{
   align-items: center;
   border-radius: 30px;
   margin-top: 3%;
- }
+}
 
- .offcanvas-header{
+/* Scroll Bar */
+.offcanvas-body::-webkit-scrollbar { /* Ancho */
+  width: 10px;
+}
+  
+.offcanvas-body::-webkit-scrollbar-thumb { /* Thumb */
+  background-color: #585858;
+  border-radius: 100px;
+}
+  
+.offcanvas-body::-webkit-scrollbar-corner { /* Esquina */
+  background-color: #202020;
+}
 
-  background-color:#8059B8;
-  color: white;
- }
+/* Texto */
 
- h5{
-  font-size: 23px;
- }
-
- .imagenYText{
+.imagenYText{
   display:flex;
   justify-content: center;
   align-items: center;
- }
+}
 
+h5{
+  font-size: 23px;
+}
