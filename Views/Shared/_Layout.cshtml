@@ -57,13 +57,13 @@
             <ul class="sidebarbuttons">
                 <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchGroups">Grupos</a></li>
                 @{
-                    for(int i = 0; i < 3; i++)
+                    List<Grupos> ListaGrupos = BD.ObtenerTresGrupos();
+                    foreach(Grupos grupo in ListaGrupos)
                     {
-                        //Grupos grupo = BD.ObtenerGrupo(i);
                         string FotodePerfil = "/images/GroupImages/" + grupo.FotodePerfil;
                         <img src="@FotodePerfil"> /* Imagen del Grupo */
                         <div class="imagenyText">
-                        <p>Nombre del Grupo</p>
+                        <p>@grupo.Nombre</p>
                         </div>
                     }
                 }
