@@ -172,6 +172,7 @@ input[type="text"] {
   color: white;
   display: flex;
   width: 560px; /* Ajuste para que sea 15% más pequeño */
+  height: 200px;
 }
 .cartaImagen {
   width: 100%;
