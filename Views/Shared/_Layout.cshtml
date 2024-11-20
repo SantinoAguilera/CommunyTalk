@@ -61,20 +61,21 @@
                     foreach(Grupos grupo in ListaGrupos)
                     {
                         string FotodePerfil = "/images/GroupImages/" + grupo.FotodePerfil;
-                        <img src="@FotodePerfil"> /* Imagen del Grupo */
                         <div class="imagenyText">
-                        <p>@grupo.Nombre</p>
+                            <img src="@FotodePerfil">
+                            <p>@grupo.Nombre</p>
                         </div>
                     }
                 }
                 <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchCommunities">Comunidades</a></li>
                  @{
-                    string imagen="/images/GroupImages/TerrorFoto.jpg";
-                    for(int i = 0;i<3; i++){
-                        //Imagen del grupo
+                    List<Comunidades> ListaComunidades = BD.ObtenerTresComunidades();
+                    foreach(Grupos grupo in ListaGrupos)
+                    {
+                        string FotodePerfil = "/images/CommunityImages/" + grupo.FotodePerfil;
                         <div class="imagenyText">
-                        <img src=imagen>
-                        <p>Nombre del grupo</p>
+                            <img src="@FotodePerfil">
+                            <p>@grupo.Nombre</p>
                         </div>
                     }
                 }
