@@ -17,22 +17,24 @@ button.accept-policy {
 }
 .imgPerfil{
   border-radius: 100%;
-  width: 20%;
+  width: 30%;
 }
 
 header{
     background-color: #7EF3BC;
-    padding: 0.5%;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    height: 120px;
   }
   ul{
+    width: 100%;
     list-style: none;
     text-decoration: none;
+    align-items: center;
   }
 p{
   color: #8059B8;
@@ -44,12 +46,13 @@ p{
 li{
   width: 20%;
   text-decoration: none;
+  margin: 2%;
+  text-align: center;
 }
 
 .imgMenu{
-  width: 13%;
+  width: 20%;
   margin: 1%;
-  margin-top: 3%;
 }
 
 nav{
@@ -80,9 +83,6 @@ header nav ul li a p{
   text-decoration: none;
  }
 
- .horizontal > li:hover{
-  background-color: red;
- }
  .vertical{
   position:absolute;
   display: none;
@@ -109,20 +109,23 @@ header nav ul li a p{
   width: 90%;
   height: 60px;
   background-color: #8059B8;
-  font-size: larger;
-  margin: 2%;
+  font-size: x-large;
+  margin: 1%;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  margin-top: 2%;
+  margin-top: 3%;
  }
 
  .offcanvas-header{
 
   background-color:#8059B8;
-  font-size: large;
   color: white;
+ }
+
+ h5{
+  font-size: 23px;
  }
 
  .imagenYText{
@@ -130,3 +133,4 @@ header nav ul li a p{
   justify-content: center;
   align-items: center;
  }
+
