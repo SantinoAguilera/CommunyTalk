@@ -57,23 +57,25 @@
             <ul class="sidebarbuttons">
                 <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchGroups">Grupos</a></li>
                 @{
-                    for(int i = 0; i < 3; i++)
+                    List<Grupos> ListaGrupos = BD.ObtenerTresGrupos();
+                    foreach(Grupos grupo in ListaGrupos)
                     {
-                        string FotodePerfil = "/images/GroupImages/" + BD.ObtenerFotodePerfil(i);
-                        <img src="@FotodePerfil"> /* Imagen del Grupo */
+                        string FotodePerfil = "/images/GroupImages/" + grupo.FotodePerfil;
                         <div class="imagenyText">
-                        <p>Nombre del Grupo</p>
+                            <img src="@FotodePerfil">
+                            <p>@grupo.Nombre</p>
                         </div>
                     }
                 }
                 <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchCommunities">Comunidades</a></li>
                  @{
-                    string imagen="/images/GroupImages/TerrorFoto.jpg";
-                    for(int i = 0;i<3; i++){
-                        //Imagen del grupo
+                    List<Comunidades> ListaComunidades = BD.ObtenerTresComunidades();
+                    foreach(Comunidades comunidades in ListaComunidades)
+                    {
+                        string FotodePerfil = "/images/CommunityImages/" + comunidades.FotoDeComunidad;
                         <div class="imagenyText">
-                        <img src=imagen>
-                        <p>Nombre del grupo</p>
+                            <img class="imgSide" src="@FotodePerfil">
+                            <p>@comunidades.Nombre</p>
                         </div>
                     }
                 }

@@ -12,7 +12,7 @@
         <div class="row justify-content-start" id="communityList">
             @foreach(var comunidad in ViewBag.Comunidades)
             {
-                string FotoPerfil = @comunidad.Foto;
+                string FotoPerfil = @comunidad.FotoDeComunidad;
             <div class="col-auto mb-3 community-card" data-community-name="@comunidad.Nombre">
                 <a asp-controller="Home" asp-action="GroupChat">
                     <div class="card carta" style="width: 560px;">
