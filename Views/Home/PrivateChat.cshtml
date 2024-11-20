@@ -2,30 +2,34 @@
     ViewData["Title"] = "Mensajes Privados";
 }
 <h1 class="ChatName">@ViewBag.Nombre</h1>
-@{
-    foreach(Mensajes mensaje in ViewBag.Mensajes) //Cada mensaje se pone uno por uno. El orden se define en BD.cs cuando se ordena por FechaHora.
-    {
-        string FotodePerfil = "/images/UserImages/" + BD.ObtenerFotoDePerfil(mensaje.IdUsuario);
-        if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se ponde a la derecha, sino, se pone a la izquierda.
+<div class="Messages">
+    @{
+        foreach(Mensajes mensaje in ViewBag.Mensajes) //Cada mensaje se pone uno por uno. El orden se define en BD.cs cuando se ordena por FechaHora.
         {
-            <div class="FloatRight">
-                <img src=@FotodePerfil>
-                <div class="Mensaje">
-                    
+            string FotodePerfil = "/images/UserImages/" + BD.ObtenerFotoDePerfil(mensaje.IdUsuario);
+            if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se ponde a la derecha, sino, se pone a la izquierda.
+            {
+                <div class="OwnMessages">
+                    <img src="@FotodePerfil">
+                    <div class="Mensaje">
+                        <p>@mensaje.Contenido</p>
+                        <p>@mensaje.FechaHora</p>
+                    </div>
                 </div>
-            </div>
-        }
-        else
-        {
-            <div class="FloatLeft">
-                <img src="/images/UserImages/">
-                <div class="Mensaje">
-                    
+            }
+            else
+            {
+                <div class="OtherMessages">
+                    <img src="/images/UserImages/">
+                    <div class="Mensaje">
+                        <p class="MessageText">@mensaje.Contenido</p>
+                        <p>@mensaje.FechaHora</p>
+                    </div>
                 </div>
-            </div>
+            }
         }
     }
-}
+</div>
 
 <div class="EnviarMensaje">
     <div class="Send">

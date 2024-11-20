@@ -34,7 +34,7 @@ public static class BD
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes m INNER JOIN MensajesXUsuario x ON m.IdMensaje = x.IdMensaje WHERE IdUsuario = @pIdUsuario";
+            string sql = "SELECT * FROM Mensajes WHERE IdUsuario = 1";
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdUsuario = IdUsuario}).ToList();
         }
         return ListaMensajes;
@@ -43,8 +43,16 @@ public static class BD
     public static List<Mensajes> ObtenerMensajesGrupo(int IdGrupo)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes m INNER JOIN MensajesXGrupo x ON m.IdMensaje = x.IdMensaje WHERE x.IdGrupo = @pIdGrupo";
+            string sql = "SELECT * FROM Mensajes WHERE IdGrupo = @pIdGrupo";
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdGrupo = IdGrupo}).ToList();
+        }
+        return ListaMensajes;
+    }
+    public static List<Mensajes> ObtenerMensajesComunidad(int IdComunidad)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM Mensajes WHERE IdComunidad = @pIdComunidad";
+            ListaMensajes = db.Query<Mensajes>(sql, new { pIdComunidad = IdComunidad}).ToList();
         }
         return ListaMensajes;
     }

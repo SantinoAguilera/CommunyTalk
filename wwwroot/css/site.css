@@ -179,6 +179,19 @@ input[type="text"] {
   object-fit: cover; /* Esto ajusta la imagen al tamaño del contenedor */
 }
 
+/* MENSAJES */
+.Messages {
+  display: flex;
+}
+
+.OwnMessages {
+  justify-content: flex-end;
+}
+
+.OtherMessages {
+  justify-content: flex-start;
+}
+
 /*Login + Registro*/
 
 .FondoCuadrado{
