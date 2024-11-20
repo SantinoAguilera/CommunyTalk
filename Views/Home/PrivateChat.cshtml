@@ -6,7 +6,7 @@
     @{
         foreach(Mensajes mensaje in ViewBag.Mensajes) //Cada mensaje se pone uno por uno. El orden se define en BD.cs cuando se ordena por FechaHora.
         {
-            string FotodePerfil = "/images/UserImages/" + BD.ObtenerFotoDePerfil(mensaje.IdUsuario);
+            string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuario);
             if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se ponde a la derecha, sino, se pone a la izquierda.
             {
                 <div class="OwnMessages">
