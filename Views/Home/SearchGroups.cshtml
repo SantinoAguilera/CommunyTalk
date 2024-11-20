@@ -1,7 +1,9 @@
-@{
-    ViewData["Title"] = "Buscar grupos";
-}
 <section class="search-section">
+    <style>
+        body{
+            background-color: #d6d6d4;
+        }
+    </style>
     <h1 class="tituloGrupos">Grupos</h1>
     <div class="search-container">
         <input type="text" id="searchInputGroups" placeholder="Buscar grupos..." />
@@ -82,3 +84,4 @@
         debounceTimer = setTimeout(filterGroups, 500);
     });
 </script>
+
