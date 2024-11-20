@@ -41,6 +41,15 @@ public static class BD
         return ListaGrupos;
     }
 
+    public static List<Comunidades> ObtenerTresComunidades()
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT TOP 3 * FROM Comunidades c INNER JOIN IntegrantesXComunidad i ON c.IdComunidad = i.IdComunidad ORDER BY TopActividad";
+            ListaComunidades = db.Query<Comunidades>(sql).ToList();
+        }
+        return ListaComunidades;
+    }
+
     public static List<Comunidades> ObtenerComunidades()
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
