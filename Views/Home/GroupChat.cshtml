@@ -5,7 +5,7 @@
 @{
     foreach(Mensajes mensaje in ViewBag.Mensajes)
     {
-        string FotodePerfil = "/images/UserImages/" + BD.ObtenerFotoDePerfil(mensaje.IdUsuario);
+        string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuario);
         if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion)
         {
             <div class="FloatRight">

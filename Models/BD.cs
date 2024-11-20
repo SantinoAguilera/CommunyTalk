@@ -35,7 +35,7 @@ public static class BD
     public static List<Grupos> ObtenerTresGrupos()
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Grupos";
+            string sql = "SELECT TOP 3 * FROM Grupos g INNER JOIN IntegrantesXGrupo i ON g.IdGrupo = i.IdGrupo ORDER BY TopActividad";
             ListaGrupos = db.Query<Grupos>(sql).ToList();
         }
         return ListaGrupos;
