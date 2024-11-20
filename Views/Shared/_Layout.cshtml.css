@@ -29,6 +29,8 @@ header{
     display: flex;
     justify-content: center;
     height: 120px;
+    box-shadow: 2px 2px 2px 1px #bbffdf;
+    border-bottom: 1.5px solid #6464641c;
   }
   ul{
     width: 100%;
@@ -124,7 +126,7 @@ header nav ul li a p{
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  margin-top: 3%;
+  margin-top: 6%;
  }
 
  .offcanvas-header{
@@ -143,3 +145,13 @@ header nav ul li a p{
   align-items: center;
  }
 
+ .imgSide{
+  width: 90%;
+  margin: 2%;
+  border-radius: 500px;
+ }
+
+p{
+  width: 100%;
+  text-align: center;
+}
