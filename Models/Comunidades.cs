@@ -10,5 +10,5 @@ public class Comunidades
 
     public string Subdivision;
 
-    public string Foto;
+    public string FotoDeComunidad;
 }

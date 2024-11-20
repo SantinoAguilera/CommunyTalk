@@ -70,12 +70,12 @@
                 <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchCommunities">Comunidades</a></li>
                  @{
                     List<Comunidades> ListaComunidades = BD.ObtenerTresComunidades();
-                    foreach(Grupos grupo in ListaGrupos)
+                    foreach(Comunidades comunidades in ListaComunidades)
                     {
-                        string FotodePerfil = "/images/CommunityImages/" + grupo.FotodePerfil;
+                        string FotodePerfil = "/images/CommunityImages/" + comunidades.FotoDeComunidad;
                         <div class="imagenyText">
                             <img src="@FotodePerfil">
-                            <p>@grupo.Nombre</p>
+                            <p>@comunidades.Nombre</p>
                         </div>
                     }
                 }
