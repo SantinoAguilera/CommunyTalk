@@ -3,7 +3,7 @@
 }
 
 
-@model Usuario
+
 
 
 <!DOCTYPE html>
@@ -29,12 +29,12 @@
 
 <div class="FondoCuadrado">
 
-    <div class="Contenedor1">
-    <form id="registerForm" asp-action="Register" method="post" onsubmit="return validarContrasenia()">
+     <!--<div class="Contenedor1">
+     <form id="registerForm" asp-action="Register" method="post" onsubmit="return validarContrasenia()">
 
                 <h2 class="text-center">Registro</h2>
 
-                <!-- Esto lo tenes que repetir por cada cosa que quieras registrar
+                Esto lo tenes que repetir por cada cosa que quieras registrar
                  <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="Nombre" class="form-control" placeholder="Nombre" value="@Model.Nombre" required>
@@ -98,7 +98,7 @@
         <div class="botonesNo">
             <button class="BotonIniciar"><a href='@Url.Action("Login", "Home")'>Iniciar sesión</a></button> 
         </div>
-    </form>
+    
     </div>
 
 </div>

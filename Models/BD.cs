@@ -4,7 +4,7 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-21;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion;
     public static List<Grupos> ListaGrupos = new List<Grupos>();
     public static List<Comunidades> ListaComunidades = new List<Comunidades>();

@@ -33,12 +33,11 @@
 
         @if (!string.IsNullOrEmpty(ViewBag.Error)){
             <p id="error">@ViewBag.Error</p>
-            <a href="@Url.Action('Login', 'Account')">Volver a intentar</a>
-            <a href="@Url.Action('RecuperarContraseña', 'Account')">Recuperar contraseña</a>
+            <a href='@Url.Action("Login", "Account")'>Volver a intentar</a>
+            <a href='@Url.Action("RecuperarContraseña", "Account")'>Recuperar contraseña</a>
 
             /*
-            <a href="@Url.Action("Login", "Account")"">Volver a intentar</a>
-            <a href="@Url.Action("RecuperarContraseña", "Account")">Recuperar contraseña</a>
+            
         }
             */
         }
