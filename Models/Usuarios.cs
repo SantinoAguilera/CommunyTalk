@@ -1,3 +1,6 @@
+using System.Text.Json;
+
+[Serializable]
 public class Usuarios
 {
     public int IdUsuario;
@@ -6,13 +9,13 @@ public class Usuarios
 
     public string? Nombre;
 
-    public string Contraseña;
+    public string? Contraseña { get; set; }
 
     public string? Pronombres;
 
-    public string Nametag;
+    public string? Nametag;
 
-    public string Foto;
+    public string? Foto;
 
     public string? Descripcion;
 
@@ -20,25 +23,25 @@ public class Usuarios
 
     public int Notificaciones;
 
-    public string Email;
+    public string? Email { get; set; }
 
-    public string ConfirmarContraseña {get; set;}
-}
-/* esto da error and idk why
- public Usuarios() {}
+    public Usuarios(string email, string contraseña){
+        this.Email = email;
+        this.Contraseña = Contraseña;
+    }
 
- public Usuarios(int id, string apellido, string nombre, string contraseña, string pronombres, string nametag, string foto, string descripcion, string estado, int notificaciones, string email, string confirmarcontraseña){
-    this.IdUsuario=id;
-    this.Apellido=apellido;
-    this.Nombre=nombre;
-    this.Contraseña=contraseña;
-    this.Pronombres=pronombres;
-    this.Nametag=nametag;
-    this.Foto=foto;
-    this.Descripcion=descripcion;
-    this.Estado=estado;
-    this.Notificaciones=notificaciones;
-    this.Email=email;
-    this.ConfirmarContraseña=confirmarcontraseña;
+    public override string ToString()
+    {
+        return JsonSerializer.Serialize(this);
+    }
+
+    public static Usuarios? FromString(string? json)
+    {
+        if (json is null)
+        {
+            return null;
+        }
+
+        return JsonSerializer.Deserialize<Usuarios>(json);
+    }
 }
-*/
