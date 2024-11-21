@@ -98,10 +98,14 @@ public class HomeController : Controller
         
         return View("Registrar");
     }
-
     public IActionResult Logout()
     {
         HttpContext.Session.Remove("user");
         return RedirectToAction("Login");
+    }
+
+    public IActionResult Settings()
+    {
+        return View("Settings");
     }
 }
