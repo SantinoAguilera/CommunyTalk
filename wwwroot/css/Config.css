@@ -1,0 +1,137 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #8059B8; /* Fondo morado */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    min-width: 1400px; /* Se amplió el ancho máximo */
+
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #563D7C; /* Morado oscuro */
+    color: #fff;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 700;
+    color: #7EF3BC; /* Verde pastel */
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #cfd8dc;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: #8059B8;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Main Content */
+.main {
+    flex-grow: 1;
+    padding: 30px;
+    width: 80%; /* Mucho más ancho */
+    background-color: #2C2F33; /* Fondo oscuro estilo Discord */
+    border: 2px solid #8059B8; /* Bordes morados */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Encabezado del main */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.main-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Botón */
+.save-btn {
+    background-color: #7EF3BC;
+    color: #2C2F33;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.save-btn:hover {
+    background-color: #69d1a4;
+    transform: translateY(-3px);
+}
+
+/* Formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #ddd;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #444;
+    border-radius: 5px;
+    outline: none;
+    background: #333;
+    color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #7EF3BC;
+    box-shadow: 0 0 8px #7EF3BC;
+}

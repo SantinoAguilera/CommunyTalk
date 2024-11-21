@@ -1,7 +1,7 @@
 @{
     ViewData["Title"] = "Mensajes Privados";
 }
-<h1 class="ChatName">@ViewBag.Nombre</h1>
+<h1 class="ChatName">a</h1>
 @{
     foreach(Mensajes mensaje in ViewBag.Mensajes)
     {
@@ -31,6 +31,6 @@
 <div class="EnviarMensaje">
     <div class="Send">
         <input class="Message" type="text"> 
-        <img class="send" src="/images/Send.png">
+        <button><img class="send" src="/images/Send.png"></button>
     </div>
 </div>

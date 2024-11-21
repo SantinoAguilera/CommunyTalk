@@ -12,6 +12,7 @@ body{
   width: 100%;
 }
 
+
 /* Index */
 .LandingPage {
   width: 100%;
@@ -88,8 +89,8 @@ a:hover{
 
 
 .send{
-  width: 5%;
-  margin: 1%;
+  width: 20%;
+  margin-right: 55%;
 }
 
 .EnviarMensaje{
@@ -99,14 +100,14 @@ a:hover{
   bottom: 0;
   right: 0;
   position: fixed;
-  font-size: large;
+  font-size: x-large;
   display: flex;
   justify-content: center;
 }
 
 .Message{
   width: 80%;
-  height: 80px;
+  height: 70px;
 }
 
 .Send{
@@ -283,3 +284,5 @@ input:hover{
   margin: 2%;
   margin-top: 3%;
 }
+
+
