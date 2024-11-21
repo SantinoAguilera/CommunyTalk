@@ -78,4 +78,8 @@ public class HomeController : Controller
         
         return View("Registrar");
     }
+
+    public IActionResult Settings(){
+        return View("Settings");
+    }
 }
