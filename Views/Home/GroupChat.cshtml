@@ -6,21 +6,23 @@
     foreach(Mensajes mensaje in ViewBag.Mensajes)
     {
         string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuario);
-        if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion)
+        if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se ponde a la derecha, sino, se pone a la izquierda.
         {
-            <div class="FloatRight">
-                <img src=@FotodePerfil>
+            <div class="OwnMessages">
+                <img src="@FotodePerfil">
                 <div class="Mensaje">
-                    
+                    <p>@mensaje.Contenido</p>
+                    <p>@mensaje.FechaHora</p>
                 </div>
             </div>
         }
         else
         {
-            <div class="FloatLeft">
+            <div class="OtherMessages">
                 <img src="/images/UserImages/">
                 <div class="Mensaje">
-                    
+                    <p class="MessageText">@mensaje.Contenido</p>
+                    <p>@mensaje.FechaHora</p>
                 </div>
             </div>
         }

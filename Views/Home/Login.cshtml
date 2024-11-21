@@ -2,6 +2,8 @@
     ViewData["Title"] = "Login";
 }
 
+
+
 <style>
     body{
         background-color: #171717;
@@ -15,34 +17,24 @@
 <div class="FondoCuadrado">
 
     <div class="Contenedor1">
-        <p class="EstiloTexto">Ingrese su mail.</p>
-        <input type="email" method="post" >
-
-        <p class="EstiloTexto">Ingrese su contraseña.</p>
-        <input type="password" method="post" >
+        <div class="mb-3">
+            <label for="email" class="EstiloTexto">Ingrese su email.</label>
+            <input type="email" id="email" name="email" aria-describedby="emailHelp" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="EstiloTexto">Ingrese su contraseña.</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="botonesNo">
+            <button class="BotonIniciar"><a href='@Url.Action("Login", "Home")'>Iniciar sesión</a></button> 
+        </div>
+        </form>
 
         <div class="botonesNo">
-            <button class="BotonIniciar"><a href='@Url.Action("Registrar", "Home")'>Iniciar sesión</a></button> 
+           <button class="BotonNoIniciar"><a href='@Url.Action("Login", "Home")'>Recuperar contraseña</a></button> 
+           <button class="BotonNoIniciar"><a href='@Url.Action("Registrar", "Home")'>Registrarse</a></button> 
         </div>
 
-        <div class="mensaje-error">
-            <div class="botonesNo">
-                <button class="BotonNoIniciar"><a href='@Url.Action("Login", "Home")'>Recuperar contraseña</a></button> 
-                <button class="BotonNoIniciar"><a href='@Url.Action("Registrar", "Home")'>Registrarse</a></button> 
-            </div>
-
-        @if (!string.IsNullOrEmpty(ViewBag.Error)){
-            <p id="error">@ViewBag.Error</p>
-            <a href='@Url.Action("Login", "Account")'>Volver a intentar</a>
-            <a href='@Url.Action("RecuperarContraseña", "Account")'>Recuperar contraseña</a>
-
-            /*
-            
-        }
-            */
-        }
-        </div>
-    </div>
 </div>
 
 

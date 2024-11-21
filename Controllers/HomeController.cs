@@ -72,14 +72,40 @@ public class HomeController : Controller
 
     public IActionResult Login(){
         
-        return View("Login");
+        if (HttpContext.Session.GetString("user") != null)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+        return View();
     }
+
+    [HttpPost]
+    public IActionResult VerificarLogin(string email, string password)
+    {
+        if (email == "admin@gmail.com" && password == "admin")
+        {
+            HttpContext.Session.SetString("user", new Usuarios(email, password).ToString());
+            return RedirectToAction("Index", "Home");
+        }
+        else
+        {
+            ViewBag.Error = "Email o contraseña incorrectos.";
+            return View("Login");
+        }
+    }
+
     public IActionResult Registrar(){
         
         return View("Registrar");
     }
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Remove("user");
+        return RedirectToAction("Login");
+    }
 
-    public IActionResult Settings(){
+    public IActionResult Settings()
+    {
         return View("Settings");
     }
 }
