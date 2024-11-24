@@ -1,7 +1,7 @@
 @{
     ViewData["Title"] = "Mensajes Privados";
 }
-<h1 class="ChatName">a</h1>
+<h1 class="ChatName">Grupogroup</h1>
 @{
     foreach(Mensajes mensaje in ViewBag.Mensajes)
     {
@@ -9,11 +9,11 @@
         if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se ponde a la derecha, sino, se pone a la izquierda.
         {
             <div class="OwnMessages">
-                <img src="@FotodePerfil">
                 <div class="Mensaje">
-                    <p>@mensaje.Contenido</p>
+                    <p class="MessageText">@mensaje.Contenido</p>
                     <p>@mensaje.FechaHora</p>
                 </div>
+                <img src="@FotodePerfil">
             </div>
         }
         else
@@ -34,3 +34,10 @@
         <button><img class="send" src="/images/Send.png"></button>
     </div>
 </div>
+
+<style>
+    main {
+  margin-top: 125px; 
+  padding: 20px;
+}
+</style>

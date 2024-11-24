@@ -196,14 +196,33 @@ input[type="text"] {
   display: flex;
 }
 
+.OwnMessages .Mensaje{
+width:40%;
+padding: 2%;
+background-color: rgb(38, 38, 187);
+}
 .OwnMessages {
-  justify-content: flex-end;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-right: 2%;
 }
 
 .OtherMessages {
-  justify-content: flex-start;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  margin-left: 2%; 
 }
 
+.ChatName{
+  text-align: center;
+}
+
+.FotodePerfil{
+  width: 16%;
+  border-radius: 100px;
+}
 /*Login + Registro*/
 
 .FondoCuadrado{

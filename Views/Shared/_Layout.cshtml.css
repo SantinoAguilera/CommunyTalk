@@ -22,9 +22,11 @@ header{
     background-color: #7EF3BC;
     position: fixed;
     width: 100%;
-    top: 0;
     z-index: 1000;
     display: flex;
+    top: 0;
+    left: 0;
+    height: 60px; 
     justify-content: center;
     height: 120px;
     box-shadow: 2px 2px 2px 1px #bbffdf;
