@@ -1,29 +1,51 @@
 @{
     ViewData["Title"] = "Mensajes Privados";
 }
-<h1 class="ChatName">Grupogroup</h1>
+
+<style>
+body{
+background-color: #fff3d6;
+}
+</style>
+<h1 class="ChatName">Grupogroup</h1>   
+        <div class="OwnMessages">
+                <div class="Mensaje">
+                    <p class="MessageText">jajajaj</p>
+                    <p class="FechaHora">:0</p>
+                </div>
+                <img class="FotodePerfil" src="/images/UserImages/IconPrueba.jpg">
+                </div>
+                <div class="OtherMessages">
+                <img class="FotodePerfil" src="/images/UserImages/IconPrueba.jpg">
+                <div class="Mensaje">
+                    <p class="MessageText">lolololo</p>
+                    <p class="FechaHora">1/1/1</p>
+                </div>
+            </div>
 @{
+
     foreach(Mensajes mensaje in ViewBag.Mensajes)
     {
+        
         string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuario);
         if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se ponde a la derecha, sino, se pone a la izquierda.
         {
             <div class="OwnMessages">
                 <div class="Mensaje">
                     <p class="MessageText">@mensaje.Contenido</p>
-                    <p>@mensaje.FechaHora</p>
+                    <p class="FechaHora">@mensaje.FechaHora</p>
                 </div>
-                <img src="@FotodePerfil">
+                <img class="FotodePerfil" src="@FotodePerfil">
             </div>
         }
         else
         {
             <div class="OtherMessages">
-                <img src="/images/UserImages/">
                 <div class="Mensaje">
                     <p class="MessageText">@mensaje.Contenido</p>
-                    <p>@mensaje.FechaHora</p>
+                    <p class="FechaHora">@mensaje.FechaHora</p>
                 </div>
+                <img src="/images/UserImages/">
             </div>
         }
     }

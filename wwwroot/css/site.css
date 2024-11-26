@@ -90,7 +90,7 @@ a:hover{
 
 .send{
   width: 20%;
-  margin-right: 55%;
+  margin-right: 50%;
 }
 
 .EnviarMensaje{
@@ -103,11 +103,13 @@ a:hover{
   font-size: x-large;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .Message{
   width: 80%;
   height: 70px;
+
 }
 
 .Send{
@@ -115,6 +117,7 @@ a:hover{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-left: 10%;
 }
 
 .imgMenu{
@@ -200,14 +203,26 @@ input[type="text"] {
 width:40%;
 padding: 2%;
 background-color: rgb(38, 38, 187);
+border-radius: 50px;
+color: white;
+font-size: large;
 }
 .OwnMessages {
   width: 100%;
   display: flex;
   justify-content: end;
   margin-right: 2%;
-  background-color: white;
+  
+
+}
+
+.OtherMessages .Mensaje{
+  width:40%;
+  padding: 2%;
+  background-color: rgb(255, 255, 255);
   border-radius: 50px;
+  color: rgb(0, 0, 0);
+  font-size: large;
 }
 
 .OtherMessages {
@@ -215,16 +230,22 @@ background-color: rgb(38, 38, 187);
   display: flex;
   justify-content: start;
   margin-left: 2%; 
-  border-radius: 50px;
 }
 
 .ChatName{
   text-align: center;
+  margin: 2%;
 }
 
 .FotodePerfil{
-  width: 16%;
-  border-radius: 100px;
+  width: 4%;
+  border-radius: 150px;
+  height: min-content;
+  margin:2%;
+}
+.FechaHora {
+  font-size: medium;
+  color:rgb(136, 129, 129);
 }
 /*Login + Registro*/
 
