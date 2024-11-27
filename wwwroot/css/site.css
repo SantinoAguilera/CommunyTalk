@@ -101,11 +101,12 @@ a:hover{
   height: 125px;
   bottom: 0;
   right: 0;
-  position: fixed;
+  position: sticky;
   font-size: x-large;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2%;
 }
 
 .Message{
@@ -208,6 +209,7 @@ background-color:#63468d;
 border-radius: 50px;
 color: white;
 font-size: large;
+margin: 1%;
 }
 .OwnMessages {
   width: 100%;
@@ -225,6 +227,7 @@ font-size: large;
   border-radius: 50px;
   color: rgb(0, 0, 0);
   font-size: large;
+  margin: 1%;
 }
 
 .OtherMessages {
@@ -341,5 +344,12 @@ input:hover{
 
 /*Perfil Usuario*/
 .ViewFotodePerfil{
-  width: 10%;
+  width: 25%;
 }
+
+.NombreUsuario{
+  font-size: 80px;
+  text-align: center;
+}
+
+.

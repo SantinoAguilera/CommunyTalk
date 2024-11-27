@@ -1,7 +1,13 @@
 @{
     ViewData["Title"] = "Perfil";
 }
-<section>
+
+<style>
+body{
+    background-color: #63468d;
+}
+</style>
+
 <h1 class="NombreUsuario">Usuario</h1> <!--Nametag-->
 <div class="Perfil">
 <img class="ViewFotodePerfil" src="/images/UserImages/ImagenPredeterminada.png"/>
@@ -12,6 +18,6 @@
 <p>Descripción:</p>
 </div>
 <div class="Amigos">
+<a href='@Url.Action("IrAAmigos", "Home")'>Amigos</a>
 </div>
 </div>
-</section>
