@@ -95,19 +95,20 @@ a:hover{
   margin-right: 50%;
 }
 
-.EnviarMensaje{
-  background-color:#63468d;
+.EnviarMensaje {
+  background-color: #63468d;
   width: 100%;
   height: 125px;
+  position: fixed;
   bottom: 0;
-  right: 0;
-  position: sticky;
+  left: 0;
+  z-index: 1000;
   font-size: x-large;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2%;
 }
+
 
 .Message{
   width: 80%;
@@ -209,7 +210,6 @@ background-color:#63468d;
 border-radius: 50px;
 color: white;
 font-size: large;
-margin: 1%;
 }
 .OwnMessages {
   width: 100%;
@@ -227,7 +227,6 @@ margin: 1%;
   border-radius: 50px;
   color: rgb(0, 0, 0);
   font-size: large;
-  margin: 1%;
 }
 
 .OtherMessages {
@@ -353,8 +352,13 @@ input:hover{
 }
 
 .Perfil{
-  height: 100%;
+  height: 600px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+
+.Perfil p, .Perfil a{
+  font-size: xx-large;
+  color: white;
 }
