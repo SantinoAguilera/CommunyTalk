@@ -6,6 +6,7 @@ namespace CommunyTalk.Controllers;
 
 public class HomeController : Controller
 {
+
     private readonly ILogger<HomeController> _logger;
 
     public HomeController(ILogger<HomeController> logger)
@@ -43,9 +44,18 @@ public class HomeController : Controller
 
     public IActionResult GroupChat(int IdGrupo)
     {
+        BD.IdGrupoActual = IdGrupo;
         ViewBag.Mensajes = BD.ObtenerMensajesGrupo(IdGrupo);
         ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
         return View();
+    }
+
+    public IActionResult EnviarMensajeGrupo(string Contenido, int IdUsuario)
+    {
+        BD.EnviarMensajeGrupo(Contenido, IdUsuario);
+        ViewBag.Mensajes = BD.ObtenerMensajesGrupo(BD.IdGrupoActual);
+        ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
+        return View("GroupChat");
     }
 
     public IActionResult PrivateChat(int IdUsuario)

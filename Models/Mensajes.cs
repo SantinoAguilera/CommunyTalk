@@ -6,4 +6,5 @@ public class Mensajes
     public int IdUsuario;
     public int IdGrupo;
     public int IdComunidad;
+    public int IdUsuarioEmisor;
 }
