@@ -21,7 +21,7 @@
                     string FotoPerfil = "/images/GroupImages/" + grupo.FotodePerfil;
 
                     <div class="col-auto mb-3 group-card" data-group-name="@grupo.Nombre">
-                        <a asp-controller="Home" asp-action="GroupChat">
+                        <a asp-controller="Home" asp-action="GroupChat" asp-route-IdGrupo="@grupo.IdGrupo">
                             <div class="card carta" style="width: 560px;">
                                 <div class="row g-0">
                                     <div class="col-md-4">

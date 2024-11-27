@@ -23,12 +23,10 @@ background-color: white;
                 </div>
             </div>
 @{
-
     foreach(Mensajes mensaje in ViewBag.Mensajes)
     {
-        
-        string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuario);
-        if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se ponde a la derecha, sino, se pone a la izquierda.
+        string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuarioEmisor);
+        if(mensaje.IdUsuarioEmisor == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se pone a la derecha, sino, se pone a la izquierda.
         {
             <div class="OwnMessages">
                 <div class="Mensaje">
@@ -50,15 +48,15 @@ background-color: white;
         }
     }
 }
-<div class="EnviarMensaje">
+<form action= '@Url.Action("EnviarMensajeGrupo","Home")' class="EnviarMensaje">
     <div class="Send">
-        <input class="Message" type="text"> 
+        <input class="Message" type="text" name="Contenido"> 
         <button><img class="send" src="/images/Send.png"></button>
     </div>
-</div>
+</form>
 
 <style>
-    main {
+main {
   margin-top: 125px; 
   padding: 20px;
 }

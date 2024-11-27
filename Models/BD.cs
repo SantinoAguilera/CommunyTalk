@@ -4,8 +4,9 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-20;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion;
+    public static int IdGrupoActual;
     public static List<Grupos> ListaGrupos = new List<Grupos>();
     public static List<Comunidades> ListaComunidades = new List<Comunidades>();
     public static List<Mensajes> ListaMensajes = new List<Mensajes>();
@@ -76,6 +77,7 @@ public static class BD
         }
         return ListaMensajes;
     }
+
     public static List<Mensajes> ObtenerMensajesComunidad(int IdComunidad)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
@@ -83,6 +85,33 @@ public static class BD
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdComunidad = IdComunidad}).ToList();
         }
         return ListaMensajes;
+    }
+
+    public static void EnviarMensajePrivado (string Contenido, int IdUsuario)
+    {
+        DateTime FechaHora = DateTime.Now;
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "INSERT INTO Mensajes(Contenido, FechaHora, IdUsuario) VALUES (@pContenido, @pFechaHora, @pIdUsuario)";
+            db.Execute(sql, new { pContenido = Contenido, pFechaHora = FechaHora, pIdUsuario = IdUsuario});
+        }
+    }
+
+    public static void EnviarMensajeGrupo (string Contenido, int IdUsuario)
+    {
+        DateTime FechaHora = DateTime.Now;
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "INSERT INTO Mensajes(Contenido, FechaHora, IdGrupo, IdUsuarioEmisor) VALUES (@pContenido, @pFechaHora, @pIdGrupo, @pIdUsuarioSesion)";
+            db.Execute(sql, new { pContenido = Contenido, pFechaHora = FechaHora, pIdGrupo = IdGrupoActual, pIdUsuarioSesion = IdUsuarioSesion });
+        }
+    }
+
+    public static void EnviarMensajeComunidad (string Contenido, int IdComunidad)
+    {
+        DateTime FechaHora = DateTime.Now;
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "INSERT INTO Mensajes(Contenido, FechaHora, IdComunidad) VALUES (@pContenido, @pFechaHora, @pIdComunidad)";
+            db.Execute(sql, new { pContenido = Contenido, pFechaHora = FechaHora, pIdComunidad = IdComunidad});
+        }
     }
 
     public static string ObtenerFoto(int IdUsuario)
