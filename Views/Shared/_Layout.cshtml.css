@@ -30,7 +30,7 @@ header {
   box-shadow: 2px 2px 2px 1px #bbffdf;
   border-bottom: 1.5px solid #6464641c;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin-bottom: 2%;
 }

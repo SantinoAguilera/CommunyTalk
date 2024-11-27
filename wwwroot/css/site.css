@@ -204,20 +204,20 @@ input[type="text"] {
 }
 
 .OwnMessages .Mensaje{
-width:40%;
-padding: 2%;
-background-color:#63468d;
-border-radius: 50px;
-color: white;
-font-size: large;
+  width:40%;
+  padding: 2%;
+  background-color:#63468d;
+  border-radius: 50px;
+  color: white;
+  font-size: large;
+  margin: 0.5%;
 }
 .OwnMessages {
   width: 100%;
   display: flex;
   justify-content: end;
   margin-right: 2%;
-  
-
+  margin: 0.5%;
 }
 
 .OtherMessages .Mensaje{
@@ -361,4 +361,15 @@ input:hover{
 .Perfil p, .Perfil a{
   font-size: xx-large;
   color: white;
+}
+
+
+.BotonAmigos{
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #7EF3BC;
+  border-color: #7EF3BC;
 }
