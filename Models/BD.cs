@@ -5,7 +5,7 @@ public static class BD
 {
     /* Atributos */
     private static string _connectionString = @"Server=A-PHZ2-CIDI-20;Database=DB_CommunyTalk;Trusted_Connection=True;";
-    public static int IdUsuarioSesion;
+    public static int IdUsuarioSesion = 1; //ELIMINAR LA INICIACIÓN ANTES DE LA RELEASE
     public static int IdGrupoActual;
     public static List<Grupos> ListaGrupos = new List<Grupos>();
     public static List<Comunidades> ListaComunidades = new List<Comunidades>();
@@ -121,7 +121,8 @@ public static class BD
             string sql = "SELECT Foto FROM Usuarios WHERE IdUsuario = @pIdUsuario";
             foto = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuario});
         }
-        return foto ?? "/images/default.jpg";
+        if (foto == null) foto = "default.png";
+        return foto ?? "default.png";
     }
 
     public static string ObtenerFotodePerfil(int IdGrupo)
@@ -131,6 +132,7 @@ public static class BD
             string sql = "SELECT FotodePerfil FROM Grupos WHERE IdGrupo = @pIdGrupo";
             foto = db.QueryFirstOrDefault<string>(sql, new { pIdGrupo = IdGrupo});
         }
+        if (foto == null) foto = "default.jpg";
         return foto ?? "/images/default.jpg";
     }
 
