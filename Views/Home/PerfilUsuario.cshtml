@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<style>
+body{
+    background-color: #63468d;
+}
+</style>
+
+<h1 class="NombreUsuario">Usuario</h1> <!--Nametag-->
+<div class="Perfil">
+<img class="ViewFotodePerfil" src="/images/UserImages/ImagenPredeterminada.png"/>
+<div class="InfoUsuario">
+<p>Nombre:</p> <!--Nombre-->
+<p>Email:</p>
+<p>Pronombres:</p>
+<p>Descripción:</p>
+</div>
+<div class="Amigos">
+<a href='@Url.Action("IrAAmigos", "Home")'>Amigos</a>
+</div>
+</div>

@@ -118,4 +118,13 @@ public class HomeController : Controller
     {
         return View("Settings");
     }
+
+    public IActionResult Usuario (){
+
+        return View("PerfilUsuario");
+    }
+
+    public IActionResult IrAAmigos (){
+        return View("SearchFriends");
+    }
 }
