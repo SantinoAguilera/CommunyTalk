@@ -25,65 +25,6 @@
 
 <div class="FondoCuadrado">
 
-     <!--<div class="Contenedor1">
-     <form id="registerForm" asp-action="Register" method="post" onsubmit="return validarContrasenia()">
-
-                <h2 class="text-center">Registro</h2>
-
-                Esto lo tenes que repetir por cada cosa que quieras registrar
-                 <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="Nombre" class="form-control" placeholder="Nombre" value="@Model.Nombre" required>
-
-                    <div class="form-group">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" name="Apellido" class="form-control" placeholder="Apellido" value="@Model.Apellido" required>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="dni">DNI</label>
-                    <input type="number" id="dni" name="DNI" class="form-control" placeholder="DNI" value="@Model.DNI" required>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="email">Mail</label>
-                    <input type="email" id="email" name="Email" class="form-control" placeholder="Mail" value="@Model.Email" required>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="tel" id="telefono" name="Telefono" class="form-control" placeholder="Teléfono" value="@Model.Telefono" required>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="fnac">Fecha de Nacimiento</label>
-                    <input type="date" id="fnac" name="Fnac" class="form-control" value="@Model.Fnac.ToString("yyyy-MM-dd")" required>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="contraseña">Contraseña</label>
-                    <input type="password" id="contraseña" name="Contraseña" class="form-control" placeholder="Contraseña" required>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="contraseña2">Confirmar Contraseña</label>
-                    <input type="password" id="contraseña2" name="ConfirmarContrasenia" class="form-control" placeholder="Confirmar Contraseña" required>
-                </div>
-
-
-                <button type="submit" class="btn btn-primary btn-block">Regístrate</button>
-
-                <div class="text-center mt-3">
-                    <a href="@Url.Action("Login", "Account")" class="text-dark">¿Ya tienes una cuenta? Inicia Sesión</a>
-                </div>
-
-                </div> -->
 
         <p class="EstiloTexto">Ingrese su mail.</p>
         <input type="email" method="post" >
@@ -92,7 +33,7 @@
         <p class="EstiloTexto">Ingrese su contraseña nuevamente.</p>
         <input type="password" method="post" >
         <div class="botonesNo">
-            <button class="BotonIniciar"><a href='@Url.Action("Login", "Home")'>Iniciar sesión</a></button> 
+            <button class="BotonIniciar"><a href='@Url.Action("Login", "Home")'>Registrarse</a></button> 
         </div>
     
     </div>

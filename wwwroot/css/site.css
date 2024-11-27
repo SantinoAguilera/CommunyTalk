@@ -13,6 +13,8 @@ body{
 }
 
 
+
+
 /* Index */
 .LandingPage {
   width: 100%;
@@ -136,7 +138,7 @@ a:hover{
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 12%;
+
 }
 .search-container {
   display: flex;
@@ -202,7 +204,7 @@ input[type="text"] {
 .OwnMessages .Mensaje{
 width:40%;
 padding: 2%;
-background-color: rgb(38, 38, 187);
+background-color:#63468d;
 border-radius: 50px;
 color: white;
 font-size: large;
@@ -219,7 +221,7 @@ font-size: large;
 .OtherMessages .Mensaje{
   width:40%;
   padding: 2%;
-  background-color: rgb(255, 255, 255);
+  background-color:#7EF3BC;
   border-radius: 50px;
   color: rgb(0, 0, 0);
   font-size: large;
@@ -245,7 +247,7 @@ font-size: large;
 }
 .FechaHora {
   font-size: medium;
-  color:rgb(136, 129, 129);
+  color:rgb(175, 175, 175);
 }
 /*Login + Registro*/
 
@@ -328,4 +330,16 @@ input:hover{
   margin-top: 3%;
 }
 
+.BotonIniciar a{
+  color: black;
+}
 
+.BotonIniciar a:hover{
+  color: black;
+  text-decoration: none;
+}
+
+/*Perfil Usuario*/
+.ViewFotodePerfil{
+  width: 10%;
+}

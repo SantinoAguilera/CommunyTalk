@@ -18,20 +18,23 @@ button.accept-policy {
   width: 30%;
 }
 
-header{
-    background-color: #7EF3BC;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    top: 0;
-    left: 0;
-    height: 60px; 
-    justify-content: center;
-    height: 120px;
-    box-shadow: 2px 2px 2px 1px #bbffdf;
-    border-bottom: 1.5px solid #6464641c;
-  }
+header {
+  background-color: #7EF3BC;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 2px 2px 2px 1px #bbffdf;
+  border-bottom: 1.5px solid #6464641c;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
   ul{
     width: 100%;
     list-style: none;
