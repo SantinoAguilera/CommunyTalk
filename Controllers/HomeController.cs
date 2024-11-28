@@ -136,7 +136,7 @@ public class HomeController : Controller
         Environment = environment;
     }
 
-    [HttpPost]
+/*    [HttpPost]
     public IActionResult FotoPerfil(IFormFile fotoDePerfil){
         if(fotoDePerfil.Length>0){
             string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + fotoDePerfil.FileName;
@@ -144,5 +144,6 @@ public class HomeController : Controller
             fotoDePerfil.CopyToAsync(stream);
         }
         }
-    }
+    } 
+*/    
 }
