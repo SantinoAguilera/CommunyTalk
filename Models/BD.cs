@@ -144,11 +144,7 @@ public static class BD
         string sql = "INSERT INTO Usuarios (Contraseña, Email) VALUES (@pContraseña,@pEmail)";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(sql, new
-            {
-                pContraseña = usuario.Contraseña,
-                pEmail = usuario.Email
-            });
+            db.Execute(sql, new { pContraseña = usuario.Contraseña, pEmail = usuario.Email });
         }
     }
 
@@ -163,13 +159,49 @@ public static class BD
         return usuario;
     }
 
-
     public static void CambiarContraseña(string Email, string nuevaContraseña)
     {
-        string sql = "UPDATE Usuario SET Contraseña = @pNuevaContraseña WHERE Email = @pEmail";
+        string sql = "UPDATE Usuarios SET Contraseña = @pNuevaContraseña WHERE Email = @pEmail";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new { pNuevaContraseña = nuevaContraseña, pEmail = Email });
         }
-    }   
+    }
+
+    public static Usuarios LoginIngresado(string Nametag, string Contraseña)
+    {
+        Usuarios Ingresado = new Usuarios();
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Usuarios WHERE Nametag = @pNametag and Contraseña= @pContraseña";
+            Ingresado = db.QueryFirstOrDefault<Usuarios>(sql, new { pNametag = Nametag , pContraseña = Contraseña });
+        }
+        return Ingresado;
+    }
+       public static Usuarios ListarPorId(int IdUsuario)
+    {
+        Usuarios Ingresado = new Usuarios();
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Usuarios WHERE IdUsuario = @pIdUsuario";
+            Ingresado = db.QueryFirstOrDefault<Usuarios>(sql, new { pIdUsuario = IdUsuario });
+        }
+        return Ingresado;
+    }
+    public static void InsertUser(Usuarios user)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "INSERT INTO Usuario(Contraseña, Nametag, Email) VALUES (@pNametag, @pContraseña, @pEmail)";
+            db.Execute(sql, new{ pContraseña = user.Contraseña, pUsuario = user.Nametag, pEmail = user.Email});
+        }
+    }
+    public static void ActualizarContraseña(string Nametag, string NuevaContraseña)
+    {
+        string SQL = "UPDATE Usuario SET Contraseña = @pNuevaContraseña WHERE Nametag = @pNametag";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(SQL, new{ pNuevaContraseña = NuevaContraseña, pNametag = Nametag});
+        }
+    }
 }

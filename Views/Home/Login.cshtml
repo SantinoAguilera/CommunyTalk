@@ -2,9 +2,28 @@
     ViewData["Title"] = "Login";
 }
 
+<h2>Iniciar Sesión</h2>
 
+<form asp-controller="Home" asp-action="VerificarContraseña" method="post">
+    <div class="form-group">
+        <label for="Usuario">Usuario:</label>
+        <input type="text" class="form-control" id="Usuario" name="Usuario" required>
+    </div>
+    <div class="form-group">
+        <label for="Contraseña">Contraseña:</label>
+        <input type="password" class="form-control" id="Contraseña" name="Contraseña" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+</form>
 
-<style>
+<div class="mt-3">
+    <p>¿Olvidaste tu contraseña? <a class="btn btn-info" href='@Url.Action("Olvide", "Account")'>Recuperarla aquí</a></p>
+    <p>¿No tienes cuenta?<a class="btn btn-info" href='@Url.Action("Registro", "Account")'>Registrate</a>
+    <p> @ViewBag.Verificar</p>
+    </p>
+</div>
+
+<!--<style>
     body{
         background-color: #171717;
         display: flex;
@@ -15,27 +34,25 @@
 </style>
 
 <div class="FondoCuadrado">
-
     <div class="Contenedor1">
         <form action='@Url.Action("VerificarLogin", "Home")' method="post">
-        <div class="mb-3">
-            <label for="email" class="EstiloTexto">Ingrese su email.</label>
-            <input type="email" id="email" name="email" aria-describedby="emailHelp" required>
-        </div>
-        <div class="mb-3">
-            <label for="password" class="EstiloTexto">Ingrese su contraseña.</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div class="botonesNo">
-            <button class="BotonIniciar"><a href='@Url.Action("Login", "Home")'>Iniciar sesión</a></button> 
-        </div>
-       
+            <div class="mb-3">
+                <label for="email" class="EstiloTexto">Ingrese su email.</label>
+                <input type="email" id="email" name="email" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="EstiloTexto">Ingrese su contraseña.</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="botonesNo">
+                <button class="BotonIniciar"><a href='@Url.Action("Login", "Home")'>Iniciar sesión</a></button> 
+            </div>
+        
 
-        <div class="botonesNo">
-           <button class="BotonNoIniciar"><a href='@Url.Action("Login", "Home")'>Recuperar contraseña</a></button> 
-           <button class="BotonNoIniciar"><a href='@Url.Action("Registrar", "Home")'>Registrarse</a></button> 
-        </div>
-</form>
-</div>
-
-
+            <div class="botonesNo">
+                <button class="BotonNoIniciar"><a href='@Url.Action("Login", "Home")'>Recuperar contraseña</a></button> 
+                <button class="BotonNoIniciar"><a href='@Url.Action("Registrar", "Home")'>Registrarse</a></button> 
+            </div>
+        </form>
+    </div>
+</div>-->

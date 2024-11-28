@@ -89,17 +89,29 @@ public class HomeController : Controller
         return View();
     }
 
-    [HttpPost]
-    public IActionResult VerificarLogin(string email, string password)
+    public IActionResult VerificarContraseña(string Usuario, string Contraseña)
     {
-        if (email == "admin@gmail.com" && password == "admin")
+        if (string.IsNullOrEmpty(Contraseña)  || string.IsNullOrEmpty(Usuario) )
         {
-            HttpContext.Session.SetString("user", new Usuarios().ToString());
-            return RedirectToAction("Index", "Home");
+            ViewBag.Error = "Se deben completar todos los campos";
+            return RedirectToAction("Login");
         }
         else
         {
-            ViewBag.Error = "Email o contraseña incorrectos.";
+            Usuarios comparar = BD.LoginIngresado(Usuario, Contraseña);
+
+            if (comparar != null)
+            {
+                if (Contraseña == comparar.Contraseña)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                ViewBag.Verificar = "El usuario y/o contraseña ingresada son incorrectos";
+            }
+
             return View("Login");
         }
     }
