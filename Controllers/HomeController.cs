@@ -94,7 +94,7 @@ public class HomeController : Controller
     {
         if (email == "admin@gmail.com" && password == "admin")
         {
-            HttpContext.Session.SetString("user", new Usuarios(email, password).ToString());
+            HttpContext.Session.SetString("user", new Usuarios().ToString());
             return RedirectToAction("Index", "Home");
         }
         else

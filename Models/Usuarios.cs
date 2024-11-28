@@ -25,11 +25,6 @@ public class Usuarios
 
     public string? Email { get; set; }
 
-    public Usuarios(string email, string contraseña){
-        this.Email = email;
-        this.Contraseña = Contraseña;
-    }
-
     public override string ToString()
     {
         return JsonSerializer.Serialize(this);

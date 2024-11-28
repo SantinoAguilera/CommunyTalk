@@ -1,12 +1,14 @@
 using System.Data.SqlClient;
+using System.Net.Http.Headers;
 using Dapper;
 
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-20;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=sasanet\sqlexpress;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion = 1; //ELIMINAR LA INICIACIÓN ANTES DE LA RELEASE
     public static int IdGrupoActual;
+    public static List<Usuarios> ListaUsuarios = new List<Usuarios>();
     public static List<Grupos> ListaGrupos = new List<Grupos>();
     public static List<Comunidades> ListaComunidades = new List<Comunidades>();
     public static List<Mensajes> ListaMensajes = new List<Mensajes>();
@@ -17,11 +19,12 @@ public static class BD
 
     public static List<Usuarios> ObtenerUsuarios()
     {
-        using (var connection = new SqlConnection(_connectionString))
+        using (SqlConnection db = new SqlConnection(_connectionString))
         {
             string sql = "SELECT * FROM Usuarios"; // Obtenemos todos los usuarios
-            return connection.Query<Usuarios>(sql).ToList();
+            ListaUsuarios = db.Query<Usuarios>(sql).ToList();
         }
+        return ListaUsuarios;
     }
 
     public static List<Grupos> ObtenerGrupos()
