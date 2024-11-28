@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CommunyTalk.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace CommunyTalk.Controllers;
 
@@ -139,4 +141,21 @@ public class HomeController : Controller
     public IActionResult IrAAmigos (){
         return View("SearchFriends");
     }
+
+    private IWebHostEnvironment Environment;
+
+    public HomeController(IWebHostEnvironment environment){
+        Environment = environment;
+    }
+
+/*    [HttpPost]
+    public IActionResult FotoPerfil(IFormFile fotoDePerfil){
+        if(fotoDePerfil.Length>0){
+            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + fotoDePerfil.FileName;
+        using (var stream = System.IO.File.Create(wwwRootLocal)){
+            fotoDePerfil.CopyToAsync(stream);
+        }
+        }
+    } 
+*/    
 }
