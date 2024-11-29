@@ -118,10 +118,28 @@ public class HomeController : Controller
         }
     }
 
-    public IActionResult Registrar(){
-        
+    public IActionResult Registrar(string error){
+        if (error == null)
+        {
+            ViewBag.Error = false;
+        }
+        ViewBag.Error = true;
         return View("Registrar");
     }
+
+    public IActionResult GuardarUsuario(Usuarios nuevoUser, string Contraseña2)
+    {
+        if (nuevoUser.Contraseña != Contraseña2 || string.IsNullOrEmpty(nuevoUser.Nametag) ||  string.IsNullOrEmpty(nuevoUser.Contraseña) || string.IsNullOrEmpty(nuevoUser.Email))
+        {
+            return RedirectToAction("Registro" , "Home", new {error = true});
+        }
+        else
+        {
+            BD.InsertUser(nuevoUser);
+            return RedirectToAction("Login");
+        }
+    }
+
     public IActionResult Logout()
     {
         HttpContext.Session.Remove("user");
@@ -141,14 +159,14 @@ public class HomeController : Controller
     public IActionResult IrAAmigos (){
         return View("SearchFriends");
     }
-
+/*
     private IWebHostEnvironment Environment;
 
     public HomeController(IWebHostEnvironment environment){
         Environment = environment;
     }
 
-/*    [HttpPost]
+    [HttpPost]
     public IActionResult FotoPerfil(IFormFile fotoDePerfil){
         if(fotoDePerfil.Length>0){
             string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + fotoDePerfil.FileName;
