@@ -1,9 +1,7 @@
 @{
     ViewData["Title"] = "Login";
-}
-<div class="CuadroIniciar">
-    <div class="ContenedorLog">
-        <style>
+}    
+    <style>
             body{background-color: #171717;}
             main{background-color: #171717;
             display: flex;
@@ -12,16 +10,19 @@
             padding: 2%;}
 
         </style>
+<div class="CuadroIniciar">
+    <div class="ContenedorLog">
+
         <h2 class="loginh2">Iniciar Sesión</h2>
 
         <form asp-controller="Home" asp-action="VerificarContraseña" method="post">
             <div class="form-group">
                 <label class="InfoIngresar" for="Usuario">Usuario:</label>
-                <input type="text" class="form-control" id="Usuario" name="Usuario" required>
+                <input id="Usuario" name="Usuario" required>
             </div>
             <div class="form-group">
                 <label class="InfoIngresar" for="Contraseña">Contraseña:</label>
-                <input type="password" class="form-control" id="Contraseña" name="Contraseña" required>
+                <input type="password" id="Contraseña" name="Contraseña" required>
             </div>
             <div class="botonesNo">
             <button type="submit" class="BotonIniciar">Iniciar Sesión</button>
