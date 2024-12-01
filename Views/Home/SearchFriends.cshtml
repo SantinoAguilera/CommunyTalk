@@ -1,18 +1,15 @@
 <section class="search-section">
-    <h1 class="tituloAmigos">Amigos</h1>
+    <h1 class="tituloAmigos">Mensajes directos</h1>
     
-    <a asp-controller="Home" asp-action="CambiarBusquedaAmigos" class="ChangeButton">
-    </a>
+    <a asp-controller="Home" asp-action="CambiarBusquedaAmigos" class="ChangeButton">Cambiar de búsqueda</a>
     @{
         if(!ViewBag.StatusBusqueda)
             {
             <div class="search-container">
                 <input type="text" id="searchInputUsers" placeholder="Buscar amigos..." />
-                <button type="submit" class="search-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
-                        <path fill="#7ef3bc" d="M7 2a5 5 0 1 0 0 10A5 5 0 0 0 7 2M0 7a7 7 0 1 1 12.606 4.192l3.101 3.1l-1.414 1.415l-3.1-3.1A7 7 0 0 1 0 7"/>
-                    </svg>
-                </button>
+               <button type="submit" class="search-button">
+                        <img class="lupa" src="/images/lupa.png"/>
+                    </button>
             </div>
             }
             else
@@ -20,9 +17,7 @@
                 <div class="search-container">
                     <input type="text" id="searchInputUsers" placeholder="Buscar desconocidos..." />
                     <button type="submit" class="search-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
-                            <path fill="#7ef3bc" d="M7 2a5 5 0 1 0 0 10A5 5 0 0 0 7 2M0 7a7 7 0 1 1 12.606 4.192l3.101 3.1l-1.414 1.415l-3.1-3.1A7 7 0 0 1 0 7"/>
-                        </svg>
+                        <img class="lupa" src="/images/lupa.png"/>
                     </button>
                 </div>
             }
