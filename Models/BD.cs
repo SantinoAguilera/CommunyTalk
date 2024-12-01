@@ -5,7 +5,7 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=sasanet\sqlexpress;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion = 1; //ELIMINAR LA INICIACIÓN ANTES DE LA RELEASE
     public static int IdGrupoActual;
     public static List<Usuarios> ListaUsuarios = new List<Usuarios>();

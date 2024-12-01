@@ -10,10 +10,8 @@ html {
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 100%;
+  background-color: #dae6fc;
 }
-
-
-
 
 /* Index */
 .LandingPage {
@@ -289,42 +287,43 @@ input{
   outline:none;
   padding: 0 15px; 
   width: 90%;
-  height: 55px;
+  height: 50px;
   font-size: xx-large;
   font-weight: 500;
+  margin: 2%;
 }
-
-
 
 input:hover{
   color:white;
 }
 
 .BotonNoIniciar{
-  width: 35%;
+  width: 50%;
   height: 60px;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: large;
   color: white;
-  background-color: #63468d;
-  border-color: #63468d;
+  background-color: #80599F;
+  border-color: #80599F;
   margin-top: 3%;
-  margin-left: 2%;
+  margin-left: 1%;
   margin-right: 2%;
 }
 
 .botonesNo{
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content:center;
+  align-items: center;
   margin-top: 5%;
 }
 
 .BotonIniciar{
-  width: 35%;
+  width: 60%;
   height: 60px;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: x-large;
   color: white;
   background-color: #7EF3BC;
   border-color: #7EF3BC;
@@ -373,3 +372,30 @@ input:hover{
   background-color: #7EF3BC;
   border-color: #7EF3BC;
 }
+
+/*Login + registro 2*/
+.loginh2{
+  text-align: center;
+}
+
+.CuadroIniciar{
+  width: 50%;
+  background-color: #63468d;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  color: white;
+  border-radius: 15px;
+}
+
+.ContenedorLog{
+  background-color: #63468d;
+
+}
+
+.InfoIngresar{
+  color:white;
+  font-size: larger;
+  margin: 1%;
+}
+
