@@ -2,38 +2,35 @@
     ViewData["Title"] = "Mensajes Privados";
 }
 <h1 class="ChatName">@ViewBag.Nombre</h1>
-<div class="Messages">
-    @{
-        foreach(Mensajes mensaje in ViewBag.Mensajes) //Cada mensaje se pone uno por uno. El orden se define en BD.cs cuando se ordena por FechaHora.
+ @{
+    foreach(Mensajes mensaje in ViewBag.Mensajes)
+    {
+        string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuarioEmisor);
+        if(mensaje.IdUsuarioEmisor == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se pone a la derecha, sino, se pone a la izquierda.
         {
-            string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuario);
-            if(mensaje.IdUsuario == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se ponde a la derecha, sino, se pone a la izquierda.
-            {
-                <div class="OwnMessages">
-                    <img src="@FotodePerfil">
-                    <div class="Mensaje">
-                        <p>@mensaje.Contenido</p>
-                        <p>@mensaje.FechaHora</p>
-                    </div>
+            <div class="OwnMessages">
+                <div class="Mensaje">
+                    <p class="MessageText">@mensaje.Contenido</p>
+                    <p class="FechaHora">@mensaje.FechaHora</p>
                 </div>
-            }
-            else
-            {
-                <div class="OtherMessages">
-                    <img src="/images/UserImages/">
-                    <div class="Mensaje">
-                        <p class="MessageText">@mensaje.Contenido</p>
-                        <p>@mensaje.FechaHora</p>
-                    </div>
+                <img width=5% class="FotodePerfil" src="@FotodePerfil">
+            </div>
+        }
+        else
+        {
+            <div class="OtherMessages">
+                <img class="FotodePerfil" src="@FotodePerfil ">
+                <div class="Mensaje">
+                    <p class="MessageText">@mensaje.Contenido</p>
+                    <p class="FechaHora">@mensaje.FechaHora</p>
                 </div>
-            }
+            </div>
         }
     }
-</div>
-
-<div class="EnviarMensaje">
+}
+<form action= '@Url.Action("EnviarMensajeGrupo","Home")' class="EnviarMensaje">
     <div class="Send">
-        <input class="Message" type="text"> 
-        <img class="send" src="/images/Send.png">
+        <input class="Message" type="text" name="Contenido"> 
+        <button><img class="send" src="/images/Send.png"></button>
     </div>
-</div>
+</form>
