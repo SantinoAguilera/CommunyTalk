@@ -159,6 +159,10 @@ public class HomeController : Controller
     public IActionResult EditarUsuario (){
         return View("EditarUsuario");
     }
+
+    public IActionResult CrearGrupo (){
+        return View("CrearGrupo");
+    }
 /*
     private IWebHostEnvironment Environment;
 
