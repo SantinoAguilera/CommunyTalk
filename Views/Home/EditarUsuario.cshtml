@@ -2,3 +2,36 @@
     ViewData["Title"]="Editar Usuario";
 }
 
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<style>
+body{
+    background-color: #63468d;
+}
+</style>
+<!--Queda de backend Crear una Función para conseguir de la BD la InfoUsuario de la Usuario y conectarla con ViewBag acá, luego en editar la Función para update eso-->
+<div class="EditarInfoUsuario">
+    <h1 class="NombreUsuario">Usuario</h1> <!--Nametag-->
+    <a href='@Url.Action("Usuario", "Home")'><img class="IconoEditarUsuario" src="/images/Cancelar.png"/></a>
+</div>
+<div class="EditarEstructura">
+<div class="Perfil">
+<div class="InfoUsuario">
+<img class="ViewFotodePerfil" src="/images/UserImages/defaultBlanco.jpeg"/>
+
+    <form method="post" asp-controller="" asp-action="">
+<p>Name-tag:</p>
+<input id="nametag" name="nametag" placeholder="Nombre anterior">
+<p>Nombre: </p> <!--Nombre-->
+<input id="pronouns" name="pronouns" placeholder="Pronombres anteriores">
+<p>Descripción:</p>
+<input id="descripcion" name="descripcion" placeholder="Descripcion anterior">
+<div class="botonesNo">
+    <button type="submit" class="BotonIniciar">Enviar</button>
+</div>
+</form>
+</div>
+</div>
+</div>
