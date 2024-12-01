@@ -159,6 +159,10 @@ public class HomeController : Controller
     public IActionResult IrAAmigos (){
         return View("SearchFriends");
     }
+
+    public IActionResult EditarUsuario (){
+        return View("EditarUsuario");
+    }
 /*
     private IWebHostEnvironment Environment;
 

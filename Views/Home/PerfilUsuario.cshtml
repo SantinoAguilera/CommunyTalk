@@ -7,17 +7,18 @@ body{
     background-color: #63468d;
 }
 </style>
-
-<h1 class="NombreUsuario">Usuario</h1> <!--Nametag-->
+<!--Queda de backend Crear una Función para conseguir de la BD la InfoUsuario de la Usuario y conectarla con ViewBag acá, luego en editar la Función para update eso-->
+<div class="EditarInfoUsuario">
+    <h1 class="NombreUsuario">Usuario</h1> <!--Nametag-->
+    <a href='@Url.Action("EditarUsuario", "Home")'><img class="IconoEditarUsuario" src="/images/EditarUsuario.png"/></a>
+</div>
 <div class="Perfil">
 <img class="ViewFotodePerfil" src="/images/UserImages/defaultBlanco.jpeg"/>
 <div class="InfoUsuario">
-<p>Nombre:</p> <!--Nombre-->
+<p>Nombre: </p> <!--Nombre-->
 <p>Email:</p>
 <p>Pronombres:</p>
 <p>Descripción:</p>
 </div>
-<div class="Amigos">
-<button class="BotonAmigos"><a href='@Url.Action("IrAAmigos", "Home")'>Amigos</a></button>
-</div>
+<button class="BotonAmigos"><a href='@Url.Action("SearchFriends", "Home")'>Amigos</a></button>
 </div>

@@ -345,15 +345,17 @@ input:hover{
 /*Perfil Usuario*/
 .ViewFotodePerfil{
   width: 25%;
+  border-radius: 500px;
+  margin-bottom: 2%;
 }
 
 .NombreUsuario{
   font-size: 80px;
   text-align: center;
+  color: white;
 }
 
 .Perfil{
-  height: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -366,13 +368,33 @@ input:hover{
 
 
 .BotonAmigos{
-  width: 100%;
-  height: 50px;
+  width: 30%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
   font-size: 20px;
   color: white;
   background-color: #7EF3BC;
   border-color: #7EF3BC;
+}
+
+
+.Amigos{
+  width: 20%;
+}
+
+.EditarInfoUsuario{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.IconoEditarUsuario{
+  width: 50%;
+  height:50%;
 }
 
 /*Login + registro 2*/
