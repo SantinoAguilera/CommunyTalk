@@ -7,6 +7,7 @@ public static class BD
     /* Atributos */
     private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion = 1; //ELIMINAR LA INICIACIÓN ANTES DE LA RELEASE
+    public static int IdComunidadActual;
     public static int IdGrupoActual;
     public static int IdChatActual;
     public static List<Usuarios> ListaUsuarios = new List<Usuarios>();
@@ -109,12 +110,12 @@ public static class BD
         }
     }
 
-    public static void EnviarMensajeComunidad (string Contenido, int IdComunidad)
+    public static void EnviarMensajeComunidad (string Contenido, int IdUsuario)
     {
         DateTime FechaHora = DateTime.Now;
         using (SqlConnection db = new SqlConnection(_connectionString)){
             string sql = "INSERT INTO Mensajes(Contenido, FechaHora, IdComunidad, IdUsuarioEmisor) VALUES (@pContenido, @pFechaHora, @pIdComunidad, @pIdUsuarioSesion)";
-            db.Execute(sql, new { pContenido = Contenido, pFechaHora = FechaHora, pIdComunidad = IdComunidad, pIdUsuarioSesion = IdUsuarioSesion });
+            db.Execute(sql, new { pContenido = Contenido, pFechaHora = FechaHora, pIdComunidad = IdComunidadActual, pIdUsuarioSesion = IdUsuarioSesion });
         }
     }
 

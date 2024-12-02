@@ -38,6 +38,22 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult CommunyChat(int IdComunidad)
+    {
+        BD.IdComunidadActual = IdComunidad;
+        ViewBag.Mensajes = BD.ObtenerMensajesComunidad(IdComunidad);
+        ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
+        return View();
+    }
+
+    public IActionResult EnviarMensajeComunidad(string Contenido, int IdUsuario)
+    {
+        BD.EnviarMensajeComunidad(Contenido, IdUsuario);
+        ViewBag.Mensajes = BD.ObtenerMensajesComunidad(BD.IdComunidadActual);
+        ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
+        return View("CommunyChat");
+    }
+
     public IActionResult SearchGroups()
     {
         ViewBag.Grupos = BD.ObtenerGrupos();
@@ -67,7 +83,7 @@ public class HomeController : Controller
         ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
         return View();
     }
-
+    
     public IActionResult EnviarMensajePrivado(string Contenido, int IdUsuario)
     {
         BD.EnviarMensajePrivado(Contenido, IdUsuario);

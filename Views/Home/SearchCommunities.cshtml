@@ -8,26 +8,26 @@
     </div>
     <div class="container">
         <div class="row justify-content-start" id="communityList">
-            @foreach(var comunidad in ViewBag.Comunidades)
+            @foreach(Comunidades comunidad in ViewBag.Comunidades)
             {
                 string FotoPerfil = @comunidad.FotoDeComunidad;
-            <div class="col-auto mb-3 community-card" data-community-name="@comunidad.Nombre">
-                <a asp-controller="Home" asp-action="GroupChat">
-                    <div class="card carta" style="width: 560px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="@FotoPerfil" class="img-fluid rounded-start cartaImagen">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h1 class="card-title">@comunidad.Nombre</h1>
-                                    <p class="card-text">@comunidad.Descripcion</p>
+                <div class="col-auto mb-3 community-card" data-community-name="@comunidad.Nombre">
+                    <a asp-controller="Home" asp-action="CommunyChat" asp-route-IdComunidad="@comunidad.IdComunidad">
+                        <div class="card carta" style="width: 560px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="@FotoPerfil" class="img-fluid rounded-start cartaImagen">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h1 class="card-title">@comunidad.Nombre</h1>
+                                        <p class="card-text">@comunidad.Descripcion</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
             }
         </div>
     </div>
