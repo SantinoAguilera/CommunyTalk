@@ -8,19 +8,30 @@
     }
 </style>
 
-<div class="LandingPage">
-    <div class="Imagen">
-        <img src = "/images/Logo.png">
-    </div>
-    <div class="BotonesYtexto">
-        <p>Bienvenido a </p>
-        <p>CommunyTalk, la</p>
-        <p>mejor red social</p>
-        <p>para uso estudiantil</p> 
-        <div class="Botones">
-        <button class="Boton1"><a href='@Url.Action("Login", "Home")'>Iniciar Sesión</a></button> 
-        <button class="Boton2"><a href='@Url.Action("Registrar", "Home", new {error = false})'>Registrarse</a></button> 
+@{
+    if(BD.IdUsuarioSesion == null)
+    {
+        <div class="LandingPage">
+            <div class="Imagen">
+                <img src = "/images/Logo.png">
+            </div>
+            <div class="BotonesYtexto">
+                <p>Bienvenido a </p>
+                <p>CommunyTalk, la</p>
+                <p>mejor red social</p>
+                <p>para uso estudiantil</p> 
+                <div class="Botones">
+                    <button class="Boton1"><a href='@Url.Action("Login", "Home")'>Iniciar Sesión</a></button> 
+                    <button class="Boton2"><a href='@Url.Action("Registrar", "Home", new {error = false})'>Registrarse</a></button> 
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
+    }
+    else
+    {
+        /* MENU PRINCIPAL */
+    }
+}
+
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
