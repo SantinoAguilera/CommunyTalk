@@ -449,3 +449,18 @@ input:hover{
 .lupa{
   width: 30%;
 }
+
+.cerrarSesion{
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
+
+.Foto{
+  background-color: #17171700;
+}
+
+.Foto:hover{
+  background-color: #17171700;
+}
+
