@@ -464,3 +464,26 @@ input:hover{
   background-color: #17171700;
 }
 
+/*Landing page*/
+.indexh1{
+  color:#7EF3BC;
+  font-size: 50px;
+  text-align: center;
+  margin: 2%;
+}
+
+.Indexinfo{
+  font-size: xx-large;
+  color: #7EF3BC;
+}
+
+.centrar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
+
+.logoIndex{
+  width: 10%;
+}
