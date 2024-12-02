@@ -62,9 +62,18 @@ public class HomeController : Controller
 
     public IActionResult PrivateChat(int IdUsuario)
     {
+        BD.IdChatActual = IdUsuario;
         ViewBag.Mensajes = BD.ObtenerMensajesPrivado(IdUsuario);
         ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
         return View();
+    }
+
+    public IActionResult EnviarMensajePrivado(string Contenido, int IdUsuario)
+    {
+        BD.EnviarMensajePrivado(Contenido, IdUsuario);
+        ViewBag.Mensajes = BD.ObtenerMensajesPrivado(BD.IdChatActual);
+        ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
+        return View("PrivateChat");
     }
 
     public IActionResult SearchFriends()

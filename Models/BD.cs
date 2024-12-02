@@ -8,6 +8,7 @@ public static class BD
     private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion = 1; //ELIMINAR LA INICIACIÓN ANTES DE LA RELEASE
     public static int IdGrupoActual;
+    public static int IdChatActual;
     public static List<Usuarios> ListaUsuarios = new List<Usuarios>();
     public static List<Grupos> ListaGrupos = new List<Grupos>();
     public static List<Comunidades> ListaComunidades = new List<Comunidades>();
@@ -66,7 +67,7 @@ public static class BD
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes WHERE IdUsuario = 1";
+            string sql = "SELECT * FROM Mensajes WHERE IdUsuario = @pIdUsuario";
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdUsuario = IdUsuario}).ToList();
         }
         return ListaMensajes;
@@ -94,8 +95,8 @@ public static class BD
     {
         DateTime FechaHora = DateTime.Now;
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "INSERT INTO Mensajes(Contenido, FechaHora, IdUsuario) VALUES (@pContenido, @pFechaHora, @pIdUsuario)";
-            db.Execute(sql, new { pContenido = Contenido, pFechaHora = FechaHora, pIdUsuario = IdUsuario});
+            string sql = "INSERT INTO Mensajes(Contenido, FechaHora, IdUsuario, IdUsuarioEmisor) VALUES (@pContenido, @pFechaHora, @pIdUsuario, @pIdUsuarioSesion)";
+            db.Execute(sql, new { pContenido = Contenido, pFechaHora = FechaHora, pIdUsuario = IdChatActual, pIdUsuarioSesion = IdUsuarioSesion });
         }
     }
 
@@ -112,8 +113,8 @@ public static class BD
     {
         DateTime FechaHora = DateTime.Now;
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "INSERT INTO Mensajes(Contenido, FechaHora, IdComunidad) VALUES (@pContenido, @pFechaHora, @pIdComunidad)";
-            db.Execute(sql, new { pContenido = Contenido, pFechaHora = FechaHora, pIdComunidad = IdComunidad});
+            string sql = "INSERT INTO Mensajes(Contenido, FechaHora, IdComunidad, IdUsuarioEmisor) VALUES (@pContenido, @pFechaHora, @pIdComunidad, @pIdUsuarioSesion)";
+            db.Execute(sql, new { pContenido = Contenido, pFechaHora = FechaHora, pIdComunidad = IdComunidad, pIdUsuarioSesion = IdUsuarioSesion });
         }
     }
 
