@@ -41,10 +41,10 @@
                                                 <h1 class="card-title">@usuario.Nametag</h1>
                                                 <p class="card-text">@usuario.Descripcion</p>
                                                 @{
-                                                    if(@usuario.UltimaActividad > DateTime.MinValue){
+                                                    if(@usuario.UltimaActividad > DateTime.MinValue &&!ViewBag.StatusBusqueda){
                                                         <p class="card-text">@usuario.UltimaActividad</p>
                                                     }
-                                                    else{
+                                                    else if(!ViewBag.StatusBusqueda){
                                                         <p>El usuario aún no ha registrado actividad</p>
                                                     }
                                                 }
