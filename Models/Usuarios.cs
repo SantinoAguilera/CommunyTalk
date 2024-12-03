@@ -23,6 +23,8 @@ public class Usuarios
 
     public int Notificaciones;
 
+    public DateTime UltimaActividad; 
+
     public string? Email { get; set; }
 
     public override string ToString()
