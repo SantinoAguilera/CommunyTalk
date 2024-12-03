@@ -26,7 +26,6 @@ header {
   z-index: 1000;
   height: 120px;
   display: flex;
-  justify-content: center;
   box-shadow: 2px 2px 2px 1px #bbffdf;
   border-bottom: 1.5px solid #6464641c;
   flex-direction: row;
@@ -78,7 +77,7 @@ header nav ul li a p{
 .horizontal{
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -88,6 +87,7 @@ header nav ul li a p{
   color: white;
   text-decoration: none;
 }
+
 
 .vertical{
   position:absolute;
