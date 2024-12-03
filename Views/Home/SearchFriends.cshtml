@@ -40,6 +40,14 @@
                                             <div class="card-body">
                                                 <h1 class="card-title">@usuario.Nametag</h1>
                                                 <p class="card-text">@usuario.Descripcion</p>
+                                                @{
+                                                    if(@usuario.UltimaActividad > DateTime.MinValue){
+                                                        <p class="card-text">@usuario.UltimaActividad</p>
+                                                    }
+                                                    else{
+                                                        <p>El usuario aún no ha registrado actividad</p>
+                                                    }
+                                                }
                                             </div>
                                         </div>
                                     </div>
