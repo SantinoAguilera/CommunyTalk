@@ -5,8 +5,8 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
-    public static int IdUsuarioSesion = 1; //ELIMINAR LA INICIACIÓN ANTES DE LA RELEASE
+    private static string _connectionString = @"Server=sasanet\sqlexpress;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    public static int IdUsuarioSesion;
     public static int IdComunidadActual;
     public static int IdGrupoActual;
     public static int IdChatActual;
@@ -68,8 +68,8 @@ public static class BD
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes WHERE IdUsuario = @pIdUsuario";
-            ListaMensajes = db.Query<Mensajes>(sql, new { pIdUsuario = IdUsuario}).ToList();
+            string sql = "SELECT * FROM Mensajes WHERE IdUsuario = @pIdUsuario AND IdUsuarioEmisor = @pIdUsuarioEmisor";
+            ListaMensajes = db.Query<Mensajes>(sql, new { pIdUsuario = IdUsuario, pIdUsuarioEmisor = IdUsuarioSesion}).ToList();
         }
         return ListaMensajes;
     }
@@ -126,8 +126,48 @@ public static class BD
             string sql = "SELECT Foto FROM Usuarios WHERE IdUsuario = @pIdUsuario";
             foto = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuario});
         }
-        if (foto == null) foto = "default.png";
+        foto ??= "default.png";
         return foto ?? "default.png";
+    }
+
+    public static string ObtenerNametag()
+    {
+        string NameTag;
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT NameTag FROM Usuarios WHERE IdUsuario = @pIdUsuario";
+            NameTag = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuarioSesion});
+        }
+        return NameTag;
+    }
+
+    public static string ObtenerEmail()
+    {
+        string Email;
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT Email FROM Usuarios WHERE IdUsuario = @pIdUsuario";
+            Email = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuarioSesion});
+        }
+        return Email ?? "?";
+    }
+
+    public static string ObtenerPronombres()
+    {
+        string Pronombres;
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT Pronombres FROM Usuarios WHERE IdUsuario = @pIdUsuario";
+            Pronombres = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuarioSesion});
+        }
+        return Pronombres ?? "?";
+    }
+
+    public static string ObtenerDescripcion()
+    {
+        string Descripcion;
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT Descripcion FROM Usuarios WHERE IdUsuario = @pIdUsuario";
+            Descripcion = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuarioSesion});
+        }
+        return Descripcion ?? "?";
     }
 
     public static string ObtenerFotodePerfil(int IdGrupo)

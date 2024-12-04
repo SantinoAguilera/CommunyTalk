@@ -131,6 +131,7 @@ public class HomeController : Controller
             {
                 if (Contraseña == comparar.Contraseña)
                 {
+                    BD.IdUsuarioSesion = comparar.IdUsuario;
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -168,7 +169,8 @@ public class HomeController : Controller
     public IActionResult Logout()
     {
         HttpContext.Session.Remove("user");
-        return RedirectToAction("Login");
+        BD.IdUsuarioSesion = 0;
+        return RedirectToAction("Index");
     }
 
     public IActionResult Settings()

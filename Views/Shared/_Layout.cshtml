@@ -14,19 +14,35 @@
             <div class="container-fluid">
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="horizontal">
-                        <li class="nav-item">
-                        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                        <img class="imgMenu" src="/images/FlechaAbajo.png">
-                        </button>
-                        </li>
+                        @{
+                            if(BD.IdUsuarioSesion != 0)
+                            {
+                                <li class="nav-item">
+                                    <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                    <img class="imgMenu" src="/images/FlechaAbajo.png">
+                                    </button>
+                                </li>
+                            }
+                        }
+                        
                         <li class="nav-item">
                             <a asp-controller="Home" asp-action="Index"><p>CommunyTalk</p></a>
                         </li>
-                        <li class="nav-item">
-                            <div class="User">
-                                <a asp-area="" asp-controller="Home" asp-action="Usuario"><img class="imgPerfil"  src="/images/UserImages/IconPrueba.jpg"></a>
-                            </div>
-                        </li>
+                        @{
+                            if(BD.IdUsuarioSesion != 0)
+                            {
+                                <li class="nav-item">
+                                    <div class="User">
+                                        <a asp-area="" asp-controller="Home" asp-action="Usuario">
+                                            @{
+                                                string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(BD.IdUsuarioSesion);
+                                                <img class="imgPerfil" src="@FotodePerfil">
+                                            }
+                                        </a>
+                                    </div>
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>
@@ -36,34 +52,40 @@
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Categoría</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">        
-            <ul class="sidebarbuttons">
-                <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchGroups">Grupos</a></li>
-                @{
-                    List<Grupos> ListaGrupos = BD.ObtenerTresGrupos();
-                    foreach(Grupos grupo in ListaGrupos)
-                    {
-                        string FotodePerfil = "/images/GroupImages/" + grupo.FotodePerfil;
-                        <div class="imagenyText">
-                            <img class="imgSide" src="@FotodePerfil">
-                            <p>@grupo.Nombre</p>
-                        </div>
-                    }
-                }
-                <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchCommunities">Comunidades</a></li>
-                 @{
-                    List<Comunidades> ListaComunidades = BD.ObtenerTresComunidades();
-                    foreach(Comunidades comunidades in ListaComunidades)
-                    {
-                        string FotodePerfil = "/images/CommunityImages/" + comunidades.FotoDeComunidad;
-                        <div class="imagenyText">
-                            <img class="imgSide" src="@FotodePerfil">
-                            <p>@comunidades.Nombre</p>
-                        </div>
-                    }
-                }
-            </ul>
-        </div>
+        @{
+            if(BD.IdUsuarioSesion != 0)
+            {
+                <div class="offcanvas-body">        
+                    <ul class="sidebarbuttons">
+                        <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchGroups">Grupos</a></li>
+                        @{
+                            List<Grupos> ListaGrupos = BD.ObtenerTresGrupos();
+                            foreach(Grupos grupo in ListaGrupos)
+                            {
+                                string FotodePerfil = "/images/GroupImages/" + grupo.FotodePerfil;
+                                <div class="imagenyText">
+                                    <img class="imgSide" src="@FotodePerfil">
+                                    <p>@grupo.Nombre</p>
+                                </div>
+                            }
+                        }
+                        <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchCommunities">Comunidades</a></li>
+                        @{
+                            List<Comunidades> ListaComunidades = BD.ObtenerTresComunidades();
+                            foreach(Comunidades comunidades in ListaComunidades)
+                            {
+                                string FotodePerfil = "/images/CommunityImages/" + comunidades.FotoDeComunidad;
+                                <div class="imagenyText">
+                                    <img class="imgSide" src="@FotodePerfil">
+                                    <p>@comunidades.Nombre</p>
+                                </div>
+                            }
+                        }
+                    </ul>
+                </div>
+            }
+        }
+        
     </header>
     <div class="container">
         <main role="main" class="pb-3">
