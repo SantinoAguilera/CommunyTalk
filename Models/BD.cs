@@ -5,7 +5,7 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=sasanet\sqlexpress;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion;
     public static int IdComunidadActual;
     public static int IdGrupoActual;
@@ -140,6 +140,26 @@ public static class BD
         return NameTag;
     }
 
+    public static string ObtenerNombre()
+    {
+        string Nombre;
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT Nombre FROM Usuarios WHERE IdUsuario = @pIdUsuario";
+            Nombre = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuarioSesion});
+        }
+        return Nombre;
+    }
+
+    public static string ObtenerApellido()
+    {
+        string Apellido;
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT Apellido FROM Usuarios WHERE IdUsuario = @pIdUsuario";
+            Apellido = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuarioSesion});
+        }
+        return Apellido;
+    }
+
     public static string ObtenerEmail()
     {
         string Email;
@@ -181,6 +201,15 @@ public static class BD
         return foto ?? "/images/default.jpg";
     }
 
+    public static void EditarPerfil(string FotodePerfil, string NameTag, string Nombre, string Apellido, string Pronombres, string Descripcion)
+    {
+        string sql = "UPDATE Usuarios SET Foto = @FotodePerfil, NameTag = @NameTag, Nombre = @Nombre, Apellido = @pApellido, Pronombres = @pPronombres, Descripcion = @pDescripcion WHERE IdUsuario = @pIdUsuarioSesion";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pFotodePerfil = FotodePerfil, pNameTag = NameTag, pNombre = Nombre, pApellido = Apellido, pPronombres = Pronombres, pDescripcion = Descripcion, pIdUsuarioSesion = IdUsuarioSesion});
+        }
+    }
+
     public static void AñadirUsuario(Usuarios usuario)
     {
         string sql = "INSERT INTO Usuarios (Contraseña, Email) VALUES (@pContraseña,@pEmail)";
@@ -200,6 +229,62 @@ public static class BD
         }
         return usuario;
     }
+
+    public static void CambiarFoto(string FotodePerfil)
+    {
+        string sql = "UPDATE Usuarios SET Foto = @pFotodePerfil WHERE IdUsuario = @pIdUsuarioSesion";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pFotodePerfil = FotodePerfil, pIdUsuarioSesion = IdUsuarioSesion});
+        }
+    }
+
+    public static void CambiarNameTag(string NameTag)
+    {
+        string sql = "UPDATE Usuarios SET NameTag = @pNameTag WHERE IdUsuario = @pIdUsuarioSesion";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pNameTag = NameTag, pIdUsuarioSesion = IdUsuarioSesion});
+        }
+    }
+
+    public static void CambiarNombre(string Nombre)
+    {
+        string sql = "UPDATE Usuarios SET Nombre = @pNombre WHERE IdUsuario = @pIdUsuarioSesion";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pNombre = Nombre, pIdUsuarioSesion = IdUsuarioSesion});
+        }
+    }
+
+    public static void CambiarApellido(string Apellido)
+    {
+        string sql = "UPDATE Usuarios SET Apellido = @pApellido WHERE IdUsuario = @pIdUsuarioSesion";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pApellido = Apellido, pIdUsuarioSesion = IdUsuarioSesion});
+        }
+    }
+
+    public static void CambiarPronombres(string Pronombres)
+    {
+        string sql = "UPDATE Usuarios SET Pronombres = @pPronombres WHERE IdUsuario = @pIdUsuarioSesion";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pPronombres = Pronombres, pIdUsuarioSesion = IdUsuarioSesion});
+        }
+    }
+
+    public static void CambiarDescripcion(string Descripcion)
+    {
+        string sql = "UPDATE Usuarios SET Descripcion = @pDescripcion WHERE IdUsuario = @pIdUsuarioSesion";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pDescripcion = Descripcion, pIdUsuarioSesion = IdUsuarioSesion});
+        }
+    }
+
+    
 
     public static void CambiarContraseña(string Email, string nuevaContraseña)
     {
@@ -246,4 +331,5 @@ public static class BD
             db.Execute(SQL, new{ pNuevaContraseña = NuevaContraseña, pNametag = Nametag});
         }
     }
+
 }

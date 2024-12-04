@@ -160,6 +160,13 @@ input[type="text"] {
   width: 100%;
   border-radius: 50px;
   margin-left: 5px;
+  appearance: none;
+
+}
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 
 .search-button {
@@ -228,14 +235,16 @@ input[type="text"] {
   border-radius: 50px;
   color: rgb(0, 0, 0);
   font-size: large;
+  margin-left: 8%;
 }
 
 .OtherMessages {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: start;
   margin-left: 2%; 
-  margin: 0.5%;
+  margin: 0.3%;
 }
 
 .ChatName{
@@ -244,7 +253,7 @@ input[type="text"] {
 }
 
 .FotodePerfil{
-  width: 4%;
+  width: 3%;
   border-radius: 150px;
   height: min-content;
   margin:2%;
@@ -487,4 +496,9 @@ input:hover{
 
 .logoIndex{
   width: 10%;
+}
+
+.InformacionUsuario{
+  display:flex;
+  align-items: center;
 }

@@ -178,33 +178,31 @@ public class HomeController : Controller
         return View("Settings");
     }
 
-    public IActionResult Usuario (){
+    public IActionResult Usuario()
+    {
 
         return View("PerfilUsuario");
     }
 
-    public IActionResult EditarUsuario (){
+    public IActionResult EditarUsuario()
+    {
         return View("EditarUsuario");
     }
 
-    public IActionResult CrearGrupo (){
+    public IActionResult EditarPerfil(string FotodePerfil, string NameTag, string Nombre, string Apellido, string Pronombres, string Descripcion)
+    {
+        if(FotodePerfil != null) BD.CambiarFoto(FotodePerfil);
+        if(NameTag != null) BD.CambiarNameTag(NameTag);
+        if(Nombre != null) BD.CambiarNombre(Nombre);
+        if(Apellido != null) BD.CambiarApellido(Apellido);
+        if(Pronombres != null) BD.CambiarPronombres(Pronombres);
+        if(Descripcion != null) BD.CambiarDescripcion(Descripcion);
+        return View("EditarUsuario");
+    }
+
+    public IActionResult CrearGrupo()
+    {
         return View("CrearGrupo");
     }
-/*
-    private IWebHostEnvironment Environment;
-
-    public HomeController(IWebHostEnvironment environment){
-        Environment = environment;
-    }
-
-    [HttpPost]
-    public IActionResult FotoPerfil(IFormFile fotoDePerfil){
-        if(fotoDePerfil.Length>0){
-            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + fotoDePerfil.FileName;
-        using (var stream = System.IO.File.Create(wwwRootLocal)){
-            fotoDePerfil.CopyToAsync(stream);
-        }
-        }
-    } 
-*/    
+    
 }

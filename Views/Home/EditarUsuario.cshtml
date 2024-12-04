@@ -20,14 +20,27 @@ body{
     <div class="Perfil">
         <div class="InfoUsuario">
             <img class="ViewFotodePerfil" src="/images/UserImages/defaultBlanco.jpeg"/>
-            <form method="post" asp-controller="" asp-action="">
-                <input class="Foto" type="file" name="FotodePerfil"/>
+            <form method="post" asp-controller="Home" asp-action="EditarPerfil">
+                @{
+                    string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(BD.IdUsuarioSesion);
+                    string NameTag = BD.ObtenerNametag();
+                    string Nombre = BD.ObtenerNombre();
+                    string Apellido = BD.ObtenerApellido();
+                    string Pronombres = BD.ObtenerPronombres();
+                    string Descripcion = BD.ObtenerDescripcion();
+                     
+                    <input name="FotodePerfil" placeholder="Link a la foto de perfil"/>
                     <p>Nametag: </p>
-                <input id="nametag" name="nametag" placeholder="Nombre anterior">
-                    <p>Nombre: </p> <!--Nombre-->
-                <input id="pronouns" name="pronouns" placeholder="Pronombres anteriores">
+                    <input id="NameTag" name="NameTag" placeholder="@NameTag">
+                    <p>Nombre: </p>
+                    <input id="Nombre" name="Nombre" placeholder="@Nombre">
+                    <p>Apellido: </p>
+                    <input id="Apellido" name="Apellido" placeholder="@Apellido">
+                    <p>Pronombres: </p>
+                    <input id="Pronombres" name="Pronombres" placeholder="@Pronombres">
                     <p>Descripción: </p>
-                <input id="descripcion" name="descripcion" placeholder="Descripcion anterior">
+                    <input id="Descripcion" name="Descripcion" placeholder="@Descripcion">
+                }
                 <div class="botonesNo">
                     <button type="submit" class="BotonIniciar">Enviar</button>
                 </div>
