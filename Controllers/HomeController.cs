@@ -57,13 +57,10 @@ public class HomeController : Controller
     public IActionResult SearchGroups()
     {
         ViewBag.Grupos = BD.ObtenerGrupos();
-        return View();
-    }
-
-    public IActionResult IntegrantesGrupo(){
         ViewBag.IntegrantesGrupo = BD.ObtenerIntegrantesGrupos();
         return View();
     }
+
     public IActionResult GroupChat(int IdGrupo)
     {
         BD.IdGrupoActual = IdGrupo;
