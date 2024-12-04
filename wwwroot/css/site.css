@@ -194,8 +194,8 @@ input[type="text"] {
   background-color: black;
   color: white;
   display: flex;
-  width: 560px; /* Ajuste para que sea 15% más pequeño */
-  height: 200px;
+  width: 560px; 
+  height: 250px;
 }
 .cartaImagen {
   width: 100%;
@@ -501,4 +501,15 @@ input:hover{
 .InformacionUsuario{
   display:flex;
   align-items: center;
+}
+
+.BotonAñadir{
+  width: 45%;
+  height: 45px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #8059B8;
+  border-color: #8059B8;
+  margin: 2%;
 }
