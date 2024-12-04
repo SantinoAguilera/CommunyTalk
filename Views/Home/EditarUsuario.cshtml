@@ -23,7 +23,7 @@ body{
             <form method="post" asp-controller="Home" asp-action="EditarPerfil">
                 @{
                     string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(BD.IdUsuarioSesion);
-                    string NameTag = BD.ObtenerNametag();
+                    string NameTag = BD.ObtenerNameTag();
                     string Nombre = BD.ObtenerNombre();
                     string Apellido = BD.ObtenerApellido();
                     string Pronombres = BD.ObtenerPronombres();

@@ -60,6 +60,10 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult IntegrantesGrupo(){
+        ViewBag.IntegrantesGrupo = BD.ObtenerIntegrantesGrupos();
+        return View();
+    }
     public IActionResult GroupChat(int IdGrupo)
     {
         BD.IdGrupoActual = IdGrupo;

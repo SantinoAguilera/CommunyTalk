@@ -14,6 +14,7 @@ public static class BD
     public static List<Grupos> ListaGrupos = new List<Grupos>();
     public static List<Comunidades> ListaComunidades = new List<Comunidades>();
     public static List<Mensajes> ListaMensajes = new List<Mensajes>();
+    public static List<IntegrantesXGrupo> ListaIntegrantesGrupos = new List<IntegrantesXGrupo>();
 
     public static bool StatusBusqueda = false;
 
@@ -63,6 +64,14 @@ public static class BD
             ListaComunidades = db.Query<Comunidades>(sql).ToList();
         }
         return ListaComunidades;
+    }
+
+    public static List<IntegrantesXGrupo> ObtenerIntegrantesGrupos(){
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM IntegrantesXGrupo";
+            ListaIntegrantesGrupos = db.Query<IntegrantesXGrupo>(sql).ToList();
+        }
+        return ListaIntegrantesGrupos;
     }
 
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
@@ -130,7 +139,18 @@ public static class BD
         return foto ?? "default.png";
     }
 
-    public static string ObtenerNametag()
+    public static string ObtenerNameTagEmisor(int IdUsuario)
+    {
+        string NameTag;
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT NameTag FROM Usuarios WHERE IdUsuario = @pIdUsuario";
+            NameTag = db.QueryFirstOrDefault<string>(sql, new { pIdUsuario = IdUsuario});
+        }
+        NameTag ??= "ERROR";
+        return NameTag ?? "ERROR";
+    }
+
+    public static string ObtenerNameTag()
     {
         string NameTag;
         using(SqlConnection db = new SqlConnection(_connectionString)){
