@@ -145,24 +145,21 @@ public class HomeController : Controller
         }
     }
 
-    public IActionResult Registrar(string error){
-        if (error == null)
-        {
-            ViewBag.Error = false;
-        }
-        ViewBag.Error = true;
+    public IActionResult Registrar(bool error){
+        ViewBag.Error = error;
+
         return View("Registrar");
     }
 
-    public IActionResult GuardarUsuario(Usuarios nuevoUser, string Contraseña2)
+    public IActionResult GuardarUsuario(string Usuario, string Contraseña, string Contraseña2, string Email)
     {
-        if (nuevoUser.Contraseña != Contraseña2 || string.IsNullOrEmpty(nuevoUser.Nametag) ||  string.IsNullOrEmpty(nuevoUser.Contraseña) || string.IsNullOrEmpty(nuevoUser.Email))
+        if (Contraseña != Contraseña2 || string.IsNullOrEmpty(Usuario) ||  string.IsNullOrEmpty(Contraseña) || string.IsNullOrEmpty(Email))
         {
-            return RedirectToAction("Registro" , "Home", new {error = true});
+            return RedirectToAction("Registrar" , "Home", new {error = true});
         }
         else
         {
-            BD.InsertUser(nuevoUser);
+            BD.AñadirUsuario(Usuario, Contraseña, Email);
             return RedirectToAction("Login");
         }
     }

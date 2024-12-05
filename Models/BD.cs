@@ -5,7 +5,7 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=sasanet\sqlexpress;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion;
     public static int IdComunidadActual;
     public static int IdGrupoActual;
@@ -230,12 +230,12 @@ public static class BD
         }
     }
 
-    public static void AñadirUsuario(Usuarios usuario)
+    public static void AñadirUsuario(string Usuario, string Contraseña, string Email)
     {
-        string sql = "INSERT INTO Usuarios (Contraseña, Email) VALUES (@pContraseña,@pEmail)";
+        string sql = "INSERT INTO Usuarios (Contraseña, NameTag, Email) VALUES (@pContraseña, @pNameTag, @pEmail)";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            db.Execute(sql, new { pContraseña = usuario.Contraseña, pEmail = usuario.Email });
+            db.Execute(sql, new { pContraseña = Contraseña, pNameTag = Usuario, pEmail = Email });
         }
     }
 
