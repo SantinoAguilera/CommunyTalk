@@ -5,7 +5,7 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=sasanet\sqlexpress;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-46;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion;
     public static int IdComunidadActual;
     public static int IdGrupoActual;
@@ -26,6 +26,16 @@ public static class BD
         {
             string sql = "SELECT * FROM Usuarios"; // Obtenemos todos los usuarios
             ListaUsuarios = db.Query<Usuarios>(sql).ToList();
+        }
+        return ListaUsuarios;
+    }
+
+    public static List<Usuarios> ObtenerAmigos()
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM AmigosXUsuario x INNER JOIN Usuarios u ON u.IdUsuario = x.IdUsuario WHERE u.IdUsuario = @pIdUsuarioSesion";
+            ListaUsuarios = db.Query<Usuarios>(sql, new { pIdUsuarioSesion = IdUsuarioSesion }).ToList();
         }
         return ListaUsuarios;
     }

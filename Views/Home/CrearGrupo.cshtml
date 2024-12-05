@@ -9,40 +9,42 @@
 </style>
 
 <h1 class="NombreUsuario">Crear un nuevo grupo</h1>
-<div class="EditarEstructura">
-<div class="Perfil">
-<div class="InfoUsuario">
-    <form method="POST" enctype="multipart/form-data" asp-controller="Home" asp-action="InfoGrupo">
-        <p>Link foto de perfil:</p>
-        <input id="FotodePerfil" name="FotodePerfil"/>
-        <p>Nombre:</p>
-        <input id="Nombre" name="Nombre" required>
-        <p>Descripción:</p>
-        <input id="Descripcion" name="Descripcion" required>
-<p>Privado o público:</p>
-<select id="Privado" class="form-select" name="Privado">
-    <option value="1">Privado</option>
-    <option value="0">Público</option>
-</select>
-<p>Admin:</p>
-        <select id="IdAdmin" class="form-select" name="IdAdmin">
-        @{
-            if(ViewBag.Usuarios!=null){
-            foreach(Usuarios usuario in ViewBag.Usuarios){
-                <option value="@usuario.IdUsuario">@usuario.Nombre</option>
-            }
-            }
-            else{
-                <option value="0">No existen más usuarios</option>
-            }
-        } 
-</select>
-<div class="botonesNo">
-    <button type="submit" class="BotonIniciar">Enviar</button>
-</div>
-    </form>
-</div>
-</div>
-</div>
-
+    <div class="EditarEstructura">
+        <div class="Perfil">
+            <div class="InfoUsuario">
+                <form method="POST" enctype="multipart/form-data" asp-controller="Home" asp-action="InfoGrupo">
+                    <p>Link foto de perfil:</p>
+                    <input id="FotodePerfil" name="FotodePerfil"/>
+                    <p>Nombre:</p>
+                    <input id="Nombre" name="Nombre" required>
+                    <p>Descripción:</p>
+                    <input id="Descripcion" name="Descripcion" required>
+                    <p>Privado o público:</p>
+                    <select id="Privado" class="form-select" name="Privado">
+                        <option value="1">Privado</option>
+                        <option value="0">Público</option>
+                    </select>
+                    <p>Admin:</p>
+                    <select id="IdAdmin" class="form-select" name="IdAdmin">
+                    @{
+                        if(ViewBag.Usuarios!=null)
+                        {
+                            foreach(Usuarios usuario in ViewBag.Usuarios)
+                            {
+                                <option value="@usuario.IdUsuario">@usuario.Nombre</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="0">No existen más usuarios</option>
+                        }
+                    } 
+                    </select>
+                    <div class="botonesNo">
+                        <button type="submit" class="BotonIniciar">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

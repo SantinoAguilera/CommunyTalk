@@ -4,55 +4,13 @@
     <a asp-controller="Home" asp-action="CambiarBusquedaAmigos" class="ChangeButton">Cambiar de búsqueda</a>
     @{
         if(!ViewBag.StatusBusqueda)
-            {
+        {
             <div class="search-container">
                 <input type="text" id="searchInputUsers" placeholder="Buscar amigos..." />
                <button type="submit" class="search-button">
                         <img class="lupa" src="/images/lupa.png"/>
                     </button>
             </div>
-            }
-            else
-            {
-                <div class="search-container">
-                    <input type="text" id="searchInputUsers" placeholder="Buscar desconocidos..." />
-                    <button type="submit" class="search-button">
-                        <img class="lupa" src="/images/lupa.png"/>
-                    </button>
-                </div>
-            }
-    }
-
-    <!-- Card buscar desconocidos -->
-                   @* string FotoPerfil = "/images/UserImages/" + usuario.Foto;
-                        <div class="col-auto mb-3 user-card" data-user-name="@usuario.Nombre">
-                            <a asp-controller="Home" asp-action="PrivateChat" asp-route-IdUsuario="@usuario.IdUsuario">
-                                <div class="card carta" style="width: 560px;">
-                                    <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img src="@FotoPerfil" class="img-fluid rounded-start cartaImagen">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h1 class="card-title">@usuario.Nametag</h1>
-                                                <p class="card-text">@usuario.Descripcion</p>
-                                                @{
-                                                    if(@usuario.UltimaActividad > DateTime.MinValue &&!ViewBag.StatusBusqueda){
-                                                        <p class="card-text">@usuario.UltimaActividad</p>
-                                                    }
-                                                    else if(!ViewBag.StatusBusqueda){
-                                                        <p>El usuario aún no ha registrado actividad</p>
-                                                    }
-                                                }
-                                                <button class="BotonAñadir">Añadir amigo</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                            </a>
-                        </div> *@
-    <div class="container">
-        @{
             <div class="row justify-content-start" id="userList">
                 @{
                     foreach(Usuarios usuario in ViewBag.Usuarios)
@@ -70,7 +28,7 @@
                                                 <h1 class="card-title">@usuario.Nametag</h1>
                                                 <p class="card-text">@usuario.Descripcion</p>
                                                 @{
-                                                    if(@usuario.UltimaActividad > DateTime.MinValue &&!ViewBag.StatusBusqueda){
+                                                    if(@usuario.UltimaActividad > DateTime.MinValue && !ViewBag.StatusBusqueda){
                                                         <p class="card-text">@usuario.UltimaActividad</p>
                                                     }
                                                     else if(!ViewBag.StatusBusqueda){
@@ -87,7 +45,52 @@
                 }
             </div>
         }
-    </div>
+        else
+        {
+            <div class="search-container">
+                <input type="text" id="searchInputUsers" placeholder="Buscar desconocidos..." />
+                <button type="submit" class="search-button">
+                    <img class="lupa" src="/images/lupa.png"/>
+                </button>
+            </div>
+            <div class="row justify-content-start" id="userList">
+                @{
+                    foreach(Usuarios usuario in ViewBag.Usuarios)
+                    {
+                        string FotoPerfil = "/images/UserImages/" + usuario.Foto;
+                        <div class="col-auto mb-3 user-card" data-user-name="@usuario.Nombre">
+                            <a asp-controller="Home" asp-action="PrivateChat" asp-route-IdUsuario="@usuario.IdUsuario">
+                                <div class="card carta" style="width: 560px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="@FotoPerfil" class="img-fluid rounded-start cartaImagen">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h1 class="card-title">@usuario.Nametag</h1>
+                                                <p class="card-text">@usuario.Descripcion</p>
+                                                @{
+                                                    if(@usuario.UltimaActividad > DateTime.MinValue && !ViewBag.StatusBusqueda)
+                                                    {
+                                                        <p class="card-text">@usuario.UltimaActividad</p>
+                                                    }
+                                                    else if(!ViewBag.StatusBusqueda)
+                                                    {
+                                                        <p>El usuario aún no ha registrado actividad</p>
+                                                    }
+                                                }
+                                                <button class="BotonAñadir">Añadir amigo</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </a>
+                        </div>
+                    }
+                }
+            </div>
+        }
+    }
 </section>
 
 <!-- Script para la búsqueda en tiempo real -->

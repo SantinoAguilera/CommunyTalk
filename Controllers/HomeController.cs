@@ -95,8 +95,15 @@ public class HomeController : Controller
 
     public IActionResult SearchFriends()
     {
-        ViewBag.Usuarios = BD.ObtenerUsuarios();
         ViewBag.StatusBusqueda = BD.StatusBusqueda;
+        if(BD.StatusBusqueda)
+        {
+            ViewBag.Usuarios = BD.ObtenerUsuarios();
+        }
+        else
+        {
+            ViewBag.Usuarios = BD.ObtenerAmigos();
+        }
         return View();
     }
 
