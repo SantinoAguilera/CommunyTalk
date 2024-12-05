@@ -57,30 +57,8 @@
             {
                 <div class="offcanvas-body">        
                     <ul class="sidebarbuttons">
-                        <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchGroups">Grupos</a></li>
-                        @{
-                            List<Grupos> ListaGrupos = BD.ObtenerTresGrupos();
-                            foreach(Grupos grupo in ListaGrupos)
-                            {
-                                string FotodePerfil = "/images/GroupImages/" + grupo.FotodePerfil;
-                                <div class="imagenyText">
-                                    <img class="imgSide" src="@FotodePerfil">
-                                    <p>@grupo.Nombre</p>
-                                </div>
-                            }
-                        }
-                        <li class="sidebarbutton"><a asp-controller="Home" asp-action="SearchCommunities">Comunidades</a></li>
-                        @{
-                            List<Comunidades> ListaComunidades = BD.ObtenerTresComunidades();
-                            foreach(Comunidades comunidades in ListaComunidades)
-                            {
-                                string FotodePerfil = "/images/CommunityImages/" + comunidades.FotoDeComunidad;
-                                <div class="imagenyText">
-                                    <img class="imgSide" src="@FotodePerfil">
-                                    <p>@comunidades.Nombre</p>
-                                </div>
-                            }
-                        }
+                        <a class="achicarBoton" asp-controller="Home" asp-action="SearchGroups"><li class="sidebarbutton">Grupos</li></a>
+                        <a class="achicarBoton" asp-controller="Home" asp-action="SearchCommunities"><li class="sidebarbutton">Comunidades</li></a>
                     </ul>
                 </div>
             }

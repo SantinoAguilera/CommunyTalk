@@ -138,6 +138,18 @@ header nav ul li a p{
   border-radius: 30px;
   margin-top: 6%;
  }
+ .achicarBoton{
+  width: 90%;
+  height: 60px;
+  background-color: #8059B8;
+  font-size: x-large;
+  margin: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin-top: 6%;
+ }
 
 /* Scroll Bar */
 .offcanvas-body::-webkit-scrollbar { /* Ancho */

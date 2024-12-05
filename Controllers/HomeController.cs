@@ -227,9 +227,9 @@ public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descri
 
         BD.InsertGroup(grupo);
 
-        return View("SearchGroups");
+        return View("Index");
     }
 
-    return View("SearchGroups");
+    return View("Index");
 }
 }

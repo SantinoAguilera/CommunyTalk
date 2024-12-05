@@ -21,8 +21,8 @@
                 <p>mejor red social</p>
                 <p>para uso estudiantil</p> 
                 <div class="Botones">
-                    <button class="Boton1"><a href='@Url.Action("Login", "Home")'>Iniciar Sesión</a></button> 
-                    <button class="Boton2"><a href='@Url.Action("Registrar", "Home", new {error = false})'>Registrarse</a></button> 
+                    <a href='@Url.Action("Login", "Home")'><button class="Boton1">Iniciar Sesión</button></a> 
+                    <a href='@Url.Action("Registrar", "Home", new {error = false})'><button class="Boton2">Registrarse</button></a> 
                 </div>
             </div>
         </div>
@@ -38,8 +38,28 @@
         <p class="Indexinfo">O no pueden comunicarse con todas la personas con las que querrían entablar un vínculo</p>
         <p class="Indexinfo">Es por eso que creamos CommunyTalk</p>
         <div class="centrar">
-            <img width=80% class="ImgIndex" src="/images/Amigos.jpg"/>
+        <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img width=100%  src="/images/descarga (1).jfif" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img width=100% src="/images/descarga.jfif" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img width=100% src="/images/friends.jpg" class="d-block w-100" alt="...">
+            </div>
         </div>
+    
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>    
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div></div>
         <p class="Indexinfo">Hacemos lo posible día a día para insentivar la formación de vínculos sanos</p>
     }
 }

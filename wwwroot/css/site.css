@@ -84,6 +84,9 @@ a:hover{
   color: white;
 }
 
+.carousel{
+  width: 50%;
+}
 /*Sistema de mensajes*/
 
 
@@ -493,6 +496,8 @@ input:hover{
   justify-content: center;
   margin: 2%;
 }
+
+
 
 .logoIndex{
   width: 10%;

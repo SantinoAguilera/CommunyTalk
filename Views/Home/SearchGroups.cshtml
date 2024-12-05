@@ -22,7 +22,7 @@
                             {
                                 if (integrante.IdUsuario == BD.IdUsuarioSesion && grupo.IdGrupo == integrante.IdGrupo)
                                 {
-                                    string FotoPerfil = "/images/GroupImages/" + grupo.FotodePerfil;
+                                    string FotoPerfil = grupo.FotodePerfil;
                                     <div class="col-auto mb-3 group-card" data-group-name="@grupo.Nombre">
                                         <a asp-controller="Home" asp-action="GroupChat" asp-route-IdGrupo="@grupo.IdGrupo">
                                             <div class="card carta" style="width: 560px;">
@@ -66,7 +66,7 @@
                 }
 
                       <div class="botonesNo">
-                    <button class="BotonNoIniciar"><a href='@Url.Action("CrearGrupo", "Home")'>Crear Grupo</a></button>
+                    <a href='@Url.Action("CrearGrupo", "Home")'><button class="BotonNoIniciar">Crear Grupo</button></a>
                 </div>
         </div>
     </div>

@@ -28,7 +28,7 @@ body{
             <p>Descripción: @Descripcion</p>
         </div>
     }
-    <button class="BotonAmigos"><a href='@Url.Action("SearchFriends", "Home")'>Amigos</a></button>
+    <a href='@Url.Action("SearchFriends", "Home")'><button class="BotonAmigos">Amigos</button></a>
 </div>
 
 <form asp-controller="Home" asp-action="Logout" method="post" class="cerrarSesion">
