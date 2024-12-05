@@ -352,4 +352,13 @@ public static class BD
         }
     }
 
+        public static void InsertGroup(Grupos grupo)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "INSERT INTO Grupos(Descripcion, FotodePerfil, Nombre, Privado) VALUES (@pNametag, @pContraseña, @pEmail)";
+            db.Execute(sql, new{ pDescripcion = grupo.Descripcion, pFotodePerfil = grupo.FotodePerfil, pPrivado = grupo.Privado});
+        }
+    }
+
 }

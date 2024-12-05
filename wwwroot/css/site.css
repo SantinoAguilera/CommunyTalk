@@ -513,3 +513,11 @@ input:hover{
   border-color: #8059B8;
   margin: 2%;
 }
+
+/*Crear grupo*/
+.form-select{
+  background-color: #171717;
+  color: #ffffff;
+  font-size: x-large;
+  margin:2%;
+}
