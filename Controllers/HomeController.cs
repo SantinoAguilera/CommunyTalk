@@ -200,6 +200,13 @@ public class HomeController : Controller
 
     public IActionResult CrearGrupo()
     {
+        ViewBag.Usuarios = BD.ObtenerUsuarios();
+        return View("CrearGrupo");
+    }
+
+    public IActionResult InfoGrupo(Grupos grupo)
+    {
+        BD.InsertGroup(grupo);
         return View("CrearGrupo");
     }
     
