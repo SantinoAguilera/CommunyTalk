@@ -352,13 +352,23 @@ public static class BD
         }
     }
 
-        public static void InsertGroup(Grupos grupo)
+public static void InsertGroup(Grupos grupo)
+{
+    int idGrupo;
+    using (SqlConnection db = new SqlConnection(_connectionString))
     {
-        using (SqlConnection db = new SqlConnection(_connectionString))
-        {
-            string sql = "INSERT INTO Grupos(Descripcion, FotodePerfil, Nombre, Privado) VALUES (@pNametag, @pContraseña, @pEmail)";
-            db.Execute(sql, new{ pDescripcion = grupo.Descripcion, pFotodePerfil = grupo.FotodePerfil, pPrivado = grupo.Privado});
-        }
+        string sql = @"
+            INSERT INTO Grupos (Descripcion, FotodePerfil, Nombre, Privado, IdAdmin) VALUES (@pDescripcion, @pFotodePerfil, @pNombre, @pPrivado, @pIdAdmin);
+            SELECT CAST(SCOPE_IDENTITY() AS INT)";
+        idGrupo = db.QuerySingle<int>(sql, new
+        {pDescripcion = grupo.Descripcion, pFotodePerfil = grupo.FotodePerfil, pNombre = grupo.Nombre, pPrivado = grupo.Privado, pIdAdmin = grupo.IdAdmin});
     }
+    using (SqlConnection db = new SqlConnection(_connectionString))
+    {
+        string sql = "INSERT INTO IntegrantesXGrupo (IdGrupo, IdUsuario, TopActividad) VALUES (@pIdGrupo, @pIdUsuario, 4)";
 
+        db.Execute(sql, new
+        {pIdGrupo = idGrupo, pIdUsuario = grupo.IdAdmin});
+    }
+}
 }

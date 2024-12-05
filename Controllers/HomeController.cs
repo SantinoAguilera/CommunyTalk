@@ -203,11 +203,26 @@ public class HomeController : Controller
         ViewBag.Usuarios = BD.ObtenerUsuarios();
         return View("CrearGrupo");
     }
-
-    public IActionResult InfoGrupo(Grupos grupo)
+[HttpPost]
+public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descripcion, int Privado, int IdAdmin)
+{
+    bool esPrivado = Privado == 1;
+    if (!string.IsNullOrEmpty(Nombre) && !string.IsNullOrEmpty(Descripcion))
     {
+        var grupo = new Grupos
+        {
+            FotodePerfil = FotodePerfil,
+            Nombre = Nombre,
+            Descripcion = Descripcion,
+            Privado = esPrivado,
+            IdAdmin = IdAdmin,
+        };
+
         BD.InsertGroup(grupo);
-        return View("CrearGrupo");
+
+        return View("SearchGroups");
     }
-    
+
+    return View("SearchGroups");
+}
 }

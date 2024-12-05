@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"]="Agregar a grupo";
+}
+<style>
+    body{
+    background-color: #63468d;
+    }
+</style>
+
+<h1 class="NombreUsuario">Agregar usuarios al grupo</h1>
+<p>ID del grupo: @ViewBag.IdGrupo</p>
+<form method="POST" asp-controller="Home" asp-action="GuardarUsuariosGrupo">
+    <input type="hidden" name="IdGrupo" value="@ViewBag.IdGrupo" />
+    <div class="EditarEstructura">
+        <div class="Perfil">
+            <div class="InfoUsuario">
+                <p>Miembros:</p>
+                <select id="MiembrosGrupo" class="form-select" multiple aria-label="Multiple select example" name="MiembrosGrupo">
+                    @if(ViewBag.Usuarios != null)
+                    {
+                        foreach (Usuarios usuario in ViewBag.Usuarios)
+                        {
+                            <option value="@usuario.IdUsuario">@usuario.Nombre</option>
+                        }
+                    }
+                    else
+                    {
+                        <option value="0">No existen más usuarios</option>
+                    }
+                </select>
+                <p>Selección múltiple de usuarios:</p>
+                <p>Windows: Ctrl</p>
+                <p>Mac: Command</p>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="BotonIniciar">Agregar Usuarios</button>
+</form>
