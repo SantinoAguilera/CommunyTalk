@@ -526,3 +526,20 @@ input:hover{
   font-size: x-large;
   margin:2%;
 }
+
+.TextoConfir{
+  font-size: 35px;
+  text-align: center;
+  color: white;
+}
+
+.AvisoRegistro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ContinuarLog{
+  font-size: xx-large;
+}

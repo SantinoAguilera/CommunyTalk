@@ -167,7 +167,7 @@ public class HomeController : Controller
         else
         {
             BD.AñadirUsuario(Usuario, Contraseña, Email);
-            return RedirectToAction("Login");
+            return RedirectToAction("AvisoRegistro");
         }
     }
 
@@ -231,5 +231,10 @@ public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descri
     }
 
     return View("Index");
+}
+
+public IActionResult AvisoRegistro()
+{
+    return View("AvisoRegistro");
 }
 }
