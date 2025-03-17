@@ -34,7 +34,7 @@ body{
 
 .Boton1{
   transition: 1s;
-  width: 45%;
+  width: 120%;
   height: 50px;
   border-radius: 10px;
   font-size: 20px;
@@ -45,7 +45,7 @@ body{
 
 .Boton2{
   transition: 1s;
-  width: 40%;
+  width: 120%;
   height: 50px;
   border-radius: 10px;
   font-size: 20px;
@@ -88,8 +88,6 @@ a:hover{
   width: 50%;
 }
 /*Sistema de mensajes*/
-
-
 
 .send{
   width: 20%;
@@ -316,7 +314,7 @@ input:hover{
 }
 
 .BotonNoIniciar{
-  width: 50%;
+  width: 120%;
   height: 60px;
   border-radius: 10px;
   font-size: large;
@@ -384,7 +382,7 @@ input:hover{
 
 
 .BotonAmigos{
-  width: 30%;
+  width: 150%;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -410,7 +408,7 @@ input:hover{
 
 .IconoEditarUsuario{
   width: 50%;
-  height:50%;
+  height: 50%;
 }
 
 /*Login + registro 2*/
