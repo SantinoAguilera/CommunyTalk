@@ -21,3 +21,6 @@ function guardarEnStorage() {
   var nombre = document.getElementById("nombre").value;
   localStorage.setItem("nombre", nombre);
 }
+
+
+

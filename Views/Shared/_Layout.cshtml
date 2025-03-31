@@ -19,7 +19,7 @@
                             {
                                 <li class="nav-item">
                                     <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                                    <img class="imgMenu" src="/images/FlechaAbajo.png">
+                                    <img id="flechaHeader" onclick="cambiarFlechaArriba()" class="imgMenu" src="/images/FlechaAbajo.png">
                                     </button>
                                 </li>
                             }
@@ -70,6 +70,8 @@
             @RenderBody()
         </main>
     </div>
+
+    <script src="/js/site.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
