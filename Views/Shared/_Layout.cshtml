@@ -56,9 +56,11 @@
             if(BD.IdUsuarioSesion != 0)
             {
                 <div class="offcanvas-body">        
-                    <ul class="sidebarbuttons">
+                    <ul class="sidebarbuttons">                        
+                        <a class="achicarBoton" asp-controller="Home" asp-action="SearchFriends"><li class="sidebarbutton">Amigos</li></a>
                         <a class="achicarBoton" asp-controller="Home" asp-action="SearchGroups"><li class="sidebarbutton">Grupos</li></a>
                         <a class="achicarBoton" asp-controller="Home" asp-action="SearchCommunities"><li class="sidebarbutton">Comunidades</li></a>
+
                     </ul>
                 </div>
             }
