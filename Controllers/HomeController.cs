@@ -96,6 +96,7 @@ public class HomeController : Controller
     public IActionResult SearchFriends()
     {
         ViewBag.StatusBusqueda = BD.StatusBusqueda;
+
         if(BD.StatusBusqueda)
         {
             ViewBag.Usuarios = BD.ObtenerUsuarios();
@@ -104,12 +105,15 @@ public class HomeController : Controller
         {
             ViewBag.Usuarios = BD.ObtenerAmigos();
         }
+
         return View();
     }
 
     public IActionResult CambiarBusquedaAmigos()
     {
+        BD.StatusBusqueda = !BD.StatusBusqueda;
         ViewBag.StatusBusqueda = BD.StatusBusqueda;
+        
         if(BD.StatusBusqueda)
         {
             ViewBag.Usuarios = BD.ObtenerUsuarios();
@@ -118,8 +122,7 @@ public class HomeController : Controller
         {
             ViewBag.Usuarios = BD.ObtenerAmigos();
         }
-        BD.StatusBusqueda = !BD.StatusBusqueda;
-        ViewBag.StatusBusqueda = BD.StatusBusqueda;
+
         return View("SearchFriends");
     }
 
