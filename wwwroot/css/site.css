@@ -101,6 +101,11 @@ a:hover{
 .carousel{
   width: 50%;
 }
+
+.carousel-item img{
+  border-radius: 10px;
+  min-width: 200px;
+}
 /*Sistema de mensajes*/
 
 .send{
@@ -378,6 +383,14 @@ input:hover{
   text-decoration: none;
 }
 
+.centerB{
+  min-width: fit-content;
+  width: 50%;
+  display:flex;
+  justify-content: center;
+
+}
+
 /*Perfil Usuario*/
 .ViewFotodePerfil{
   width: 25%;
@@ -520,7 +533,8 @@ input:hover{
 
 
 .logoIndex{
-  width: 10%;
+  min-width: 100px;
+  width: 13%;
 }
 
 .InformacionUsuario{
