@@ -6,7 +6,7 @@
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0.158);
 }
 
 button.accept-policy {
@@ -26,8 +26,7 @@ header {
   z-index: 1000;
   height: 120px;
   display: flex;
-  box-shadow: 2px 2px 2px 1px #808080;
-  border-bottom: 1.5px solid #6464641c;
+  border-bottom: 1.5px solid #9191911c;
   flex-direction: row;
   justify-content: center;
   align-items: center;
