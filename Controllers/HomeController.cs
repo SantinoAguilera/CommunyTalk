@@ -91,7 +91,7 @@ public class HomeController : Controller
         ViewBag.Mensajes = BD.ObtenerMensajesPrivado(BD.IdChatActual);
         ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
         return View("PrivateChat");
-    }
+    } 
 
     public IActionResult SearchFriends()
     {

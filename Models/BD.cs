@@ -87,7 +87,7 @@ public static class BD
     public static List<Mensajes> ObtenerMensajesPrivado(int IdUsuario)
     {
         using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Mensajes WHERE IdUsuario = @pIdUsuario AND IdUsuarioEmisor = @pIdUsuarioEmisor";
+            string sql = "SELECT * FROM Mensajes WHERE (IdUsuario = @pIdUsuario AND IdUsuarioEmisor = @pIdUsuarioEmisor) OR (IdUsuario = @pIdUsuarioEmisor AND IdUsuarioEmisor = @pIdUsuario)";
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdUsuario = IdUsuario, pIdUsuarioEmisor = IdUsuarioSesion}).ToList();
         }
         return ListaMensajes;
