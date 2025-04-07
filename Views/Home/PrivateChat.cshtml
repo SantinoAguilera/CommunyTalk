@@ -44,7 +44,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Enviar mensaje sin recargar
+
             $('#form-mensaje').submit(function (e) {
                 e.preventDefault();
                 const contenido = $('#contenido').val();
@@ -58,14 +58,13 @@
                 });
             });
 
-            // Actualizar mensajes cada 5 segundos
             function actualizarMensajes() {
                 $.get('/Home/ObtenerMensajesPrivado', function (data) {
                     $('#mensajes-container').html(data);
                 });
             }
 
-            setInterval(actualizarMensajes, 5000); // cada 5 segundos
+            setInterval(actualizarMensajes, 100); 
         });
     </script>
 }
