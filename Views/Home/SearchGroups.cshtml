@@ -82,15 +82,12 @@
 <!-- Script para la búsqueda en tiempo real -->
 <script>
     const searchInputGroups = document.getElementById('searchInputGroups');
-    const groupList = document.getElementById('groupList');
     let debounceTimer;
 
     function filterGroups() {
         const searchText = searchInputGroups.value.toLowerCase();
-        const groupCards = groupList.getElementsByClassName('group-card');
-
-        for (let card of groupCards) {
-            const groupName = card.getAttribute('data-group-name').toLowerCase();
+        for (let i = 0; i < ViewBag.Grupos.lenght; i++)
+        {
             card.style.display = groupName.startsWith(searchText) ? 'block' : 'none';
         }
     }
