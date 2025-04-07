@@ -1,0 +1,28 @@
+@model List<Mensajes>
+@{
+    var IdUsuarioSesion = ViewBag.IdUsuarioSesion;
+}
+@foreach (var mensaje in Model)
+{
+    string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuarioEmisor);
+    if (mensaje.IdUsuarioEmisor == IdUsuarioSesion)
+    {
+        <div class="OwnMessages">
+            <div class="Mensaje">
+                <p class="MessageText">@mensaje.Contenido</p>
+                <p class="FechaHora">@mensaje.FechaHora</p>
+            </div>
+            <img width=5% class="FotodePerfil" src="@FotodePerfil">
+        </div>
+    }
+    else
+    {
+        <div class="OtherMessages">
+            <img class="FotodePerfil" src="@FotodePerfil">
+            <div class="Mensaje">
+                <p class="MessageText">@mensaje.Contenido</p>
+                <p class="FechaHora">@mensaje.FechaHora</p>
+            </div>
+        </div>
+    }
+}
