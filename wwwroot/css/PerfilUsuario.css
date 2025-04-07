@@ -1,0 +1,34 @@
+.ViewFotodePerfil{
+    width: 15%;
+    border-radius: 500px;
+    margin-bottom: 2%;
+  }
+  
+  .NombreUsuario{
+    font-size: 80px;
+    text-align: center;
+    color: white;
+  }
+  
+  .Perfil{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .Perfil p, .Perfil a{
+    font-size: xx-large;
+    color: white;
+  } 
+  
+  .EditarInfoUsuario{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 2%;
+  }
+  
+  .IconoEditarUsuario{
+    width: 50%;
+    height: 50%;
+  }
