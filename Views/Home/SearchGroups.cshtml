@@ -82,16 +82,17 @@
 <!-- Script para la búsqueda en tiempo real -->
 <script>
     const searchInputGroups = document.getElementById('searchInputGroups');
-    const groupList = document.getElementById('groupList');
+    const myArray = searchInputGroups.split(" ");
     let debounceTimer;
 
     function filterGroups() {
         const searchText = searchInputGroups.value.toLowerCase();
-        const groupCards = groupList.getElementsByClassName('group-card');
-
-        for (let card of groupCards) {
-            const groupName = card.getAttribute('data-group-name').toLowerCase();
-            card.style.display = groupName.startsWith(searchText) ? 'block' : 'none';
+        for (let i = 0; i < ViewBag.Grupos.length; i++)
+        {
+            for (let j = 0; i < )
+            {
+                card.style.display = groupName.startsWith(searchText) ? 'block' : 'none';
+            }
         }
     }
 
