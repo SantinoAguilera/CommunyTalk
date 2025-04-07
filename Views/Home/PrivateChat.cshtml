@@ -2,41 +2,70 @@
     ViewData["Title"] = "Mensajes Privados";
 }
 <h1 class="ChatName">@ViewBag.Nombre</h1>
- @{
-    foreach(Mensajes mensaje in ViewBag.Mensajes)
-    {
-        string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuarioEmisor);
-        if(mensaje.IdUsuarioEmisor == ViewBag.IdUsuarioSesion) //Si el mensaje es del usuario local, se pone a la derecha, sino, se pone a la izquierda.
+
+<div id="mensajes-container">
+    @{
+        foreach(Mensajes mensaje in ViewBag.Mensajes)
         {
-            <div class="OwnMessages">
-                <div class="Mensaje">
-                    <p class="MessageText">@mensaje.Contenido</p>
-                    <p class="FechaHora">@mensaje.FechaHora</p>
+            string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(mensaje.IdUsuarioEmisor);
+            if(mensaje.IdUsuarioEmisor == ViewBag.IdUsuarioSesion)
+            {
+                <div class="OwnMessages">
+                    <div class="Mensaje">
+                        <p class="MessageText">@mensaje.Contenido</p>
+                        <p class="FechaHora">@mensaje.FechaHora</p>
+                    </div>
+                    <img width=5% class="FotodePerfil" src="@FotodePerfil">
                 </div>
-                <img width=5% class="FotodePerfil" src="@FotodePerfil">
-            </div>
-        }
-        else
-        {
-            <div class="OtherMessages">
-                <img class="FotodePerfil" src="@FotodePerfil">
-                <div class="Mensaje">
-                    <p class="MessageText">@mensaje.Contenido</p>
-                    <p class="FechaHora">@mensaje.FechaHora</p>
+            }
+            else
+            {
+                <div class="OtherMessages">
+                    <img class="FotodePerfil" src="@FotodePerfil">
+                    <div class="Mensaje">
+                        <p class="MessageText">@mensaje.Contenido</p>
+                        <p class="FechaHora">@mensaje.FechaHora</p>
+                    </div>
                 </div>
-            </div>
+            }
         }
     }
-}
-<form action= '@Url.Action("EnviarMensajePrivado","Home")' class="EnviarMensaje">
+</div>
+
+<form id="form-mensaje" class="EnviarMensaje">
     <div class="Send">
-        <input class="Message" type="text" name="Contenido"> 
-        <button><img class="send" src="/images/Send.png"></button>
+        <input class="Message" type="text" name="Contenido" id="contenido" autocomplete="off">
+        <input type="hidden" name="IdUsuario" value="@ViewBag.IdUsuarioSesion">
+        <button type="submit"><img class="send" src="/images/Send.png"></button>
     </div>
 </form>
 
-<style>
-    main {
-        margin-bottom: 124px;
-    }
-</style>
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Enviar mensaje sin recargar
+            $('#form-mensaje').submit(function (e) {
+                e.preventDefault();
+                const contenido = $('#contenido').val();
+                const idUsuario = '@ViewBag.IdUsuarioSesion';
+
+                if (contenido.trim() === '') return;
+
+                $.post('/Home/EnviarMensajePrivado', { Contenido: contenido, IdUsuario: idUsuario }, function () {
+                    $('#contenido').val('');
+                    actualizarMensajes();
+                });
+            });
+
+            // Actualizar mensajes cada 5 segundos
+            function actualizarMensajes() {
+                $.get('/Home/ObtenerMensajesPrivado', function (data) {
+                    $('#mensajes-container').html(data);
+                });
+            }
+
+            setInterval(actualizarMensajes, 5000); // cada 5 segundos
+        });
+    </script>
+}
