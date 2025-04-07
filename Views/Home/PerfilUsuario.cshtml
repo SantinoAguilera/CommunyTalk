@@ -11,6 +11,7 @@ body{
 <div class="EditarInfoUsuario">
     <h1 class="NombreUsuario">Usuario</h1> <!--Nametag-->
     <a href='@Url.Action("EditarUsuario", "Home")'><img class="IconoEditarUsuario" src="/images/EditarUsuario.png"/></a>
+    <link rel="stylesheet" href="style/PerfilUsuario.css">
 </div>
 <div class="Perfil">
     @{
@@ -28,7 +29,6 @@ body{
             <p>Descripción: @Descripcion</p>
         </div>
     }
-    <a href='@Url.Action("SearchFriends", "Home")'><button class="BotonAmigos">Amigos</button></a>
 </div>
 
 <form asp-controller="Home" asp-action="Logout" method="post" class="cerrarSesion">

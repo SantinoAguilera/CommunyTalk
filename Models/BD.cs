@@ -15,6 +15,9 @@ public static class BD
     public static List<Comunidades> ListaComunidades = new List<Comunidades>();
     public static List<Mensajes> ListaMensajes = new List<Mensajes>();
     public static List<IntegrantesXGrupo> ListaIntegrantesGrupos = new List<IntegrantesXGrupo>();
+    public static List<Intereses> ListaIntereses = new List<Intereses>();
+    public static List<InteresesXGrupo> ListaInteresesXGrupo = new List<InteresesXGrupo>();
+    public static List<InteresesXUsuario> ListaInteresesXUsuario = new List<InteresesXUsuario>();
 
     public static bool StatusBusqueda = false;
 
@@ -109,6 +112,30 @@ public static class BD
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdComunidad = IdComunidad}).ToList();
         }
         return ListaMensajes;
+    }
+
+    public static List<Intereses> ObtenerIntereses(){
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM Intereses ORDER BY NOMBRE ASC";
+            ListaIntereses = db.Query<Intereses>(sql).ToList();
+        }
+        return ListaIntereses;
+    }
+
+    public static List<InteresesXGrupo> ObtenerInteresesXGrupo(){
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM InteresesXGrupo";
+            ListaInteresesXGrupo = db.Query<InteresesXGrupo>(sql).ToList();
+        }
+        return ListaInteresesXGrupo;
+    }
+
+    public static List<InteresesXUsuario> ObtenerInteresesXUsuario(){
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM InteresesXUsuario";
+            ListaInteresesXUsuario = db.Query<InteresesXUsuario>(sql).ToList();
+        }
+        return ListaInteresesXUsuario;
     }
 
     public static void EnviarMensajePrivado (string Contenido, int IdUsuario)
