@@ -93,6 +93,13 @@ public class HomeController : Controller
         return View("PrivateChat");
     } 
 
+   public IActionResult ObtenerMensajesPrivado()
+    {
+    var mensajes = BD.ObtenerMensajesPrivado(BD.IdChatActual);
+    ViewBag.IdUsuarioSesion = BD.IdUsuarioSesion;
+    return PartialView("_MensajesPrivado", mensajes);
+    }
+
     public IActionResult SearchFriends()
     {
         ViewBag.StatusBusqueda = BD.StatusBusqueda;
