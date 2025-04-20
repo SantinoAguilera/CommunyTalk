@@ -24,19 +24,18 @@
                         <option value="1">Privado</option>
                         <option value="0">Público</option>
                     </select>
-                    <label>
-                        Multi-select
-                    </label>
-                    <select id="interesesList" multiple>
-                        <option value="1">Books</option>
-                        <option value="2">Movies, Music & Games</option>
-                        <option value="3">Electronics & Computers</option>
-                        <option value="4">Home, Garden & Tools</option>
-                        <option value="5">Health & Beauty</option>
-                        <option value="6">Toys, Kids & Baby</option>
-                        <option value="7">Clothing & Jewelry</option>
-                        <option value="8">Sports & Outdoors</option>
-                    </select>
+                    <p>Interés/es</p>
+                    @if(ViewBag.Intereses != null){
+                        <p>a</p>
+                        foreach(Intereses interes in ViewBag.Intereses){
+                            <div class="Interes">
+                                <input type="checkbox" id="interesSwitch"  class="buttonSwitch">
+                                <label for="interesSwitch" class="lblSwitch">interes</label>
+                            </div>
+                        }
+                    }
+                    else{<p>B</p>}
+
                     <p>Admin:</p>
                     <select id="IdAdmin" class="form-select" name="IdAdmin">
                     @{

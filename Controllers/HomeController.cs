@@ -61,6 +61,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult SearchInterests(){
+        ViewBag.Intereses = BD.ObtenerIntereses();
+        return View();
+    }
+
     public IActionResult GroupChat(int IdGrupo)
     {
         BD.IdGrupoActual = IdGrupo;

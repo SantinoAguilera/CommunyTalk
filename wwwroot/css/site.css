@@ -538,3 +538,39 @@ input:hover{
   background-color: #5fb98f;
   box-shadow: 2px 2px 2px #666666;
 }
+
+/*Intereses*/
+
+.Interes{
+  margin: 1%;
+  display: flex;
+}
+
+.buttonSwitch{
+  margin: 0%;
+  width: 2%;
+}
+
+.lblSwitch{
+  display: inline-block;
+  width: fit-content;
+  height:30px;
+  background-color: #ddfcda;
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #171717;
+}
+
+#interesSwitch{
+  display: none;
+}
+
+#interesSwitch:checked~ .lblSwitch{
+  background-color: #cccccc;
+  box-shadow: 1px 1px 1px 1px#171717;
+
+}
