@@ -18,20 +18,23 @@ button.accept-policy {
   width: 30%;
 }
 
+.aaa{
+  display: flex;
+}
+
 header {
   background-color: #7EF3BC;
-  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
   height: 120px;
-  display: flex;
   border-bottom: 1.5px solid #9191911c;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  position: sticky;
   margin-bottom: 2%;
 }
+
 
   ul{
     width: 100%;
@@ -41,7 +44,7 @@ header {
   }
 p{
   color: #8059B8;
-  margin: 1%;
+  margin: %;
   font-size: 24px;
   text-decoration: none;
 }
@@ -49,15 +52,14 @@ p{
 li{
   width: 20%;
   text-decoration: none;
-  margin: 2%;
+  margin: %;
   margin-top: 3%;
   text-align: center;
 }
 
 .imgMenu{
   width: 20%;
-  margin: 1%;
-}
+  }
 
 nav{
   display: flex;
@@ -77,7 +79,7 @@ header nav ul li a p{
   list-style: none;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .horizontal > li > a{
@@ -149,7 +151,6 @@ header nav ul li a p{
   border-radius: 30px;
   margin-top: 6%;
  }
-
 /* Scroll Bar */
 .offcanvas-body::-webkit-scrollbar { /* Ancho */
   width: 10px;
