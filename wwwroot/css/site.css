@@ -565,12 +565,20 @@ input:hover{
   border: 1px solid #171717;
 }
 
-#interesSwitch{
+ #interesSwitch{
   display: none;
 }
+
+/*
 
 #interesSwitch:checked~ .lblSwitch{
   background-color: #cccccc;
   box-shadow: 1px 1px 1px 1px#171717;
 
+} */
+
+.NewTags{
+  padding: 1%;
+  height: 40px;
+  font-size: larger;
 }

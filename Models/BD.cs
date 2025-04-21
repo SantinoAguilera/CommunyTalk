@@ -79,6 +79,30 @@ public static class BD
         return ListaComunidades;
     }
 
+        public static List<Intereses> ObtenerIntereses(){
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM Intereses ORDER BY NOMBRE ASC";
+            ListaIntereses = db.Query<Intereses>(sql).ToList();
+        }
+        return ListaIntereses;
+    }
+
+    public static List<InteresesXGrupo> ObtenerInteresesXGrupo(){
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM InteresesXGrupo";
+            ListaInteresesXGrupo = db.Query<InteresesXGrupo>(sql).ToList();
+        }
+        return ListaInteresesXGrupo;
+    }
+
+    public static List<InteresesXUsuario> ObtenerInteresesXUsuario(){
+        using (SqlConnection db = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM InteresesXUsuario";
+            ListaInteresesXUsuario = db.Query<InteresesXUsuario>(sql).ToList();
+        }
+        return ListaInteresesXUsuario;
+    }
+
     public static List<IntegrantesXGrupo> ObtenerIntegrantesGrupos(){
         using(SqlConnection db = new SqlConnection(_connectionString)){
             string sql = "SELECT * FROM IntegrantesXGrupo";
@@ -112,30 +136,6 @@ public static class BD
             ListaMensajes = db.Query<Mensajes>(sql, new { pIdComunidad = IdComunidad}).ToList();
         }
         return ListaMensajes;
-    }
-
-    public static List<Intereses> ObtenerIntereses(){
-        using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Intereses ORDER BY NOMBRE ASC";
-            ListaIntereses = db.Query<Intereses>(sql).ToList();
-        }
-        return ListaIntereses;
-    }
-
-    public static List<InteresesXGrupo> ObtenerInteresesXGrupo(){
-        using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM InteresesXGrupo";
-            ListaInteresesXGrupo = db.Query<InteresesXGrupo>(sql).ToList();
-        }
-        return ListaInteresesXGrupo;
-    }
-
-    public static List<InteresesXUsuario> ObtenerInteresesXUsuario(){
-        using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM InteresesXUsuario";
-            ListaInteresesXUsuario = db.Query<InteresesXUsuario>(sql).ToList();
-        }
-        return ListaInteresesXUsuario;
     }
 
     public static void EnviarMensajePrivado (string Contenido, int IdUsuario)

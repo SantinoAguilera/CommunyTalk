@@ -61,7 +61,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult SearchInterests(){
+    public IActionResult obtenerIntereses(){
         ViewBag.Intereses = BD.ObtenerIntereses();
         return View();
     }
@@ -231,10 +231,11 @@ public class HomeController : Controller
     public IActionResult CrearGrupo()
     {
         ViewBag.Usuarios = BD.ObtenerUsuarios();
+        ViewBag.Intereses = BD.ObtenerIntereses();
         return View("CrearGrupo");
     }
 [HttpPost]
-public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descripcion, int Privado, int IdAdmin)
+public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descripcion, int Privado, int IdAdmin, List<int> numIntereses)
 {
     bool esPrivado = Privado == 1;
     if (!string.IsNullOrEmpty(Nombre) && !string.IsNullOrEmpty(Descripcion))
