@@ -89,8 +89,9 @@
         const searchText = searchInputGroups.value.toLowerCase();
         for (let i = 0; i < ViewBag.Grupos.length; i++)
         {
-            for (let j = 0; i < )
+            for (let j = 0; i < ViewBag.Grupos.intereses.length)
             {
+                //Usar el Stored Procedured
                 card.style.display = groupName.startsWith(searchText) ? 'block' : 'none';
             }
         }
