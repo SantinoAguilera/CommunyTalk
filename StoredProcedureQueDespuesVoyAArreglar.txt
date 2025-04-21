@@ -1,0 +1,16 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE buscarPorIntereses
+	@interes varchar
+AS
+BEGIN
+	SELECT g.IdGrupo, g.IdAdmin, g.FotodePerfil, g.Descripcion, g.Nombre, g.Privado
+	FROM Grupos g 
+	INNER JOIN InteresesXGrupo g ON x.IdGrupo = g.IdGrupo 
+	INNER JOIN Intereses i ON x.Interes = i.idInteres 
+	WHERE i.IdInteres  LIKE '%' + @interes + '%'
+END
+GO
