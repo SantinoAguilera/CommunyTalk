@@ -5,7 +5,7 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-20;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=DESKTOP-MC3LPAC;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion;
     public static int IdComunidadActual;
     public static int IdGrupoActual;
@@ -260,7 +260,7 @@ public static class BD
 
     public static void EditarPerfil(string FotodePerfil, string NameTag, string Nombre, string Apellido, string Pronombres, string Descripcion)
     {
-        string sql = "UPDATE Usuarios SET Foto = @FotodePerfil, NameTag = @NameTag, Nombre = @Nombre, Apellido = @pApellido, Pronombres = @pPronombres, Descripcion = @pDescripcion WHERE IdUsuario = @pIdUsuarioSesion";
+    string sql = "UPDATE Usuarios SET Foto = @pFotodePerfil, NameTag = @pNameTag, Nombre = @pNombre, Apellido = @pApellido, Pronombres = @pPronombres, Descripcion = @pDescripcion WHERE IdUsuario = @pIdUsuarioSesion";
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new { pFotodePerfil = FotodePerfil, pNameTag = NameTag, pNombre = Nombre, pApellido = Apellido, pPronombres = Pronombres, pDescripcion = Descripcion, pIdUsuarioSesion = IdUsuarioSesion});

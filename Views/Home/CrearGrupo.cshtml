@@ -2,6 +2,9 @@
     ViewData["Title"]="Crear un grupo";
 }
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
 <style>
     body{
     background-color: #63468d;
@@ -25,9 +28,18 @@
                         <option value="0">Público</option>
                     </select>
                     <p>Interés/es</p>
-                    <input type="text" placeholder="Nueva tag" class="NewTags">
-
-
+                    <input type="text" id="nuevaTag" placeholder="Nueva tag" class="NewTags">
+                    <button type="button" onclick="agregarNuevaTag()">Agregar</button>
+                    <select id="interesesExistentes" multiple>
+                        @{
+                            if(ViewBag.Intereses != null){
+                                foreach(Intereses intereses in ViewBag.Intereses){
+                                    <option value="@intereses.Nombre">@intereses.Nombre</option>
+                                }
+                            }
+                        }
+                    </select>
+                    <input type="hidden" id="interesesFinales" name="interesesFinales">
                     <p>Admin:</p>
                     <select id="IdAdmin" class="form-select" name="IdAdmin">
                     @{
@@ -52,4 +64,15 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectIntereses = document.getElementById('interesesExistentes');
+        const choices = new Choices(selectIntereses, {
+            removeItemButton: true,
+            placeholderValue: 'Seleccionar intereses',
+            searchPlaceholderValue: 'Buscar interés',
+        });
+    });
+</script>
 

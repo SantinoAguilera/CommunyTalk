@@ -22,5 +22,24 @@ function guardarEnStorage() {
   localStorage.setItem("nombre", nombre);
 }
 
+const interesesSeleccionados = new Set();
 
+document.getElementById('interesesExistentes').addEventListener('change', function(){
+  const opciones = Array.from(this.selectedOptions);
+  opciones.forEach(opcion => interesesSeleccionados.add(opcion.value));
+  actualizarHidden();
+})
 
+const agregarNuevaTag = () =>{
+  const nuevaTagInput = document.getElementById('nuevaTag');
+  const nuevaTag = nuevaTagInput.value.trim();
+  if(nuevaTag !== ''){
+    interesesSeleccionados.add(nuevaTag);
+    nuevaTagInput.value = '';
+    actualizarHidden();
+  }  
+} 
+
+const actualizarHidden = () => {
+  document.getElementById('interesesFinales').value = Array.from(interesesSeleccionados).join(',');
+}
