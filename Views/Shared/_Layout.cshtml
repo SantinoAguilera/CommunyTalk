@@ -10,63 +10,63 @@
 </head>
 <body>
     <div class="aaa">
-        <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
-            <div class="container-fluid">
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="horizontal">
-                        @{
-                            if(BD.IdUsuarioSesion != 0)
-                            {
-                                <li class="nav-item">
-                                    <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                                    <img id="flechaHeader" onclick="cambiarFlechaArriba()" class="imgMenu" src="/images/FlechaAbajo.png">
-                                    </button>
-                                </li>
-                            }
-                        }
-                        
+<header class="navbar-header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Botón de offcanvas (menú hamburguesa) -->
+            @if(BD.IdUsuarioSesion != 0)
+            {
+                <button class="btn menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    <img id="flechaHeader" class="imgMenu" src="/images/FlechaAbajo.png" alt="Menú">
+                </button>
+            }
+
+            <!-- Brand -->
+            <a class="navbar-brand brand-text" asp-controller="Home" asp-action="Index">CommunyTalk</a>
+
+            <!-- Toggle para collapse en móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto d-flex align-items-center">
+                    @if(BD.IdUsuarioSesion != 0)
+                    {
                         <li class="nav-item">
-                            <a asp-controller="Home" asp-action="Index"><p>CommunyTalk</p></a>
+                            <a asp-area="" asp-controller="Home" asp-action="Usuario" class="nav-link user-link">
+                                @{
+                                    string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(BD.IdUsuarioSesion);
+                                }
+                                <img class="imgPerfil" src="@FotodePerfil" alt="Foto de perfil">
+                            </a>
                         </li>
-                        @{
-                            if(BD.IdUsuarioSesion != 0)
-                            {
-                                <li class="nav-item">
-                                    <div class="User">
-                                        <a asp-area="" asp-controller="Home" asp-action="Usuario">
-                                            @{
-                                                string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(BD.IdUsuarioSesion);
-                                                <img class="imgPerfil" src="@FotodePerfil">
-                                            }
-                                        </a>
-                                    </div>
-                                </li>
-                            }
-                        }
-                    </ul>
-                </div>
+                    }
+                </ul>
             </div>
-        </nav>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        </div>
+    </nav>
+
+    <!-- OFFCANVAS -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Categoría</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        @{
-            if(BD.IdUsuarioSesion != 0)
-            {
-                <div class="offcanvas-body">        
-                    <ul class="sidebarbuttons">                        
-                        <a class="achicarBoton" asp-controller="Home" asp-action="SearchFriends"><li class="sidebarbutton">Amigos</li></a>
-                        <a class="achicarBoton" asp-controller="Home" asp-action="SearchGroups"><li class="sidebarbutton">Grupos</li></a>
-                        <a class="achicarBoton" asp-controller="Home" asp-action="SearchCommunities"><li class="sidebarbutton">Comunidades</li></a>
-
-                    </ul>
-                </div>
-            }
+        @if(BD.IdUsuarioSesion != 0)
+        {
+            <div class="offcanvas-body">
+                <ul class="sidebarbuttons">
+                    <a class="achicarBoton" asp-controller="Home" asp-action="SearchFriends"><li class="sidebarbutton">Amigos</li></a>
+                    <a class="achicarBoton" asp-controller="Home" asp-action="SearchGroups"><li class="sidebarbutton">Grupos</li></a>
+                    <a class="achicarBoton" asp-controller="Home" asp-action="SearchCommunities"><li class="sidebarbutton">Comunidades</li></a>
+                </ul>
+            </div>
         }
-    </header>
+    </div>
+</header>
+
     </div>
     <div class="container">
         <main role="main" class="pb-3">
