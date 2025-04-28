@@ -234,41 +234,43 @@ public class HomeController : Controller
         ViewBag.Intereses = BD.ObtenerIntereses();
         return View("CrearGrupo");
     }
-[HttpPost]
-public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descripcion, int Privado, int IdAdmin, List<int> interesesFinales)
-{
-    bool esPrivado = Privado == 1;
-    if (!string.IsNullOrEmpty(Nombre) && !string.IsNullOrEmpty(Descripcion))
+    [HttpPost]
+    public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descripcion, int Privado, int IdAdmin, List<int> numIntereses)
     {
-        var grupo = new Grupos
+        bool esPrivado = Privado == 1;
+        if (!string.IsNullOrEmpty(Nombre) && !string.IsNullOrEmpty(Descripcion))
         {
-            FotodePerfil = FotodePerfil,
-            Nombre = Nombre,
-            Descripcion = Descripcion,
-            Privado = esPrivado,
-            IdAdmin = IdAdmin,
-        };
-
-        foreach (int i in interesesFinales){
-            new InteresesXGrupo{
-                idInteres = interesesFinales[i]
+            var grupo = new Grupos
+            {
+                FotodePerfil = FotodePerfil,
+                Nombre = Nombre,
+                Descripcion = Descripcion,
+                Privado = esPrivado,
+                IdAdmin = IdAdmin,
             };
-        }
+
+
         BD.InsertGroup(grupo);
 
         return View("Index");
     }
 
-    return View("Index");
-}
+        return View("Index");
+    }
 
-public IActionResult AvisoRegistro()
-{
-    return View("AvisoRegistro");
-}
+    public IActionResult BuscarGruposPorInteres(string interes)
+    {
+        var grupos = BD.BuscarPorInteres(interes);
+        return Json(grupos);
+    }
 
-public IActionResult AgregarInteres(string Nombre){
-    BD.AñadirInteres(Nombre);
-    return View();
-}
+    public IActionResult AvisoRegistro()
+    {
+        return View("AvisoRegistro");
+    }
+
+    public IActionResult AgregarInteres(string Nombre){
+        BD.AñadirInteres(Nombre);
+        return View();
+    }
 }
