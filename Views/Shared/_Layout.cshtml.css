@@ -1,97 +1,217 @@
-﻿.border-top {
+﻿/* Generales */
+.border-top {
   border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
 }
-
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0.158);
 }
-
 button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
 }
-.imgPerfil{
-  border-radius: 100%;
-  width: 30%;
+
+/* Imagen de perfil */
+.imgPerfil {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  margin-top: -15%;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.aaa{
+/* Hover sobre la imagen de perfil */
+.imgPerfil:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Flexbox para alinear elementos */
+.aaa {
   display: flex;
 }
 
+/* Estilos del Header */
 header {
   background-color: #7EF3BC;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
-  height: 120px;
-  border-bottom: 1.5px solid #9191911c;
-  flex-direction: row;
-  justify-content: flex-start;
-  position: sticky;
-  margin-bottom: 2%;
+  height: 70px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
+/* Alineación de los elementos dentro de la navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centra verticalmente */
+  width: 100%;
+}
 
-  ul{
-    width: 100%;
-    list-style: none;
-    text-decoration: none;
-    align-items: center;
-  }
-p{
+.navbar-brand {
+  flex-grow: 1;
+  text-align: center; /* Centra el título */
+  font-size: 1.5rem; /* Puedes ajustar el tamaño según sea necesario */
+}
+
+/* Botón del menú (hamburguesa) */
+.menu-button {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Alineación de los enlaces */
+.navbar-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Imagen de la flecha */
+.imgMenu {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover en la flecha */
+button:hover .imgMenu {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Offcanvas (Sidebar) */
+.offcanvas-body {
+  background-color: #202020;
+  padding: 0;
+}
+
+.offcanvas-header {
+  background-color: #8059B8;
+  color: white;
+}
+
+/* Estilo de los botones del sidebar */
+.sidebarbuttons {
+  width: 100%;
+}
+
+.sidebarbutton {
+  width: 90%;
+  height: 60px;
+  background-color: #8059B8;
+  font-size: x-large;
+  margin: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin-top: 6%;
+}
+
+.achicarBoton {
+  width: 90%;
+  height: 60px;
+  background-color: #8059B8;
+  font-size: x-large;
+  margin: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin-top: 6%;
+}
+
+/* Scrollbar del sidebar */
+.offcanvas-body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.offcanvas-body::-webkit-scrollbar-thumb {
+  background-color: #585858;
+  border-radius: 100px;
+}
+
+.offcanvas-body::-webkit-scrollbar-corner {
+  background-color: #202020;
+}
+
+/* Estilo de los textos */
+.imagenYText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgSide {
+  width: 90%;
+  margin: 2%;
+  border-radius: 500px;
+}
+
+/* Estilo de los elementos dentro de la navbar */
+ul {
+  width: 100%;
+  list-style: none;
+  text-decoration: none;
+  align-items: center;
+}
+
+p {
   color: #8059B8;
-  margin: %;
+  margin: 0;
   font-size: 24px;
   text-decoration: none;
 }
 
-li{
+li {
   width: 20%;
   text-decoration: none;
-  margin: %;
+  margin: 0;
   margin-top: 3%;
   text-align: center;
 }
 
-.imgMenu{
-  width: 20%;
-  }
-
-nav{
-  display: flex;
-  align-items: center;
+.navbar-nav .nav-item {
+  margin-left: 20px;
 }
 
-header nav ul li a p{
-  text-decoration: none;
-  text-decoration-line: none;
-}
-
-.User{
-  display: flex;
-}
-
-.horizontal{
+/* Flexbox para los items de la navbar */
+.horizontal {
   list-style: none;
   display: flex;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: center;
+  width: 100%;
 }
 
-.horizontal > li > a{
-  display: block;
-  padding: 15px 20px;
-  color: white;
+.horizontal > li > a {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: #8059B8;
+  font-size: 1rem;
   text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
 }
 
+.horizontal > li > a:hover {
+  color: #5d4291;
+  transform: translateY(-2px);
+}
 
-.vertical{
-  position:absolute;
+/* Dropdown */
+.vertical {
+  position: absolute;
   display: none;
   list-style: none;
   width: 160px;
@@ -101,85 +221,40 @@ header nav ul li a p{
   box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.39);
 }
 
-.vertical > li{
+.vertical > li {
   border-bottom: 2px solid rgba(0, 0, 0, 0.39);
-  width: 100px;
+  width: 100%;
   font-size: large;
   color: white;
 }
-.horizontal > li:hover .vertical{
-  display:block;
+
+.horizontal > li:hover .vertical {
+  display: block;
 }
 
-/* Sidebar - Offcanvas */
-.offcanvas-body{
-  background-color: #202020;
-  padding: 0;
-}
+/* Navbar responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+  }
 
-.offcanvas-header{
-  background-color:#8059B8;
-  color: white;
-}
+  .navbar-nav {
+    flex-direction: column;
+  }
 
-/* Botones */
-.sidebarbuttons{
-  width: 100%;
-}
+  .navbar-nav .nav-item {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 
-.sidebarbutton{
-  width: 90%;
-  height: 60px;
-  background-color: #8059B8;
-  font-size: x-large;
-  margin: 1%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
-  margin-top: 6%;
- }
- .achicarBoton{
-  width: 90%;
-  height: 60px;
-  background-color: #8059B8;
-  font-size: x-large;
-  margin: 1%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
-  margin-top: 6%;
- }
-/* Scroll Bar */
-.offcanvas-body::-webkit-scrollbar { /* Ancho */
-  width: 10px;
-}
-  
-.offcanvas-body::-webkit-scrollbar-thumb { /* Thumb */
-  background-color: #585858;
-  border-radius: 100px;
-}
-  
-.offcanvas-body::-webkit-scrollbar-corner { /* Esquina */
-  background-color: #202020;
-}
+  .imgPerfil {
+    width: 35px;
+    height: 35px;
+  }
 
-/* Texto */
-
-.imagenYText{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-
- .imgSide{
-  width: 90%;
-  margin: 2%;
-  border-radius: 500px;
- }
-
-p{
-  width: 100%;
-  text-align: center;
+  .imgMenu {
+    width: 30px;
+    height: 30px;
+  }
 }
