@@ -583,3 +583,22 @@ input:hover{
   height: 40px;
   font-size: larger;
 }
+
+.Multi{
+  height: 30px !important;
+  background-color: #171717 !important;
+  border-radius: 15px;
+}
+
+.NewTag{
+  display: flex;
+  align-items: center;
+}
+
+.BotonNew{
+  background-color: #171717;
+  color: white;
+  border-radius: 15px;
+  height: 40px;
+  padding: 1%;
+}

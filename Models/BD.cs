@@ -5,7 +5,7 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=DESKTOP-MC3LPAC;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion;
     public static int IdComunidadActual;
     public static int IdGrupoActual;
@@ -273,6 +273,14 @@ public static class BD
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             db.Execute(sql, new { pContraseña = Contraseña, pNameTag = Usuario, pEmail = Email });
+        }
+    }
+
+    public static void AñadirInteres(string Nombre){
+        string sql = "INSERT INTO INTERESES (Nombre) VALUES (@pNombre)";
+        using(SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new {pNombre = Nombre});
         }
     }
 

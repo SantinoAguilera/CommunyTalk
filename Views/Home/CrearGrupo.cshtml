@@ -28,9 +28,11 @@
                         <option value="0">Público</option>
                     </select>
                     <p>Interés/es</p>
-                    <input type="text" id="nuevaTag" placeholder="Nueva tag" class="NewTags">
-                    <button type="button" onclick="agregarNuevaTag()">Agregar</button>
-                    <select id="interesesExistentes" multiple>
+                    <div class="NewTag">
+                        <input type="text" id="nuevaTag" placeholder="Nueva tag" class="NewTags">
+                        <button for="nuevaTag" onclick="agregarNuevaTag()" class="BotonNew" >Agregar</button>
+                    </div>
+                    <select id="interesesExistentes" class="Multi" multiple>
                         @{
                             if(ViewBag.Intereses != null){
                                 foreach(Intereses intereses in ViewBag.Intereses){
