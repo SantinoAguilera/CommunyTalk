@@ -15,6 +15,16 @@
 
     <div class="container">
         <div class="row justify-content-start" id="groupList">
+            <!-- Por aca aparecen los grupos despues por innerHTML -->
+        </div>
+    </div>
+
+    <div class="botonesNo">
+        <a href='@Url.Action("CrearGrupo", "Home")'><button class="BotonNoIniciar">Crear Grupo</button></a>
+    </div>
+<!--
+    <div class="container">
+        <div class="row justify-content-start" id="groupList">
             @if(ViewBag.Grupos != null && ViewBag.IntegrantesGrupo != null)
             {
                 foreach (Grupos grupo in ViewBag.Grupos)
@@ -70,28 +80,72 @@
                 <p class="alert alert-danger text-center">No se encontraron grupos.</p>
             }
         </div>
-    </div>
-
-                   <div class="botonesNo">
-                    <a href='@Url.Action("CrearGrupo", "Home")'><button class="BotonNoIniciar">Crear Grupo</button></a>
-                </div>
+        </div>
+            
         </div>
     </div>
+-->
 </section>
 
 <!-- Script para la búsqueda en tiempo real -->
 <script>
+/* ARREGLAR */
+    window.onload = function() {
+        // Obtener los grupos y los intereses
+        const grupos = @Html.Raw(Json.Serialize(ViewBag.Grupos));
+        const integrantesGrupo = @Html.Raw(Json.Serialize(ViewBag.IntegrantesGrupo));
+        const idUsuarioSesion = @BD.IdUsuarioSesion;
+
+        // Función para filtrar los grupos por intereses
+        function filterGroupsByInterest(searchText) {
+            const groupContainer = document.getElementById('groupList');
+            groupContainer.innerHTML = ''; // Limpiar resultados anteriores
+
+            // Filtrar grupos que tengan al menos un interés que coincida con el texto de búsqueda
+            const filteredGroups = grupos.filter(group => {
+                // Filtrar los intereses de cada grupo
+                return group.Intereses && group.Intereses.some(interest => 
+                    interest.toLowerCase().includes(searchText.toLowerCase())
+                );
+            });
+
+            if (filteredGroups.length === 0) {
+                const noGroupsMessage = document.createElement('p');
+                noGroupsMessage.classList.add('alert', 'alert-warning', 'text-center');
+                noGroupsMessage.innerText = 'No se encontraron grupos que coincidan con los intereses.';
+                groupContainer.appendChild(noGroupsMessage);
+            }
+        }
+
+        const searchInput = document.getElementById('searchInputGroups');
+        let debounceTimer;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                const searchText = searchInput.value;
+                filterGroupsByInterest(searchText);
+            }, 500);
+        });
+
+        filterGroupsByInterest('');
+    };
+</script>
+
+<!--
     const searchInputGroups = document.getElementById('searchInputGroups');
     const myArray = searchInputGroups.split(" ");
     let debounceTimer;
 
-    function filterGroups() {
+    function filterGroups(groups, searchText
+    const groupContainer = document.getElementById('groupContainer'); // Asegúrate de tener un contenedor con id 'groupContainer'
+        groupContainer.innerHTML = '';
+) {
         const searchText = searchInputGroups.value.toLowerCase();
         for (let i = 0; i < ViewBag.Grupos.length; i++)
         {
             for (let j = 0; i < ViewBag.Grupos.intereses.length)
             {
-                //Usar el Stored Procedured
+                
                 card.style.display = groupName.startsWith(searchText) ? 'block' : 'none';
             }
         }
@@ -101,4 +155,4 @@
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(filterGroups, 500);
     });
-</script>
+-->

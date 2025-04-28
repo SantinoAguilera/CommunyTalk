@@ -234,31 +234,37 @@ public class HomeController : Controller
         ViewBag.Intereses = BD.ObtenerIntereses();
         return View("CrearGrupo");
     }
-[HttpPost]
-public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descripcion, int Privado, int IdAdmin, List<int> numIntereses)
-{
-    bool esPrivado = Privado == 1;
-    if (!string.IsNullOrEmpty(Nombre) && !string.IsNullOrEmpty(Descripcion))
+    [HttpPost]
+    public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descripcion, int Privado, int IdAdmin, List<int> numIntereses)
     {
-        var grupo = new Grupos
+        bool esPrivado = Privado == 1;
+        if (!string.IsNullOrEmpty(Nombre) && !string.IsNullOrEmpty(Descripcion))
         {
-            FotodePerfil = FotodePerfil,
-            Nombre = Nombre,
-            Descripcion = Descripcion,
-            Privado = esPrivado,
-            IdAdmin = IdAdmin,
-        };
+            var grupo = new Grupos
+            {
+                FotodePerfil = FotodePerfil,
+                Nombre = Nombre,
+                Descripcion = Descripcion,
+                Privado = esPrivado,
+                IdAdmin = IdAdmin,
+            };
 
-        BD.InsertGroup(grupo);
+            BD.InsertGroup(grupo);
+
+            return View("Index");
+        }
 
         return View("Index");
     }
 
-    return View("Index");
-}
+    public IActionResult BuscarGruposPorInteres(string interes)
+    {
+        var grupos = BD.BuscarPorInteres(interes);
+        return Json(grupos);
+    }
 
-public IActionResult AvisoRegistro()
-{
-    return View("AvisoRegistro");
-}
+    public IActionResult AvisoRegistro()
+    {
+        return View("AvisoRegistro");
+    }
 }

@@ -5,7 +5,7 @@ using Dapper;
 public static class BD
 {
     /* Atributos */
-    private static string _connectionString = @"Server=DESKTOP-MC3LPAC;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=A-PHZ2-CIDI-20;Database=DB_CommunyTalk;Trusted_Connection=True;";
     public static int IdUsuarioSesion;
     public static int IdComunidadActual;
     public static int IdGrupoActual;
@@ -341,8 +341,6 @@ public static class BD
         }
     }
 
-    
-
     public static void CambiarContraseña(string Email, string nuevaContraseña)
     {
         string sql = "UPDATE Usuarios SET Contraseña = @pNuevaContraseña WHERE Email = @pEmail";
@@ -362,7 +360,8 @@ public static class BD
         }
         return Ingresado;
     }
-       public static Usuarios ListarPorId(int IdUsuario)
+
+    public static Usuarios ListarPorId(int IdUsuario)
     {
         Usuarios Ingresado = new Usuarios();
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -372,6 +371,7 @@ public static class BD
         }
         return Ingresado;
     }
+
     public static void InsertUser(Usuarios user)
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
@@ -380,6 +380,7 @@ public static class BD
             db.Execute(sql, new{ pContraseña = user.Contraseña, pUsuario = user.Nametag, pEmail = user.Email});
         }
     }
+
     public static void ActualizarContraseña(string Nametag, string NuevaContraseña)
     {
         string SQL = "UPDATE Usuarios SET Contraseña = @pNuevaContraseña WHERE Nametag = @pNametag";
@@ -389,23 +390,34 @@ public static class BD
         }
     }
 
-public static void InsertGroup(Grupos grupo)
-{
-    int idGrupo;
-    using (SqlConnection db = new SqlConnection(_connectionString))
+    public static void InsertGroup(Grupos grupo)
     {
-        string sql = @"
-            INSERT INTO Grupos (Descripcion, FotodePerfil, Nombre, Privado, IdAdmin) VALUES (@pDescripcion, @pFotodePerfil, @pNombre, @pPrivado, @pIdAdmin);
-            SELECT CAST(SCOPE_IDENTITY() AS INT)";
-        idGrupo = db.QuerySingle<int>(sql, new
-        {pDescripcion = grupo.Descripcion, pFotodePerfil = grupo.FotodePerfil, pNombre = grupo.Nombre, pPrivado = grupo.Privado, pIdAdmin = grupo.IdAdmin});
-    }
-    using (SqlConnection db = new SqlConnection(_connectionString))
-    {
-        string sql = "INSERT INTO IntegrantesXGrupo (IdGrupo, IdUsuario, TopActividad) VALUES (@pIdGrupo, @pIdUsuario, 4)";
+        int idGrupo;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = @"
+                INSERT INTO Grupos (Descripcion, FotodePerfil, Nombre, Privado, IdAdmin) VALUES (@pDescripcion, @pFotodePerfil, @pNombre, @pPrivado, @pIdAdmin);
+                SELECT CAST(SCOPE_IDENTITY() AS INT)";
+            idGrupo = db.QuerySingle<int>(sql, new
+            {pDescripcion = grupo.Descripcion, pFotodePerfil = grupo.FotodePerfil, pNombre = grupo.Nombre, pPrivado = grupo.Privado, pIdAdmin = grupo.IdAdmin});
+        }
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "INSERT INTO IntegrantesXGrupo (IdGrupo, IdUsuario, TopActividad) VALUES (@pIdGrupo, @pIdUsuario, 4)";
 
-        db.Execute(sql, new
-        {pIdGrupo = idGrupo, pIdUsuario = grupo.IdAdmin});
+            db.Execute(sql, new
+            {pIdGrupo = idGrupo, pIdUsuario = grupo.IdAdmin});
+        }
     }
-}
+
+    public static IEnumerable<Grupos> BuscarPorInteres(string pInteres)
+    {
+        IEnumerable<Grupos> grupos;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "EXEC buscarPorIntereses @interes";
+            grupos = db.Query<Grupos>(sql, new { interes = pInteres });
+        }
+        return grupos;
+    }
 }
