@@ -1,0 +1,128 @@
+/* ==== PERFIL EDIT (PerfilEdit.css) ==== */
+body {
+    background-color: #63468d;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.PerfilEdit-Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 5%;
+    background-color: rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+}
+
+.PerfilEdit-Title {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.PerfilEdit-CancelIcon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.PerfilEdit-CancelIcon:hover {
+    transform: scale(1.1);
+}
+
+.PerfilEdit-Container {
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+}
+
+.PerfilEdit-Card {
+    background-color: #8059B8;
+    border: 3px solid #7EF3BC;
+    border-radius: 15px;
+    padding: 40px;
+    width: 90%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PerfilEdit-Photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+}
+
+.PerfilEdit-Form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.PerfilEdit-Form label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.PerfilEdit-Form input {
+    padding: 12px 20px;
+    border-radius: 25px;
+    background-color: #171717;
+    color: white;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+}
+
+.PerfilEdit-Form input:focus {
+    border-color: #7EF3BC;
+}
+
+.PerfilEdit-BtnContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.PerfilEdit-SubmitBtn {
+    background-color: #7EF3BC;
+    color: #171717;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.PerfilEdit-SubmitBtn:hover {
+    background-color: #5fb98f;
+}
+
+@media (max-width: 768px) {
+    .PerfilEdit-Title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .PerfilEdit-Card {
+        padding: 20px;
+    }
+
+    .PerfilEdit-Form label {
+        font-size: 1rem;
+    }
+
+    .PerfilEdit-SubmitBtn {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}

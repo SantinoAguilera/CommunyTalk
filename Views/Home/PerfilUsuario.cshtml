@@ -2,37 +2,43 @@
     ViewData["Title"] = "Perfil";
 }
 
+
+    <link rel="stylesheet" href="~/css/PerfilView.css" />
+
+
+
 <style>
 body{
     background-color: #63468d;
 }
 </style>
 <!--Queda de backend crear una Función para conseguir de la BD la InfoUsuario de la Usuario y conectarla con ViewBag acá, luego en editar la Función para update eso-->
-<div class="EditarInfoUsuario">
-    <h1 class="NombreUsuario">Usuario</h1> <!--Nametag-->
-    <a href='@Url.Action("EditarUsuario", "Home")'><img class="IconoEditarUsuario" src="/images/EditarUsuario.png"/></a>
-    <link rel="stylesheet" href="style/PerfilUsuario.css">
-</div>
-<div class="Perfil">
-    @{
-        string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(BD.IdUsuarioSesion);
-        string Nametag = BD.ObtenerNameTag();
-        string Email = BD.ObtenerEmail();
-        string Pronombres = BD.ObtenerPronombres();
-        string Descripcion = BD.ObtenerDescripcion();
+<div class="PerfilView-Container">
+    <div class="PerfilView-Header">
+        <h1 class="PerfilView-Name">Usuario</h1>
+        <a href='@Url.Action("EditarUsuario", "Home")'>
+            <img class="PerfilView-EditIcon" src="/images/EditarUsuario.png" />
+        </a>
+    </div>
 
-        <img class="ViewFotodePerfil" src="@FotodePerfil"/>
-        <div class="InfoUsuario">
+    <div class="PerfilView-Main">
+        @{
+            string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(BD.IdUsuarioSesion);
+            string Nametag = BD.ObtenerNameTag();
+            string Email = BD.ObtenerEmail();
+            string Pronombres = BD.ObtenerPronombres();
+            string Descripcion = BD.ObtenerDescripcion();
+        }
+        <img class="PerfilView-Photo" src="@FotodePerfil" />
+        <div class="PerfilView-Info">
             <p>Nombre: @Nametag</p>
             <p>Email: @Email</p>
             <p>Pronombres: @Pronombres</p>
             <p>Descripción: @Descripcion</p>
         </div>
-    }
-</div>
-
-<form asp-controller="Home" asp-action="Logout" method="post" class="cerrarSesion">
-    <div class="buttonReg centerB">
-    <button class="BotonNoIniciar buttonReg">Cerrar sesión</button>
     </div>
-</form>
+
+    <form asp-controller="Home" asp-action="Logout" method="post" class="PerfilView-Logout">
+        <button class="PerfilView-LogoutButton">Cerrar sesión</button>
+    </form>
+</div>

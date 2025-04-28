@@ -1,34 +1,106 @@
-.ViewFotodePerfil{
-    width: 15%;
-    border-radius: 500px;
-    margin-bottom: 2%;
+/* General */
+body {
+  background-color: #63468d;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+/* Header del perfil */
+.EditarInfoUsuario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2% 5%;
+  background-color: rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+}
+
+.NombreUsuario {
+  font-size: 3rem;
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+/* Icono de edición */
+.IconoEditarUsuario {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.IconoEditarUsuario:hover {
+  transform: scale(1.1);
+}
+
+/* Contenido del perfil */
+.Perfil {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3% 5%;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Foto de perfil */
+.ViewFotodePerfil {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Info del usuario */
+.InfoUsuario p {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #fff;
+}
+
+/* Botón de cerrar sesión */
+.cerrarSesion {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.BotonNoIniciar {
+  background-color: #f06292;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.BotonNoIniciar:hover {
+  background-color: #ec407a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .NombreUsuario {
+      font-size: 2.2rem;
   }
-  
-  .NombreUsuario{
-    font-size: 80px;
-    text-align: center;
-    color: white;
+
+  .ViewFotodePerfil {
+      width: 120px;
+      height: 120px;
   }
-  
-  .Perfil{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+
+  .InfoUsuario p {
+      font-size: 1.2rem;
   }
-  
-  .Perfil p, .Perfil a{
-    font-size: xx-large;
-    color: white;
-  } 
-  
-  .EditarInfoUsuario{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-bottom: 2%;
+
+  .IconoEditarUsuario {
+      width: 40px;
+      height: 40px;
   }
-  
-  .IconoEditarUsuario{
-    width: 50%;
-    height: 50%;
-  }
+}

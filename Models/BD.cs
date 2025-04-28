@@ -4,12 +4,8 @@ using Dapper;
 
 public static class BD
 {
-    /* Atributos */
-<<<<<<< HEAD
     private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
-=======
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-20;Database=DB_CommunyTalk;Trusted_Connection=True;";
->>>>>>> 722294b384a2a57d5fa3893c81f99496b17de9d2
+
     public static int IdUsuarioSesion;
     public static int IdComunidadActual;
     public static int IdGrupoActual;

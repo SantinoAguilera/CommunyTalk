@@ -1,50 +1,54 @@
 @{
-    ViewData["Title"]="Editar Usuario";
+    ViewData["Title"] = "Editar Usuario";
 }
 
-@{
-    ViewData["Title"] = "Perfil";
-}
 
-<style>
-body{
-    background-color: #63468d;
-}
-</style>
-<!--Queda de backend Crear una Función para conseguir de la BD la InfoUsuario de la Usuario y conectarla con ViewBag acá, luego en editar la Función para update eso-->
-<div class="EditarInfoUsuario">
-    <h1 class="NombreUsuario">Usuario</h1> <!--Nametag-->
-    <a href='@Url.Action("Usuario", "Home")'><img class="IconoEditarUsuario" src="/images/Cancelar.png"/></a>
+    <link rel="stylesheet" href="~/css/PerfilEdit.css" />
+
+
+
+<div class="PerfilEdit-Header">
+    <h1 class="PerfilEdit-Title">Editar Usuario</h1>
+    <a href='@Url.Action("Usuario", "Home")'>
+        <img class="PerfilEdit-CancelIcon" src="/images/Cancelar.png" alt="Cancelar"/>
+    </a>
 </div>
-<div class="EditarEstructura">
-    <div class="Perfil">
-        <div class="InfoUsuario">
-            <img class="ViewFotodePerfil" src="/images/UserImages/defaultBlanco.jpeg"/>
-            <form method="post" asp-controller="Home" asp-action="EditarPerfil">
-                @{
-                    string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(BD.IdUsuarioSesion);
-                    string NameTag = BD.ObtenerNameTag();
-                    string Nombre = BD.ObtenerNombre();
-                    string Apellido = BD.ObtenerApellido();
-                    string Pronombres = BD.ObtenerPronombres();
-                    string Descripcion = BD.ObtenerDescripcion();
-                     
-                    <input name="FotodePerfil" placeholder="Link a la foto de perfil"/>
-                    <p>Nametag: </p>
-                    <input id="NameTag" name="NameTag" placeholder="@NameTag">
-                    <p>Nombre: </p>
-                    <input id="Nombre" name="Nombre" placeholder="@Nombre">
-                    <p>Apellido: </p>
-                    <input id="Apellido" name="Apellido" placeholder="@Apellido">
-                    <p>Pronombres: </p>
-                    <input id="Pronombres" name="Pronombres" placeholder="@Pronombres">
-                    <p>Descripción: </p>
-                    <input id="Descripcion" name="Descripcion" placeholder="@Descripcion">
-                }
-                <div class="botonesNo">
-                    <button type="submit" class="BotonIniciar">Enviar</button>
-                </div>
-            </form>
-        </div>
+
+<div class="PerfilEdit-Container">
+    <div class="PerfilEdit-Card">
+        <img class="PerfilEdit-Photo" src="/images/UserImages/defaultBlanco.jpeg" alt="Foto de perfil actual"/>
+
+        <form method="post" asp-controller="Home" asp-action="EditarPerfil" class="PerfilEdit-Form">
+            @{
+                string FotodePerfil = "/images/UserImages/" + BD.ObtenerFoto(BD.IdUsuarioSesion);
+                string NameTag = BD.ObtenerNameTag();
+                string Nombre = BD.ObtenerNombre();
+                string Apellido = BD.ObtenerApellido();
+                string Pronombres = BD.ObtenerPronombres();
+                string Descripcion = BD.ObtenerDescripcion();
+            }
+
+            <label>Link a la foto de perfil</label>
+            <input name="FotodePerfil" placeholder="URL" value="@FotodePerfil"/>
+
+            <label>Nametag</label>
+            <input id="NameTag" name="NameTag" placeholder="Nametag" value="@NameTag" />
+
+            <label>Nombre</label>
+            <input id="Nombre" name="Nombre" placeholder="Nombre" value="@Nombre" />
+
+            <label>Apellido</label>
+            <input id="Apellido" name="Apellido" placeholder="Apellido" value="@Apellido" />
+
+            <label>Pronombres</label>
+            <input id="Pronombres" name="Pronombres" placeholder="Pronombres" value="@Pronombres" />
+
+            <label>Descripción</label>
+            <input id="Descripcion" name="Descripcion" placeholder="Descripción" value="@Descripcion" />
+
+            <div class="PerfilEdit-BtnContainer">
+                <button type="submit" class="PerfilEdit-SubmitBtn">Guardar Cambios</button>
+            </div>
+        </form>
     </div>
 </div>
