@@ -436,4 +436,32 @@ public static class BD
         }
         return grupos;
     }
+
+public static int RegistrarNuevoInteres(string nombre)
+{
+    using (SqlConnection connection = new SqlConnection(_connectionString))
+    {
+        connection.Open();
+
+        // Primero, revisamos si ya existe un interés con ese nombre (para evitar duplicados)
+        string checkQuery = "SELECT IdInteres FROM Intereses WHERE Nombre = @nombre";
+        SqlCommand checkCmd = new SqlCommand(checkQuery, connection);
+        checkCmd.Parameters.AddWithValue("@nombre", nombre);
+
+        var resultado = checkCmd.ExecuteScalar();
+        if (resultado != null)
+        {
+            return Convert.ToInt32(resultado); // Ya existe, devolvemos su ID
+        }
+
+        // Si no existe, lo insertamos
+        string insertQuery = "INSERT INTO Intereses (Nombre) OUTPUT INSERTED.IdInteres VALUES (@nombre)";
+        SqlCommand insertCmd = new SqlCommand(insertQuery, connection);
+        insertCmd.Parameters.AddWithValue("@nombre", nombre);
+
+        int nuevoId = (int)insertCmd.ExecuteScalar(); // Devuelve el ID recién generado
+        return nuevoId;
+    }
+}
+
 }

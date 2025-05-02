@@ -28,20 +28,20 @@
                         <option value="0">Público</option>
                     </select>
                     <p>Interés/es</p>
-                    <div class="NewTag">
+                    @* <div class="NewTag">
                         <input type="text" id="nuevaTag" placeholder="Nueva tag" class="NewTags">
                         <button type="button" onclick="agregarNuevaTag()" class="BotonNew">Agregar</button>
-                    </div>
-                    <select id="interesesExistentes" class="Multi" multiple>
+                    </div> *@
+                    <select id="interesesExistentes" name="interesesExistentes[]" class="Multi" multiple>
                         @{
                             if(ViewBag.Intereses != null){
                                 foreach(Intereses intereses in ViewBag.Intereses){
-                                    <option value="@intereses.Nombre">@intereses.Nombre</option>
+                                    <option value="@intereses.IdInteres">@intereses.Nombre</option>
                                 }
                             }
                         }
                     </select>
-                    <input type="hidden" id="interesesFinales" name="interesesFinales">
+                    <input type="hidden" id="interesesFinales" name="numIntereses">
                     <p>Admin:</p>
                     <select id="IdAdmin" class="form-select" name="IdAdmin">
                     @{
@@ -77,30 +77,3 @@
         });
     });
 </script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const selectIntereses = document.getElementById('interesesExistentes');
-        const choices = new Choices(selectIntereses, {
-            removeItemButton: true,
-            placeho<script>
-    // Agregar la nueva tag al campo oculto 'numIntereses' al hacer click en el botón
-    function agregarNuevaTag() {
-        var nuevaTag = document.getElementById('nuevaTag').value;
-        if (nuevaTag) {
-            var intereses = document.getElementById('interesesFinales').value.split(','); // Convertir a lista
-            intereses.push(nuevaTag); // Agregar nueva tag
-            document.getElementById('interesesFinales').value = intereses.join(','); // Actualizar el campo oculto
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const selectIntereses = document.getElementById('interesesExistentes');
-        const choices = new Choices(selectIntereses, {
-            removeItemButton: true,
-            placeholderValue: 'Seleccionar intereses',
-            searchPlaceholderValue: 'Buscar interés',
-        });
-    });
-</script>
-

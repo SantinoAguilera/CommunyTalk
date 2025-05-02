@@ -235,34 +235,27 @@ public class HomeController : Controller
         return View("CrearGrupo");
     }
     [HttpPost]
-    public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descripcion, int Privado, int IdAdmin, List<int> numIntereses)
+public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descripcion, int Privado, int IdAdmin, string[] interesesExistentes)
+{
+    bool esPrivado = Privado == 1;
+
+    if (!string.IsNullOrEmpty(Nombre) && !string.IsNullOrEmpty(Descripcion))
     {
-        bool esPrivado = Privado == 1;
-        if (!string.IsNullOrEmpty(Nombre) && !string.IsNullOrEmpty(Descripcion))
+        var grupo = new Grupos
         {
-            var grupo = new Grupos
-            {
-                FotodePerfil = FotodePerfil,
-                Nombre = Nombre,
-                Descripcion = Descripcion,
-                Privado = esPrivado,
-                IdAdmin = IdAdmin,
-            };
-            foreach (int i in numIntereses){
-                var intereses = new InteresesXGrupo{
-
-                        idGrupo = grupo.IdGrupo,
-                        idInteres = numIntereses[i]
-                        };
-                BD.InsertarInteresXGrupo(intereses);
-            }
+            FotodePerfil = FotodePerfil,
+            Nombre = Nombre,
+            Descripcion = Descripcion,
+            Privado = esPrivado,
+            IdAdmin = IdAdmin,
+        };
         BD.InsertGroup(grupo);
-
-        return View("Index");
+        
     }
 
-        return View("Index");
-    }
+    return View("CrearGrupo");
+}
+
 
     public IActionResult BuscarGruposPorInteres(string interes)
     {
