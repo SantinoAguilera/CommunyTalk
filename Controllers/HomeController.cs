@@ -248,8 +248,14 @@ public class HomeController : Controller
                 Privado = esPrivado,
                 IdAdmin = IdAdmin,
             };
+            foreach (int i in numIntereses){
+                var intereses = new InteresesXGrupo{
 
-
+                        idGrupo = grupo.IdGrupo,
+                        idInteres = numIntereses[i]
+                        };
+                BD.InsertarInteresXGrupo(intereses);
+            }
         BD.InsertGroup(grupo);
 
         return View("Index");

@@ -389,6 +389,14 @@ public static class BD
         }
     }
 
+    public static void InsertarInteresXGrupo (InteresesXGrupo interes){
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "INSERT INTO InteresesXGrupo(idGrupo, idInteres) VALUES (@pidGrupo, @pidInteres)";
+            db.Execute(sql,new{ pidGrupo = interes.idGrupo, pidInteres = interes.idInteres});
+        }
+    }
+
     public static void ActualizarContraseña(string Nametag, string NuevaContraseña)
     {
         string SQL = "UPDATE Usuarios SET Contraseña = @pNuevaContraseña WHERE Nametag = @pNametag";

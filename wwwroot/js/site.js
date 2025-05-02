@@ -43,3 +43,4 @@ const agregarNuevaTag = () =>{
 const actualizarHidden = () => {
   document.getElementById('interesesFinales').value = Array.from(interesesSeleccionados).join(',');
 }
+
