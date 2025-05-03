@@ -584,12 +584,6 @@ input:hover{
   font-size: larger;
 }
 
-.Multi{
-  height: 30px !important;
-  background-color: #171717 !important;
-  border-radius: 15px;
-}
-
 .NewTag{
   height: 90vh;
   display: flex;
@@ -608,4 +602,64 @@ input:hover{
   border-radius: 15px;
   height: 40px;
   padding: 1%;
+}
+
+.choices {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.choices__inner {
+  max-height: 120px;           
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #f9f5ff;
+  border: 2px solid #b993ff;
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.choices__item--selectable {
+  background-color: #63468d !important;
+  color: white;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin: 4px;
+  font-size: 14px;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.choices__list--multiple {
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.choices__list--dropdown .choices__item--choice {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.choices__item--choice.is-highlighted {
+  background-color: #b993ff !important;
+  color: white !important;
+}
+
+.choices__inner::-webkit-scrollbar {
+  width: 6px;
+}
+
+.choices__inner::-webkit-scrollbar-thumb {
+  background-color: #b993ff;
+  border-radius: 10px;
+}
+
+.choices__input {
+  background-color: #ffffff !important;  /* Cambiá este color al que quieras */
+  color: black;
 }
