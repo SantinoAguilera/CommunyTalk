@@ -251,16 +251,17 @@ public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descri
         };
         BD.InsertGroup(grupo);
         foreach(string selected in interesesExistentes){
-            int idInteresEncontrado = BD.BuscarIDInteres(selected); 
+        int idInteresEncontrado = int.Parse(selected);            
+        int id = grupo.IdGrupo; 
             var interesXGrupo = new InteresesXGrupo{
-                idGrupo = grupo.IdGrupo,
+                idGrupo = id,
                 idInteres = idInteresEncontrado
             };
             BD.InsertarInteresXGrupo(interesXGrupo);
         }
     }
 
-    return View("CrearGrupo");
+    return View("SearchGroups");
 }
 
 

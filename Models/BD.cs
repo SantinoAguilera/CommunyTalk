@@ -434,6 +434,7 @@ public static class BD
             db.Execute(sql, new
             {pIdGrupo = idGrupo, pIdUsuario = grupo.IdAdmin});
         }
+        grupo.IdGrupo = idGrupo;
     }
 
     public static IEnumerable<Grupos> BuscarPorInteres(string pInteres)
