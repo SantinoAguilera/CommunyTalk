@@ -2,8 +2,7 @@
     ViewData["Title"] = "Editar Usuario";
 }
 
-
-    <link rel="stylesheet" href="~/css/PerfilEdit.css" />
+<link rel="stylesheet" href="~/css/PerfilEdit.css" />
 
 
 
@@ -52,3 +51,14 @@
         </form>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const selectIntereses = document.getElementById('interesesExistentes');
+        const choices = new Choices(selectIntereses, {
+            removeItemButton: true,
+            placeholderValue: 'Seleccionar intereses',
+            searchPlaceholderValue: 'Buscar interés',
+        });
+    });
+</script>

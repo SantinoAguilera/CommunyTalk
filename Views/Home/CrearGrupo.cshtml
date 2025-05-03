@@ -33,7 +33,6 @@
                             if(ViewBag.Intereses != null){
                                 foreach(Intereses intereses in ViewBag.Intereses){
                                     <option id=@intereses.IdInteres value="@intereses.IdInteres">@intereses.Nombre</option>
-                                    Console.Write(intereses.IdInteres);
                                 }
                             }
                             

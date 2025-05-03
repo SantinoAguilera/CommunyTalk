@@ -14,6 +14,8 @@ body{
 }
 
 /* Index */
+
+
 .LandingPage {
   width: 100%;
   height: 70vh;
@@ -21,6 +23,30 @@ body{
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.Land{
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Land h1{
+  font-size: 50px;
+  color: white;
+  font-weight: 300;
+}
+
+.Land p{
+  font-size: larger;
+  color: white;
+}
+
+.Land img{
+  border: 1px solid rgb(95, 95, 95);
+  box-shadow: 1px 1px 1px #171717;
 }
 
 .BotonesYtexto p{
