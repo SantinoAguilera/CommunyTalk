@@ -276,8 +276,12 @@ public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descri
         return View("AvisoRegistro");
     }
 
-    public IActionResult AgregarInteres(string Nombre){
-        BD.AñadirInteres(Nombre);
-        return View();
+    public IActionResult AgregarInteres(string nuevaTag){
+        BD.AñadirInteres(nuevaTag);
+        return View("NuevoInteres");
+    }
+
+    public IActionResult NuevoInteres(){
+        return View("NuevoInteres");
     }
 }

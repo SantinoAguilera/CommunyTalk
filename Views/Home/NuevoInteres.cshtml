@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"]="Publicar interés";
+}
+
+<div class="NewTag">
+    <h1>Publicar interés</h1>
+    <form method="POST" enctype="multipart/form-data" asp-controller="Home" asp-action="AgregarInteres">
+        <input type="text" id="nuevaTag" name="nuevaTag" placeholder="Nueva tag" class="NewTags">
+        <div class="botonesNo">
+            <button type="submit" class="BotonIniciar">Enviar</button>
+        </div>    
+    </form>
+</div>
