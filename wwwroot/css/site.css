@@ -663,3 +663,7 @@ input:hover{
   background-color: #ffffff !important;  /* Cambiá este color al que quieras */
   color: black;
 }
+
+.choices__input:hover{
+  color: black;
+}
