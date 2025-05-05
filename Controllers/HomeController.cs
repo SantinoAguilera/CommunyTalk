@@ -56,6 +56,8 @@ public class HomeController : Controller
 
     public IActionResult SearchGroups()
     {
+        ViewBag.GruposMostrar = BD.ObtenerGruposBuscar();
+        ViewBag.PerteneceAGrupo = BD.PerteneceAGrupo();
         return View();
     }
 
@@ -71,7 +73,7 @@ public class HomeController : Controller
         {
             ViewBag.GruposMostrar = BD.BuscarPorInteres(searchInputGroups);
             ViewBag.PerteneceAGrupo = true;
-            Console.WriteLine("b");
+            Console.WriteLine(BD.PerteneceAGrupo());
         }
         return View("SearchGroups");
     }
