@@ -453,9 +453,28 @@ public static class BD
         IEnumerable<Grupos> grupos;
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM ";
+            string sql = "SELECT * FROM Grupos g INNER JOIN IntegrantesXGrupo x ON g.IdGrupo = x.IdGrupo WHERE x.IdUsuario = @pIdUsuario";
             grupos = db.Query<Grupos>(sql, new { pIdUsuario = IdUsuarioSesion});
         }
         return grupos;
+    }
+
+    public static bool PerteneceAGrupo()
+    {
+        bool perteneceAGrupo = false;
+        IntegrantesXGrupo gruposIntegrados;
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM IntegrantesXGrupo WHERE IdUsuario = @pIdUsuario";
+            gruposIntegrados = db.QueryFirstOrDefault<IntegrantesXGrupo>(sql, new { pIdUsuario = IdUsuarioSesion});
+        }
+
+        if(gruposIntegrados != null)
+        {
+            perteneceAGrupo = true;
+        }
+
+        return perteneceAGrupo;
     }
 }

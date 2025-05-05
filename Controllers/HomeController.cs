@@ -56,10 +56,24 @@ public class HomeController : Controller
 
     public IActionResult SearchGroups()
     {
-        ViewBag.GruposMostrar = BD.ObtenerGruposMostrar();
-        ViewBag.IntegrantesGrupo = BD.ObtenerIntegrantesGrupos();
-        ViewBag.Intereses = BD.ObtenerIntereses();
         return View();
+    }
+
+    public IActionResult SearchInputGroups(string searchInputGroups)
+    {
+        if(searchInputGroups == null)
+        {
+            ViewBag.GruposMostrar = BD.ObtenerGruposBuscar();
+            ViewBag.PerteneceAGrupo = BD.PerteneceAGrupo();
+            Console.WriteLine(BD.PerteneceAGrupo());
+        }
+        else
+        {
+            ViewBag.GruposMostrar = BD.BuscarPorInteres(searchInputGroups);
+            ViewBag.PerteneceAGrupo = true;
+            Console.WriteLine("b");
+        }
+        return View("SearchGroups");
     }
 
     public IActionResult obtenerIntereses(){
