@@ -79,7 +79,8 @@ public static class BD
         return ListaComunidades;
     }
 
-        public static List<Intereses> ObtenerIntereses(){
+    public static List<Intereses> ObtenerIntereses()
+    {
         using (SqlConnection db = new SqlConnection(_connectionString)){
             string sql = "SELECT * FROM Intereses ORDER BY NOMBRE ASC";
             ListaIntereses = db.Query<Intereses>(sql).ToList();
@@ -477,4 +478,17 @@ public static class BD
 
         return perteneceAGrupo;
     }
+
+    /*public static IEnumerable<Grupos> ObtenerGruposBuscar() // REVISARESTO PARA PODER BUSCAR VARIOS TAGS AL MISMO TIEMPO
+    {
+        IEnumerable<Grupos> grupos;
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM Grupos g INNER JOIN InteresesXGrupo x WHERE IdIntereses IN @pTags";
+            grupos = db.Query<Grupos>(sql, new { pIdUsuario = IdUsuarioSesion});
+        }
+
+        return grupos;
+    }*/
 }
