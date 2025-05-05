@@ -56,8 +56,9 @@ public class HomeController : Controller
 
     public IActionResult SearchGroups()
     {
-        ViewBag.Grupos = BD.ObtenerGrupos();
+        ViewBag.GruposMostrar = BD.ObtenerGruposMostrar();
         ViewBag.IntegrantesGrupo = BD.ObtenerIntegrantesGrupos();
+        ViewBag.Intereses = BD.ObtenerIntereses();
         return View();
     }
 

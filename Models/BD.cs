@@ -4,7 +4,7 @@ using Dapper;
 
 public static class BD
 {
-    private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=sasanet\sqlexpress;Database=DB_CommunyTalk;Trusted_Connection=True;";
 
     public static int IdUsuarioSesion;
     public static int IdComunidadActual;
@@ -437,13 +437,24 @@ public static class BD
         grupo.IdGrupo = idGrupo;
     }
 
-    public static IEnumerable<Grupos> BuscarPorInteres(string pInteres)
+    public static IEnumerable<Grupos> BuscarPorInteres(string Interes)
     {
         IEnumerable<Grupos> grupos;
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "EXEC buscarPorIntereses @interes";
-            grupos = db.Query<Grupos>(sql, new { interes = pInteres });
+            string sql = "EXEC buscarPorIntereses @pInteres";
+            grupos = db.Query<Grupos>(sql, new { pInteres = Interes });
+        }
+        return grupos;
+    }
+
+    public static IEnumerable<Grupos> ObtenerGruposBuscar()
+    {
+        IEnumerable<Grupos> grupos;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT * FROM ";
+            grupos = db.Query<Grupos>(sql, new { pIdUsuario = IdUsuarioSesion});
         }
         return grupos;
     }
