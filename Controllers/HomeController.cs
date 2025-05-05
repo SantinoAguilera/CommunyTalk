@@ -278,7 +278,7 @@ public IActionResult InfoGrupo(string FotodePerfil, string Nombre, string Descri
         }
     }
 
-    return View("SearchGroups");
+    return View("Index");
 }
 
 

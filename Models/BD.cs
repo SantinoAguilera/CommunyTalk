@@ -4,7 +4,7 @@ using Dapper;
 
 public static class BD
 {
-    private static string _connectionString = @"Server=sasanet\sqlexpress;Database=DB_CommunyTalk;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=LocalHost;Database=DB_CommunyTalk;Trusted_Connection=True;";
 
     public static int IdUsuarioSesion;
     public static int IdComunidadActual;
